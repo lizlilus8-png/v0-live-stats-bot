@@ -10,59 +10,55 @@ interface SetupStepsProps {
 const steps = [
   {
     num: 1,
-    title: "Deploy to Vercel",
-    body: 'Click "Publish" in the top-right of v0, or push to GitHub and import into Vercel. Your Vercel URL will become the STATS_API_URL for the bot.',
+    title: "Enable Message Content Intent",
+    body: 'Go to discord.com/developers/applications → your app → Bot → scroll to "Privileged Gateway Intents" → enable "Message Content Intent". Click Save Changes.',
   },
   {
     num: 2,
-    title: "Add env vars to Vercel",
-    body: "In your Vercel project settings, add LOGGED_TG_SESSION_COOKIE, STATS_API_SECRET (any random string), and DISCORD_CLIENT_ID.",
-    vars: ["LOGGED_TG_SESSION_COOKIE", "STATS_API_SECRET", "DISCORD_CLIENT_ID"],
+    title: "Invite the bot to your server",
+    body: "Click the Invite Bot button at the top of this page. Select your server and click Authorize.",
   },
   {
     num: 3,
-    title: "Enable Message Content Intent",
-    body: 'Go to discord.com/developers/applications → your app → Bot → scroll to "Privileged Gateway Intents" → enable Message Content Intent. Save.',
+    title: "Download the bot",
+    body: "Click the three dots (···) in the top-right of v0 → Download ZIP. Extract the ZIP, then open the bot/ folder — that is the only folder you need.",
   },
   {
     num: 4,
-    title: "Invite the bot",
-    body: "Use the invite link at the top of this page (it appears once DISCORD_CLIENT_ID is set). Add the bot to your server with Send Messages + Read Message History.",
+    title: "Create a Railway project",
+    body: "Go to railway.app and create a free account. Click New Project → Deploy from local directory. Drag and drop just the bot/ folder.",
   },
   {
     num: 5,
-    title: "Run the bot locally (or on Railway)",
-    body: "The bot needs a persistent process. Download the project ZIP, set the env vars below in .env.local, then run:",
-    code: "pnpm install && pnpm bot",
-    note: "Or deploy bot/index.js on Railway, Render, or Fly.io for 24/7 uptime.",
+    title: "Add environment variables on Railway",
+    body: "In your Railway project, click Variables and add these two required values:",
+    vars: ["DISCORD_BOT_TOKEN", "LOGGED_TG_SESSION_COOKIE"],
   },
   {
     num: 6,
-    title: "Set bot env vars",
-    body: "In your .env.local (or Railway/Render env settings), add these three:",
-    vars: ["DISCORD_BOT_TOKEN", "STATS_API_URL=https://your-app.vercel.app/api/stats", "STATS_API_SECRET"],
+    title: "Deploy",
+    body: "Railway will auto-detect the package.json and railway.toml inside the bot/ folder and start the bot automatically. Check the logs — you should see the bot come online.",
   },
   {
     num: 7,
-    title: "Use it",
-    body: 'Type in any channel in your server:',
+    title: "Type !stats in your server",
+    body: 'Go to any channel in your Discord server and type:',
     code: "!stats",
+    note: "Optional: set STATS_CHANNEL_ID in Railway vars to restrict the command to one channel.",
   },
 ];
 
 export default function SetupSteps({ inviteUrl, hasClientId }: SetupStepsProps) {
   return (
     <div className="space-y-4">
-      <div className="flex items-start gap-3 justify-between">
-        <div>
-          <h2 className="text-xl font-bold text-foreground tracking-tight text-balance">Setup Guide</h2>
-          <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
-            Follow these steps to get your bot running 24/7.
-          </p>
-        </div>
+      <div>
+        <h2 className="text-xl font-bold text-foreground tracking-tight text-balance">Setup Guide</h2>
+        <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+          Deploy to Railway in minutes — no credit card required.
+        </p>
       </div>
 
-      {/* Invite button status */}
+      {/* Invite status */}
       <div
         className={`flex items-start gap-3 rounded-lg p-3 border ${
           hasClientId
@@ -77,16 +73,16 @@ export default function SetupSteps({ inviteUrl, hasClientId }: SetupStepsProps) 
         )}
         <div className="space-y-1.5">
           <p className={`text-xs font-semibold ${hasClientId ? "text-green-400" : "text-yellow-400"}`}>
-            {hasClientId ? "Bot invite link ready" : "Add DISCORD_CLIENT_ID to unlock invite link"}
+            {hasClientId ? "Bot invite link is ready" : "Set DISCORD_CLIENT_ID to unlock the invite link"}
           </p>
           {hasClientId && (
             <a
               href={inviteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline"
+              className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline break-all"
             >
-              {inviteUrl.slice(0, 64)}...
+              {inviteUrl}
               <ExternalLink className="w-3 h-3 shrink-0" />
             </a>
           )}
@@ -120,7 +116,7 @@ export default function SetupSteps({ inviteUrl, hasClientId }: SetupStepsProps) 
               <pre className="pl-7 font-mono text-xs text-green-400">{step.code}</pre>
             )}
             {step.note && (
-              <p className="pl-7 text-[10px] text-muted-foreground">{step.note}</p>
+              <p className="pl-7 text-[10px] text-muted-foreground italic">{step.note}</p>
             )}
           </div>
         ))}
