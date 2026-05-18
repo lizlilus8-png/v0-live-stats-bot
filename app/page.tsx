@@ -1,180 +1,101 @@
-import { CheckCircle2, Bot, Eye } from "lucide-react"
+import DiscordEmbedMockup from "@/components/discord-embed-mockup";
+import SetupSteps from "@/components/setup-steps";
 
 export default function Home() {
+  const clientId = process.env.DISCORD_CLIENT_ID ?? "";
+  const inviteUrl = clientId
+    ? `https://discord.com/api/oauth2/authorize?client_id=${clientId}&permissions=274877908992&scope=bot`
+    : "https://discord.com/developers/applications";
+
   return (
-    <main className="min-h-screen bg-[#0f1117] text-white font-mono flex items-center justify-center p-6">
-      <div className="w-full max-w-2xl space-y-8">
-
-        {/* Header */}
-        <div className="text-center space-y-2">
-          <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-1 text-green-400 text-sm">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block" />
-            Ready to run
+    <main className="min-h-screen bg-background text-foreground font-sans">
+      {/* Header bar */}
+      <header className="border-b border-border bg-card px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+            <span className="text-primary-foreground text-xs font-bold font-mono">LG</span>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-white">
-            logged.tg Stats Bot
+          <div>
+            <p className="text-sm font-semibold text-foreground leading-none">logged.tg Stats Bot</p>
+            <p className="text-xs text-muted-foreground mt-0.5">Discord bot</p>
+          </div>
+        </div>
+        <a
+          href={inviteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold px-4 py-2 rounded-md transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 71 55" fill="currentColor" aria-hidden="true">
+            <path d="M60.1 4.9A58.6 58.6 0 0 0 45.5 0.5a40.3 40.3 0 0 0-1.8 3.6 54.2 54.2 0 0 0-16.4 0A38 38 0 0 0 25.5.5 58.5 58.5 0 0 0 10.8 4.9C1.6 18.7-1 32.2.3 45.5a59 59 0 0 0 18 9.1 43.8 43.8 0 0 0 3.8-6.2 38.3 38.3 0 0 1-6-2.9l1.5-1.1a42 42 0 0 0 36 0l1.5 1.1a38.4 38.4 0 0 1-6 2.9 43.5 43.5 0 0 0 3.8 6.2 58.8 58.8 0 0 0 18-9.1C72 30.1 68.7 16.7 60.1 4.9ZM23.7 37.3c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.5 0 6.4 3.2 6.3 7.2 0 4-2.8 7.2-6.3 7.2Zm23.6 0c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2c3.5 0 6.4 3.2 6.3 7.2 0 4-2.8 7.2-6.3 7.2Z" />
+          </svg>
+          Invite Bot
+        </a>
+      </header>
+
+      <div className="max-w-5xl mx-auto px-4 py-10 grid lg:grid-cols-2 gap-10">
+
+        {/* Left — embed preview */}
+        <div className="space-y-4">
+          <h1 className="text-xl font-bold text-foreground tracking-tight text-balance">
+            Live Discord Embed Preview
           </h1>
-          <p className="text-gray-400 text-sm">
-            Type{" "}
-            <code className="bg-white/10 px-1.5 py-0.5 rounded text-white">!stats</code>{" "}
-            in your server to pull live dashboard data
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            This is what users see when they type{" "}
+            <code className="bg-secondary text-foreground px-1.5 py-0.5 rounded text-xs font-mono">!stats</code>{" "}
+            in your server.
           </p>
-        </div>
 
-        {/* Status */}
-        <div className="bg-[#1a1d27] border border-white/10 rounded-xl p-5 space-y-3">
-          <p className="text-xs text-green-400 font-semibold uppercase tracking-widest">
-            Environment Variables
-          </p>
-          {[
-            "DISCORD_BOT_TOKEN",
-            "LOGGED_TG_SESSION_COOKIE",
-          ].map((key) => (
-            <div key={key} className="flex items-center gap-2.5 text-sm">
-              <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0" />
-              <code className="bg-white/5 border border-white/10 px-2 py-0.5 rounded text-green-300 text-xs">
-                {key}
-              </code>
-              <span className="text-gray-500 text-xs">set</span>
+          {/* Discord chat window */}
+          <div
+            className="rounded-lg overflow-hidden border border-border"
+            style={{ backgroundColor: "oklch(0.22 0.005 260)" }}
+          >
+            {/* Channel bar */}
+            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-card">
+              <span className="text-muted-foreground text-sm">#</span>
+              <span className="text-sm font-semibold text-foreground">general</span>
             </div>
-          ))}
-        </div>
 
-        {/* Steps to run */}
-        <div className="bg-[#1a1d27] border border-white/10 rounded-xl divide-y divide-white/10">
-
-          <div className="p-5 space-y-2">
-            <p className="text-xs text-[#5865f2] font-semibold uppercase tracking-widest">
-              Step 1 — Download the project
-            </p>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Click the <strong className="text-white">three dots (•••)</strong> in the top-right of this page and select{" "}
-              <strong className="text-white">Download ZIP</strong>.
-            </p>
-          </div>
-
-          <div className="p-5 space-y-2">
-            <p className="text-xs text-[#5865f2] font-semibold uppercase tracking-widest">
-              Step 2 — Install dependencies
-            </p>
-            <pre className="bg-black/40 rounded-lg p-3 text-xs text-green-400">pnpm install</pre>
-          </div>
-
-          <div className="p-5 space-y-2">
-            <p className="text-xs text-[#5865f2] font-semibold uppercase tracking-widest">
-              Step 3 — Enable Message Content Intent
-            </p>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Go to{" "}
-              <a
-                href="https://discord.com/developers/applications"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#5865f2] hover:underline"
-              >
-                discord.com/developers/applications
-              </a>{" "}
-              → your app → <strong className="text-white">Bot</strong> → scroll down → toggle on{" "}
-              <strong className="text-white">Message Content Intent</strong>. Save changes.
-            </p>
-          </div>
-
-          <div className="p-5 space-y-2">
-            <p className="text-xs text-[#5865f2] font-semibold uppercase tracking-widest">
-              Step 4 — Invite the bot to your server
-            </p>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              In the Developer Portal go to <strong className="text-white">OAuth2 → URL Generator</strong>,
-              select <strong className="text-white">bot</strong> scope, tick{" "}
-              <strong className="text-white">Send Messages</strong> and{" "}
-              <strong className="text-white">Read Message History</strong>,
-              then open the generated URL to invite the bot.
-            </p>
-          </div>
-
-          <div className="p-5 space-y-2">
-            <p className="text-xs text-[#5865f2] font-semibold uppercase tracking-widest">
-              Step 5 — Start the bot
-            </p>
-            <pre className="bg-black/40 rounded-lg p-3 text-xs text-green-400">{`pnpm bot`}</pre>
-            <p className="text-gray-500 text-xs">
-              Use <code className="text-gray-400">pnpm bot:dev</code> during development — it auto-restarts on file save.
-            </p>
-          </div>
-
-          <div className="p-5 space-y-2">
-            <p className="text-xs text-[#5865f2] font-semibold uppercase tracking-widest">
-              Step 6 — Use it
-            </p>
-            <p className="text-gray-300 text-sm">Type in any channel in your server:</p>
-            <pre className="bg-black/40 rounded-lg p-3 text-xs text-green-400">!stats</pre>
-          </div>
-        </div>
-
-        {/* Commands */}
-        <div className="bg-[#1a1d27] border border-white/10 rounded-xl p-5 space-y-3">
-          <p className="text-xs text-[#5865f2] font-semibold uppercase tracking-widest">Commands</p>
-          <div className="space-y-2">
-            {[
-              ["!stats", "Fetch live stats from your logged.tg dashboard"],
-              ["!help",  "Show available commands"],
-            ].map(([cmd, desc]) => (
-              <div key={cmd} className="flex gap-4 items-start">
-                <code className="shrink-0 bg-[#5865f2]/20 text-[#5865f2] px-2 py-0.5 rounded text-sm">
-                  {cmd}
-                </code>
-                <span className="text-gray-400 text-sm">{desc}</span>
+            {/* Messages */}
+            <div className="p-4 space-y-4">
+              {/* User message */}
+              <div className="flex gap-3">
+                <div className="w-9 h-9 rounded-full bg-secondary shrink-0 flex items-center justify-center text-xs font-bold text-muted-foreground">
+                  U
+                </div>
+                <div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-sm font-semibold text-foreground">user</span>
+                    <span className="text-xs text-muted-foreground">Today at 4:20 PM</span>
+                  </div>
+                  <p className="text-sm text-foreground mt-0.5 font-mono">!stats</p>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Stats shown */}
-        <div className="bg-[#1a1d27] border border-white/10 rounded-xl p-5 space-y-3">
-          <p className="text-xs text-[#5865f2] font-semibold uppercase tracking-widest">
-            Stats Shown in Embed
-          </p>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-1.5">
-            {[
-              "Total Hits",
-              "Site Visits",
-              "Total Summary",
-              "Total RAP",
-              "Balance",
-              "Limiteds RAP",
-              "Korblox / Headless",
-              "Subscription Status",
-              "Billing & Credit",
-              "Groups Owned",
-              "Cookie Status",
-              "Premium Badge",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm text-gray-300">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#5865f2] shrink-0" />
-                {item}
+              {/* Bot reply */}
+              <div className="flex gap-3">
+                <div className="w-9 h-9 rounded-full bg-primary shrink-0 flex items-center justify-center text-xs font-bold text-primary-foreground">
+                  LG
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-sm font-semibold text-primary">logged.tg Bot</span>
+                    <span className="text-xs bg-primary/20 text-primary px-1 rounded text-[10px] font-semibold uppercase tracking-wide">BOT</span>
+                    <span className="text-xs text-muted-foreground">Today at 4:20 PM</span>
+                  </div>
+                  <DiscordEmbedMockup />
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
 
-        {/* Cookie warning */}
-        <div className="flex gap-3 bg-yellow-500/5 border border-yellow-500/20 rounded-xl p-4">
-          <Eye className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-          <div className="space-y-1">
-            <p className="text-yellow-400 text-xs font-semibold">Session cookie expires on logout</p>
-            <p className="text-gray-400 text-xs leading-relaxed">
-              If <code className="bg-white/10 px-1 rounded">!stats</code> stops working, your{" "}
-              <code className="bg-white/10 px-1 rounded">LOGGED_TG_SESSION_COOKIE</code> has expired.
-              Grab a fresh one from your browser while logged into logged.tg and update the env var.
-            </p>
-          </div>
+        {/* Right — setup steps */}
+        <div>
+          <SetupSteps inviteUrl={inviteUrl} hasClientId={Boolean(clientId)} />
         </div>
-
-        <p className="text-center text-gray-600 text-xs">
-          Bot source: <code className="text-gray-500">bot/index.js</code> — runs standalone, separate from the Next.js app
-        </p>
-
       </div>
     </main>
-  )
+  );
 }
