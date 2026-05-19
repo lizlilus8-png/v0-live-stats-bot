@@ -102,25 +102,45 @@ client.on("interactionCreate", async (interaction) => {
     try {
       const fetch = (...args) => import("node-fetch").then(({ default: f }) => f(...args));
 
-      // The site is form-based — POST as URL-encoded form data
+      // POST as URL-encoded form — the site is HTML-based, not a JSON API
       const res = await fetch(`${SHORT_API_BASE}/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
           "User-Agent": "Mozilla/5.0 (compatible; HyperlinkBot/1.0)",
+          "Accept": "text/html,application/xhtml+xml",
         },
         body: new URLSearchParams({ url: rawUrl }).toString(),
+        redirect: "follow",
       });
 
       const html = await res.text();
+      console.log("[v0] response status:", res.status);
+      console.log("[v0] html snippet:", html.slice(0, 2000));
 
-      // Extract the short URL from the returned HTML
-      const shortUrlMatch = html.match(/https?:\/\/linkurlshort\.page\.gd\/index\.php\?r=[A-Za-z0-9]+/);
-      const shortUrl = shortUrlMatch ? shortUrlMatch[0] : null;
+      // Try multiple patterns to find the short URL in the response HTML
+      const patterns = [
+        /https?:\/\/linkurlshort\.page\.gd\/index\.php\?r=[A-Za-z0-9_-]+/,
+        /https?:\/\/linkurlshort\.page\.gd\/[A-Za-z0-9_-]{4,}/,
+        /href=["'](https?:\/\/linkurlshort\.page\.gd[^"']+)["']/,
+        /value=["'](https?:\/\/linkurlshort\.page\.gd[^"']+)["']/,
+      ];
+
+      let shortUrl = null;
+      for (const pattern of patterns) {
+        const match = html.match(pattern);
+        if (match) {
+          // pattern 3 and 4 capture in group 1, others in group 0
+          shortUrl = match[1] || match[0];
+          console.log("[v0] matched pattern:", pattern, "->", shortUrl);
+          break;
+        }
+      }
 
       if (!shortUrl) {
+        console.log("[v0] no short URL found in html, full html length:", html.length);
         await interaction.editReply({
-          content: "Could not shorten that link. Please check the URL and try again.",
+          content: `Could not shorten that link — the shortener did not return a valid URL.\n\nDebug: HTTP ${res.status}, HTML length: ${html.length} chars.`,
         });
         return;
       }
@@ -144,7 +164,7 @@ client.on("interactionCreate", async (interaction) => {
     } catch (err) {
       console.error("[bot] hyperlink error:", err.message);
       await interaction.editReply({
-        content: "Something went wrong while shortening your link. Please try again.",
+        content: `Something went wrong: ${err.message}`,
       });
     }
   }
