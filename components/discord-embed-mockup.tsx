@@ -114,10 +114,10 @@ export default function DiscordEmbedMockup() {
         </div>
       </div>
 
-      {/* ── Result embed (shown after modal submit) ── */}
+      {/* ── Result embed (shown after modal submit) — no border color ── */}
       <div
         className="rounded overflow-hidden max-w-md"
-        style={{ backgroundColor: DC.bg, borderLeft: `4px solid ${DC.border}` }}
+        style={{ backgroundColor: DC.bg, borderLeft: `4px solid ${DC.codeBg}` }}
       >
         <div className="p-3 space-y-2">
           {/* Title */}
@@ -141,20 +141,13 @@ export default function DiscordEmbedMockup() {
                 color: "#fff",
               }}
             >
-              {copied ? "Copied!" : "Copy"}
+              {copied ? "Copied!" : "COPY"}
             </button>
           </div>
 
           {/* Instruction text */}
           <p className="text-xs italic" style={{ color: DC.muted }}>
-            ʀᴇᴍᴏᴠᴇ ᴛʜᴇ{" "}
-            <code
-              className="px-1 rounded not-italic"
-              style={{ backgroundColor: DC.codeBg, color: DC.body }}
-            >
-              [
-            </code>
-            {" "}ʙᴇꜰᴏʀᴇ ᴀɴᴅ ᴀꜰᴛᴇʀ ᴛʜᴇ ʙʀᴀᴄᴋᴇᴛ
+            ᴄᴏᴘʏ ᴛʜᴇ ᴛᴇxᴛ ᴀʙᴏᴠᴇ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ʜʏᴘᴇʀʟɪɴᴋ
           </p>
 
           {/* Footer */}
@@ -162,6 +155,16 @@ export default function DiscordEmbedMockup() {
             Requested by exampleuser
           </p>
         </div>
+      </div>
+
+      {/* ── Follow-up plain message — only the fmt text, fully selectable/copyable ── */}
+      <div className="max-w-md">
+        <p
+          className="text-xs font-mono px-2 py-1.5 rounded break-all select-all cursor-text"
+          style={{ backgroundColor: DC.codeBg, color: DC.body }}
+        >
+          {EXAMPLE_FMT}
+        </p>
       </div>
 
     </div>

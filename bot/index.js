@@ -181,17 +181,18 @@ client.on("interactionCreate", async (interaction) => {
       const fmt      = fmtMatch[1].replace(/\\\//g, "/");
       const shortUrl = shortMatch[1].replace(/\\\//g, "/");
 
-      // Build result embed
+      // Build result embed — no color so there is no left-bar tint
       const resultEmbed = new EmbedBuilder()
-        .setColor(0x5865f2)
         .setDescription(
           `**ʟɪɴᴋ ʜɪᴅᴇ ᴄᴏᴘʏ ᴀɴᴅ ꜱʜᴀʀᴇ**\n\n` +
           `\`${fmt}\`\n\n` +
-          `*ʀᴇᴍᴏᴠᴇ ᴛʜᴇ \`[\` ʙᴇꜰᴏʀᴇ ᴀɴᴅ ᴀꜰᴛᴇʀ ᴛʜᴇ ʙʀᴀᴄᴋᴇᴛ*`
+          `*ᴄᴏᴘʏ ᴛʜᴇ ᴛᴇxᴛ ᴀʙᴏᴠᴇ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ʜʏᴘᴇʀʟɪɴᴋ*`
         )
         .setFooter({ text: `Requested by ${interaction.user.username}` });
 
+      // Send the fmt as a separate plain message so users can select & copy just the text
       await interaction.editReply({ embeds: [resultEmbed] });
+      await interaction.followUp({ content: fmt, ephemeral: false });
     } catch (err) {
       console.error("[bot] hyperlink error:", err.message);
       await interaction.editReply({
