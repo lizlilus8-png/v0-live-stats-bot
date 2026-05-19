@@ -95,9 +95,8 @@ client.on("messageCreate", async (message) => {
 
   // Build the embed that prompts the user to submit a link
   const embed = new EmbedBuilder()
-    .setColor(0x5865f2)
     .setDescription(
-      "**─── <a:glowingcross:1462280458413801626> `ɪɴꜱᴀɴɪᴛʏ   | ʜʏᴘᴇʀʟɪɴᴋ` <a:glowingcross:1462280458413801626> ───\n\n" +
+      "**─── <:emoji_1:1500680900428435646> `ɪɴꜱᴀɴɪᴛʏ   | ʜʏᴘᴇʀʟɪɴᴋ` <:emoji_1:1500680900428435646> ───\n\n" +
       "<a:emoji_3:1500695831169204295> ʜɪᴅᴇꜱ ʏᴏᴜʀ ʟɪɴᴋ ᴛᴏ ᴍᴀᴋᴇ ɪᴛ ᴏʀɪɢɪɴᴀʟ\n\n" +
       "<:emoji_4:1501269124330950787> ʙᴇꜱᴛ ʜʏᴘᴇʀʟɪɴᴋ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
     )
@@ -182,18 +181,10 @@ client.on("interactionCreate", async (interaction) => {
       const fmt      = fmtMatch[1].replace(/\\\//g, "/");
       const shortUrl = shortMatch[1].replace(/\\\//g, "/");
 
-      // Step 4 — reply with a clean, simple embed
-      const resultEmbed = new EmbedBuilder()
-        .setColor(0x5865f2)
-        .setDescription(
-          `**Link Shortened** — ready to copy and share\n\n` +
-          `**Formatted Output**\n\`\`\`${fmt}\`\`\`` +
-          `**Short URL**\n${shortUrl}\n\n` +
-          `**Original URL**\n${rawUrl}`
-        )
-        .setFooter({ text: "linkurlshort.page.gd" });
-
-      await interaction.editReply({ embeds: [resultEmbed] });
+      // Reply as a plain message — no embed
+      await interaction.editReply({
+        content: `**ʟɪɴᴋ ʜɪᴅᴇ ᴄᴏᴘʏ ᴀɴᴅ ꜱʜᴀʀᴇ**\n\`\`\`${fmt}\`\`\`\n-# Requested by ${interaction.user.username}`,
+      });
     } catch (err) {
       console.error("[bot] hyperlink error:", err.message);
       await interaction.editReply({

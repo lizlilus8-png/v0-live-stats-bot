@@ -13,8 +13,6 @@ const DC = {
 };
 
 const EXAMPLE_FMT      = "[https://www.roblox.com/users/387872695312/profile](https://linkurlshort.page.gd/index.php?r=3am4vBE)";
-const EXAMPLE_SHORT    = "https://linkurlshort.page.gd/index.php?r=3am4vBE";
-const EXAMPLE_ORIGINAL = "https://www.roblox.com/users/387872695312/profile";
 const GIF_URL          = "https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif";
 
 // ── Parse Discord custom emoji syntax into <img> tags ───────────────────────────
@@ -60,7 +58,7 @@ function parseEmoji(text: string): React.ReactNode[] {
 
 // ── Embed description lines ──────────────────────────────────────────────────────
 const PROMPT_DESC =
-  "**─── <a:glowingcross:1462280458413801626> `ɪɴꜱᴀɴɪᴛʏ   | ʜʏᴘᴇʀʟɪɴᴋ` <a:glowingcross:1462280458413801626> ───\n\n" +
+  "**─── <:emoji_1:1500680900428435646> `ɪɴꜱᴀɴɪᴛʏ   | ʜʏᴘᴇʀʟɪɴᴋ` <:emoji_1:1500680900428435646> ───\n\n" +
   "<a:emoji_3:1500695831169204295> ʜɪᴅᴇꜱ ʏᴏᴜʀ ʟɪɴᴋ ᴛᴏ ᴍᴀᴋᴇ ɪᴛ ᴏʀɪɢɪɴᴀʟ\n\n" +
   "<:emoji_4:1501269124330950787> ʙᴇꜱᴛ ʜʏᴘᴇʀʟɪɴᴋ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**";
 
@@ -68,10 +66,10 @@ export default function DiscordEmbedMockup() {
   return (
     <div className="space-y-3 font-sans">
 
-      {/* ── Prompt embed (shown on !hyperlink) ── */}
+      {/* ── Prompt embed (shown on !hyperlink) — no left-border color ── */}
       <div
         className="rounded overflow-hidden max-w-md"
-        style={{ backgroundColor: DC.bg, borderLeft: `4px solid ${DC.border}` }}
+        style={{ backgroundColor: DC.bg, borderLeft: `4px solid ${DC.codeBg}` }}
       >
         <div className="p-3 pb-2">
           {/* Description — bold wrapper + emoji rendering */}
@@ -112,47 +110,20 @@ export default function DiscordEmbedMockup() {
         </div>
       </div>
 
-      {/* ── Result embed (shown after modal submit) ── */}
-      <div
-        className="rounded overflow-hidden max-w-md"
-        style={{ backgroundColor: DC.bg, borderLeft: `4px solid ${DC.border}` }}
-      >
-        <div className="p-3 space-y-3">
-          <div style={{ color: DC.body }} className="text-xs leading-relaxed space-y-2">
-            <p>
-              <strong style={{ color: DC.title }}>Link Shortened</strong>
-              {" — ready to copy and share"}
-            </p>
-
-            <div>
-              <p style={{ color: DC.label }} className="font-semibold mb-1">Formatted Output</p>
-              <pre
-                className="text-xs font-mono p-2 rounded break-all whitespace-pre-wrap"
-                style={{ backgroundColor: DC.codeBg, color: DC.body }}
-              >
-                {EXAMPLE_FMT}
-              </pre>
-            </div>
-
-            <div>
-              <p style={{ color: DC.label }} className="font-semibold mb-0.5">Short URL</p>
-              <p style={{ color: DC.primary }} className="font-mono text-xs break-all">
-                {EXAMPLE_SHORT}
-              </p>
-            </div>
-
-            <div>
-              <p style={{ color: DC.label }} className="font-semibold mb-0.5">Original URL</p>
-              <p style={{ color: DC.muted }} className="font-mono text-xs break-all">
-                {EXAMPLE_ORIGINAL}
-              </p>
-            </div>
-          </div>
-
-          <p style={{ color: DC.muted }} className="text-[11px] border-t pt-2">
-            linkurlshort.page.gd
-          </p>
-        </div>
+      {/* ── Result: plain message (no embed) ── */}
+      <div className="max-w-md space-y-1">
+        <p className="text-sm font-bold" style={{ color: DC.title }}>
+          ʟɪɴᴋ ʜɪᴅᴇ ᴄᴏᴘʏ ᴀɴᴅ ꜱʜᴀʀᴇ
+        </p>
+        <pre
+          className="text-xs font-mono p-2 rounded break-all whitespace-pre-wrap"
+          style={{ backgroundColor: DC.codeBg, color: DC.body }}
+        >
+          {EXAMPLE_FMT}
+        </pre>
+        <p className="text-xs" style={{ color: DC.muted }}>
+          Requested by exampleuser
+        </p>
       </div>
 
     </div>
