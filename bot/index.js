@@ -338,15 +338,15 @@ const ROBLOX_SERVERS = [
   },
 ];
 
-// Build button rows (max 5 buttons per row, max 5 rows per message = 25 per message)
+// Build button rows using index as customId to avoid special characters / length issues
 function buildServerRows(servers) {
   const rows = [];
   for (let i = 0; i < servers.length; i += 5) {
     const chunk = servers.slice(i, i + 5);
     const row = new ActionRowBuilder().addComponents(
-      chunk.map((s) =>
+      chunk.map((s, offset) =>
         new ButtonBuilder()
-          .setCustomId(`server_${s.id}`)
+          .setCustomId(`srv:${i + offset}`)
           .setLabel(s.label)
           .setStyle(ButtonStyle.Secondary)
           .setEmoji({ id: "1500695831169204295", name: "emoji_3", animated: true })
@@ -377,7 +377,7 @@ client.on("messageCreate", async (message) => {
         iconURL: message.author.displayAvatarURL({ dynamic: true }),
       });
 
-    await message.reply({
+    await message.channel.send({
       embeds: [serverEmbed],
       components: buildServerRows(ROBLOX_SERVERS),
     });
@@ -538,21 +538,19 @@ client.on("interactionCreate", async (interaction) => {
   }
 
   // ── Server category button pressed ──
-  if (interaction.isButton() && interaction.customId.startsWith("server_")) {
-    const serverId = interaction.customId.replace("server_", "");
-    const server   = ROBLOX_SERVERS.find((s) => s.id === serverId);
+  if (interaction.isButton() && interaction.customId.startsWith("srv:")) {
+    const index  = parseInt(interaction.customId.split(":")[1], 10);
+    const server = ROBLOX_SERVERS[index];
 
     if (!server) {
       await interaction.reply({ content: "Unknown server category.", ephemeral: true });
       return;
     }
 
-    const inviteLines = server.invites
-      .map((link, i) => `**${i + 1}.** ${link}`)
-      .join("\n");
+    const inviteLines = server.invites.join("\n");
 
     await interaction.reply({
-      content: `<a:emoji_8:1506236357775720548> **${server.label} ꜱᴇʀᴠᴇʀꜱ**\n\n${inviteLines}`,
+      content: `**ꜱᴇʀᴠᴇʀꜱ ᴛᴏ ʙᴇᴀᴍ — ${server.label}**\n\n${inviteLines}`,
       ephemeral: true,
     });
     return;
