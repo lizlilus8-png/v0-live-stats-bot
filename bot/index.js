@@ -72,17 +72,45 @@ async function getSolvedCookie(fetch) {
 }
 
 // ── Discord client ──────────────────────────────────────────────────────────────
+// ── Welcomer config ─────────────────────────────────────────────────────────────
+const WELCOME_CHANNEL_ID = "1506536157016494140";
+const WELCOME_GIF        = "https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif";
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMembers,
   ],
 });
 
 client.once("ready", () => {
   console.log(`[bot] Online as ${client.user.tag}`);
   client.user.setActivity("!hyperlink", { type: ActivityType.Listening });
+});
+
+// ── Welcomer ────────────────────────────────────────────────────────────────────
+client.on("guildMemberAdd", async (member) => {
+  const channel = member.guild.channels.cache.get(WELCOME_CHANNEL_ID);
+  if (!channel || !channel.isTextBased()) return;
+
+  const welcomeEmbed = new EmbedBuilder()
+    .setDescription(
+      "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ   | ɢᴀᴛᴇᴡᴀʏ` <a:emoji_8:1506236357775720548> ───\n\n" +
+      "<a:emoji_3:1500695831169204295> ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴏᴜʀ ꜱᴇʀᴠᴇʀ ᴛʜᴀᴛ ʜᴀꜱ ᴍᴀɴʏ ꜰᴇᴀᴛᴜʀᴇꜱ ᴀɴᴅ ʙᴇꜱᴛ ꜱɪᴛᴇꜱ ᴇxɪꜱᴛ\n\n" +
+      "<:emoji_4:1501269124330950787> ʙᴇꜱᴛ ʙᴇᴀᴍ ꜱɪᴛᴇꜱ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
+    )
+    .setImage(WELCOME_GIF)
+    .setFooter({
+      text: `Welcome ${member.user.username}`,
+      iconURL: member.user.displayAvatarURL({ dynamic: true }),
+    });
+
+  await channel.send({
+    content: `<@${member.id}>`,
+    embeds: [welcomeEmbed],
+  });
 });
 
 // ── !hyperlink command ──────────────────────────────────────────────────────────
@@ -190,7 +218,7 @@ client.on("interactionCreate", async (interaction) => {
         .setDescription(
           `**ʟɪɴᴋ ʜɪᴅᴇ ᴄᴏᴘʏ ᴀɴᴅ ꜱʜᴀʀᴇ**\n\n` +
           `\`${fmt}\`\n\n` +
-          `*ᴄᴏᴘʏ ᴛʜᴇ ᴛᴇxᴛ ᴀʙᴏᴠᴇ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ʜʏᴘᴇʀʟɪɴᴋ*`
+          `*ᴄᴏᴘʏ ᴛʜ�� ᴛᴇxᴛ ᴀʙᴏᴠᴇ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ʜʏᴘᴇʀʟɪɴᴋ*`
         )
         .setFooter({
           text: `Requested by ${interaction.user.username}`,
