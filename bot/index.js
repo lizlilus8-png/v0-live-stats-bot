@@ -646,6 +646,24 @@ client.on("interactionCreate", async (interaction) => {
   }
 });
 
+// ── Graceful shutdown — ensures Railway kills the old instance cleanly ───────────
+// Without this, Railway's SIGTERM is ignored and old + new instances both run,
+// causing every message to be responded to twice or more.
+let isShuttingDown = false;
+
+async function shutdown(signal) {
+  if (isShuttingDown) return;
+  isShuttingDown = true;
+  console.log(`[bot] Received ${signal}, shutting down...`);
+  try {
+    await client.destroy();
+  } catch (_) {}
+  process.exit(0);
+}
+
+process.on("SIGTERM", () => shutdown("SIGTERM"));
+process.on("SIGINT",  () => shutdown("SIGINT"));
+
 // ── Health-check HTTP server (required by Railway) ──────────────────────────────
 const http = require("http");
 const PORT = process.env.PORT || 3000;
