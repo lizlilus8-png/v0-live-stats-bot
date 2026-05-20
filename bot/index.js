@@ -232,49 +232,67 @@ client.on("interactionCreate", async (interaction) => {
     interaction.type === InteractionType.ModalSubmit &&
     interaction.customId.startsWith("announce_modal:")
   ) {
-    const channelId = interaction.customId.split(":")[1];
-    const targetChannel = interaction.guild.channels.cache.get(channelId);
+    // Defer immediately so Discord does not time out (3 s limit)
+    await interaction.deferReply({ ephemeral: true });
 
-    if (!targetChannel || !targetChannel.isTextBased()) {
-      await interaction.reply({ content: "Could not find the target channel.", ephemeral: true });
-      return;
+    try {
+      const channelId    = interaction.customId.split(":")[1];
+      const targetChannel = interaction.guild.channels.cache.get(channelId);
+
+      if (!targetChannel || !targetChannel.isTextBased()) {
+        await interaction.editReply({ content: "Could not find the target channel." });
+        return;
+      }
+
+      // Safe reads — optional fields return empty string when left blank
+      const safeGet = (id) => {
+        try { return interaction.fields.getTextInputValue(id).trim(); }
+        catch { return ""; }
+      };
+
+      const annTitle  = safeGet("ann_title");
+      const annBody   = safeGet("ann_body");
+      const annFooter = safeGet("ann_footer");
+      const annImage  = safeGet("ann_image");
+      const annColor  = safeGet("ann_color");
+
+      if (!annBody) {
+        await interaction.editReply({ content: "Body / Description cannot be empty." });
+        return;
+      }
+
+      const embed = new EmbedBuilder().setDescription(annBody);
+
+      if (annTitle) embed.setTitle(annTitle);
+      if (annImage) embed.setImage(annImage);
+
+      // Parse hex color
+      if (annColor) {
+        const hex = parseInt(annColor.replace("#", ""), 16);
+        if (!isNaN(hex)) embed.setColor(hex);
+      }
+
+      // Footer: always include requester avatar
+      const footerText = annFooter
+        ? `${annFooter} • Announced by ${interaction.user.username}`
+        : `Announced by ${interaction.user.username}`;
+
+      embed.setFooter({
+        text: footerText,
+        iconURL: interaction.user.displayAvatarURL({ dynamic: true }),
+      });
+
+      embed.setTimestamp();
+
+      await targetChannel.send({ embeds: [embed] });
+
+      await interaction.editReply({
+        content: `Announcement sent to <#${channelId}>.`,
+      });
+    } catch (err) {
+      console.error("[bot] /announce error:", err.message);
+      await interaction.editReply({ content: "Something went wrong sending the announcement." });
     }
-
-    const annTitle  = interaction.fields.getTextInputValue("ann_title").trim();
-    const annBody   = interaction.fields.getTextInputValue("ann_body").trim();
-    const annFooter = interaction.fields.getTextInputValue("ann_footer").trim();
-    const annImage  = interaction.fields.getTextInputValue("ann_image").trim();
-    const annColor  = interaction.fields.getTextInputValue("ann_color").trim();
-
-    const embed = new EmbedBuilder().setDescription(annBody);
-
-    if (annTitle)  embed.setTitle(annTitle);
-    if (annImage)  embed.setImage(annImage);
-
-    // Parse hex color — fallback to Discord blurple
-    if (annColor) {
-      const hex = parseInt(annColor.replace("#", ""), 16);
-      if (!isNaN(hex)) embed.setColor(hex);
-    }
-
-    // Footer: always include requester avatar
-    const footerText = annFooter
-      ? `${annFooter} • Announced by ${interaction.user.username}`
-      : `Announced by ${interaction.user.username}`;
-
-    embed.setFooter({
-      text: footerText,
-      iconURL: interaction.user.displayAvatarURL({ dynamic: true }),
-    });
-
-    embed.setTimestamp();
-
-    await targetChannel.send({ embeds: [embed] });
-
-    await interaction.reply({
-      content: `Announcement sent to <#${channelId}>.`,
-      ephemeral: true,
-    });
     return;
   }
 
@@ -367,6 +385,18 @@ client.on("interactionCreate", async (interaction) => {
     }
   }
 });
+
+// ── Health-check HTTP server (required by Railway) ──────────────────────────────
+const http = require("http");
+const PORT = process.env.PORT || 3000;
+http
+  .createServer((req, res) => {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("OK");
+  })
+  .listen(PORT, () => {
+    console.log(`[bot] Health-check server listening on port ${PORT}`);
+  });
 
 // ── Start ───────────────────────────────────────────────────────────────────────
 if (!DISCORD_TOKEN) {
