@@ -673,7 +673,7 @@ client.on("interactionCreate", async (interaction) => {
     } catch (err) {
       console.error("[bot] hyperlink error:", err.message);
       await interaction.editReply({
-        content: "Something went wrong while shortening your link. Please try again.",
+        content: "<:emoji_11:1506864561435967509> Something went wrong while hiding your link. Please try again.",
       });
     }
   }
