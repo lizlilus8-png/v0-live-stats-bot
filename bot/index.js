@@ -660,7 +660,7 @@ client.on("interactionCreate", async (interaction) => {
 
       // Build result embed — no color so there is no left-bar tint
       const resultEmbed = new EmbedBuilder()
-        .setTitle(`<:emoji_10:1506872243979030598> Here's your hyperlink ready to use — copy it below and paste it wherever you need.`)
+        .setTitle(`<:emoji_10:1506872243979030598> *Here's your hyperlink ready to use — copy it below and paste it wherever you need.*`)
         .setDescription(`\`${fmt}\``)
         .setFooter({
           text: `Requested by ${interaction.user.username}`,
