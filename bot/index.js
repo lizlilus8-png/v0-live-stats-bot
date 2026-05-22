@@ -647,6 +647,11 @@ client.on("interactionCreate", async (interaction) => {
       const fmtMatch      = html.match(/const FMT\s*=\s*"((?:[^"\\]|\\.)*)"/);
       const shortMatch    = html.match(/const SHORT_URL\s*=\s*"((?:[^"\\]|\\.)*)"/);
 
+      console.log("[v0] HTML response length:", html.length);
+      console.log("[v0] FMT match:", fmtMatch);
+      console.log("[v0] SHORT match:", shortMatch);
+      console.log("[v0] HTML snippet:", html.substring(0, 500));
+
       if (!fmtMatch || !shortMatch) {
         await interaction.editReply({
           content: "Could not shorten that link. Make sure the URL starts with `https://` and try again.",
