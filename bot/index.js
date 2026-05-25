@@ -406,7 +406,7 @@ client.on("messageCreate", async (message) => {
         "<a:emoji_3:1500695831169204295> ꜱᴇʀᴠᴇʀꜱ ᴜ ᴡᴀɴᴛ ᴛᴏ ʜɪᴛ/ʙᴇᴀᴍ ɪɴ\n\n" +
         "<:emoji_4:1501269124330950787> ᴀʟʟ ꜱᴇʀᴠᴇʀꜱ ʟɪꜱᴛ ᴛᴏ ʙᴇᴀᴍ**"
       )
-      .setImage("https://cdn.discordapp.com/attachments/1500676577183268914/1506552431855800391/5dba8cbd-8441-48ae-8b64-5e8f39555b90.gif?ex=6a0eadca&is=6a0d5c4a&hm=3e5d2141bbf449b3a387bb54e8b085b069e22815670186aa65fb1aef191fc055&")
+      .setImage("https://cdn.discordapp.com/attachments/1500676577183268914/1506552431855800391/5dba8cbd-8441-48ae-8b64-5e8f39555b90.gif?ex=6a0eadca&is=6a0d5c4a&hm=3e5d2141bbf449b3a387bb54e8b085b069e22815670186aa65fb1aef191fc055")
       .setFooter({
         text: `Requested by ${message.author.username}`,
         iconURL: message.author.displayAvatarURL({ dynamic: true }),
