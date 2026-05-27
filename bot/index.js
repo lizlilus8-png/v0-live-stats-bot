@@ -146,17 +146,21 @@ async function autoPurgeChannels() {
 
         console.log(`[v0] Total messages to delete in ${channelId}: ${allMessages.length}`);
 
-        // Delete all messages
-        for (const msg of allMessages) {
+        // Bulk delete messages in batches of up to 100 (Discord limit)
+        let deletedInChannel = 0;
+        for (let i = 0; i < allMessages.length; i += 100) {
+          const batch = allMessages.slice(i, i + 100);
           try {
-            await msg.delete();
-            totalDeleted++;
+            await channel.bulkDelete(batch, true);
+            deletedInChannel += batch.length;
+            totalDeleted += batch.length;
+            console.log(`[v0] Bulk deleted ${batch.length} messages from ${channelId}. Total: ${deletedInChannel}/${allMessages.length}`);
           } catch (err) {
-            console.log(`[v0] Could not delete message ${msg.id}:`, err.message);
+            console.log(`[v0] Error bulk deleting batch in ${channelId}:`, err.message);
           }
         }
         
-        console.log(`[v0] Finished purging ${channelId}. Deleted ${allMessages.length} messages`);
+        console.log(`[v0] Finished purging ${channelId}. Deleted ${deletedInChannel} messages`);
       } catch (err) {
         console.log(`[v0] Error purging channel ${channelId}:`, err.message);
       }
@@ -754,11 +758,10 @@ client.on("interactionCreate", async (interaction) => {
       // Build result embed — no color so there is no left-bar tint
       const resultEmbed = new EmbedBuilder()
         .setDescription(
-          "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ | ʜʏᴘᴇʀʟɪɴᴋ` <a:emoji_8:1506236357775720548> ───\n\n" +
+          "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ   | ʜʏᴘᴇʀʟɪɴᴋ` <a:emoji_8:1506236357775720548> ───\n\n" +
           "<a:emoji_13:1508646379751342130> ᴜꜱᴇ ᴛʜɪꜱ ᴛᴏᴏʟ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ʜʏᴘᴇʀʟɪɴᴋꜱ ᴛʜᴀᴛ ʙʏᴘᴀꜱꜱ ᴅɪꜱᴄᴏʀᴅ ᴡᴀʀɴɪɴɢꜱ\n\n" +
           "<:emoji_14:1508646444607864872>  ʙᴇꜱᴛ ʜʏᴘᴇʀʟɪɴᴋ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
         )
-        .setThumbnail("https://cdn.discordapp.com/attachments/1506891768938102947/1508616463479734312/bonsai-discord_1.gif?ex=6a163011&is=6a14de91&hm=d9c287b5c3c48aba045acc2bbbc6f815e71ccb4d8d3ad2126d2fd82c1ce684ec")
         .setFooter({
           text: `Requested by ${interaction.user.username}`,
           iconURL: interaction.user.displayAvatarURL({ dynamic: true }),
