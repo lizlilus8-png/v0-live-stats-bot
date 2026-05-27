@@ -76,8 +76,8 @@ async function getSolvedCookie(fetch) {
 
 // ── Discord client ──────────────────────────────────────────────────────────────
 // ── Welcomer config ─────────────────────────────────────────────────────────────
-const WELCOME_CHANNEL_ID = "1506536157016494140";
-const WELCOME_GIF        = "https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif";
+const WELCOME_CHANNEL_ID = "1500720048560672869";
+const WELCOME_GIF        = "https://cdn.discordapp.com/attachments/1506434367491276812/1509041263230324856/40ed5bef-646a-4e42-92cf-cdc9908dd6f9.gif?ex=6a17bbb1&is=6a166a31&hm=0e026f50c278136c764ec4fde7d38e031b41963b455b8146a3a3024fc3e1e4d9";
 
 // ── Startup lock — refuse to run if another instance already holds the lock ──────
 // Uses a TCP server on a fixed local port. If the port is already taken, this
@@ -239,18 +239,25 @@ client.on("guildMemberAdd", async (member) => {
 
   const welcomeEmbed = new EmbedBuilder()
     .setDescription(
-      "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ   | ɢᴀᴛᴇᴡᴀʏ` <a:emoji_8:1506236357775720548> ───\n\n" +
-      "<a:emoji_3:1500695831169204295> ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴏᴜʀ ꜱᴇʀᴠᴇʀ ᴛʜᴀᴛ ʜᴀꜱ ᴍᴀɴʏ ꜰᴇᴀᴛᴜʀᴇꜱ ᴀɴᴅ ʙᴇꜱᴛ ꜱɪᴛᴇꜱ ᴇxɪꜱᴛ\n\n" +
-      "<:emoji_4:1501269124330950787> ʙᴇꜱᴛ ʙᴇᴀᴍ ꜱɪᴛᴇꜱ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
+      "<:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794> *welcome to* @***ɪɴꜱᴀɴɪᴛʏ***\n" +
+      "<:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794>\n\n" +
+      "*__**ʙᴇꜱᴛ ʙᴍ ꜱɪᴛᴇꜱ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**__*<a:emoji_13:1508646379751342130>\n" +
+      "<:emoji_19:1509035464714358794>\n" +
+      "<:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794> <:emoji_20:1509039477673295882>[ʀᴜʟᴇꜱ](https://discord.com/channels/1500661537415630898/1500669912396337162)\n" +
+      "<:emoji_19:1509035464714358794> <:emoji_20:1509039477673295882>[ᴡᴇʙꜱɪᴛᴇꜱ](https://discord.com/channels/1500661537415630898/1500673944158605422)\n" +
+      "<:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794>\n" +
+      "<:emoji_21:1509040875064266892> [ᴍᴇᴛʜᴏᴅꜱ](https://discord.com/channels/1500661537415630898/1500674571781541918)\n" +
+      "<:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794> <:emoji_20:1509039477673295882>[ᴛᴜᴛᴏʀɪᴀʟꜱ](https://discord.com/channels/1500661537415630898/1500674485047660714)"
     )
     .setImage(WELCOME_GIF)
+    .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
     .setFooter({
       text: `Welcome ${member.user.username}`,
       iconURL: member.user.displayAvatarURL({ dynamic: true }),
     });
 
   await channel.send({
-    content: `<@${member.id}>`,
+    content: `Welcome To our server <@${member.id}>`,
     embeds: [welcomeEmbed],
   });
 });
@@ -524,6 +531,22 @@ client.on("messageCreate", async (message) => {
     return;
   }
 
+  // ── !delete ──
+  if (content === `${PREFIX}delete`) {
+    if (!message.channel.name.startsWith("ticket-")) {
+      await message.reply({ content: "This command can only be used in ticket channels.", ephemeral: true });
+      return;
+    }
+
+    try {
+      await message.channel.delete();
+    } catch (err) {
+      console.log(`[v0] Error deleting ticket channel:`, err.message);
+      await message.reply({ content: "Failed to delete channel. Please try again." });
+    }
+    return;
+  }
+
   // ── !ticket ──
   if (content === `${PREFIX}ticket`) {
     const ticketEmbed = new EmbedBuilder()
@@ -551,7 +574,7 @@ client.on("messageCreate", async (message) => {
   const embed = new EmbedBuilder()
     .setDescription(
       "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ   | ʜʏᴘᴇʀʟɪɴᴋ` <a:emoji_8:1506236357775720548> ───\n\n" +
-      "<a:emoji_13:1508646379751342130> ᴜꜱᴇ ᴛʜɪꜱ ᴛᴏᴏʟ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ʜʏᴘᴇʀʟɪɴᴋꜱ ᴛʜᴀᴛ ʙʏᴘᴀꜱꜱ ᴅɪꜱᴄᴏʀᴅ ᴡᴀʀɴɪɴɢꜱ\n\n" +
+      "<a:emoji_13:1508646379751342130> ᴜꜱᴇ ᴛʜɪꜱ ᴛᴏᴏʟ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ʜʏᴘᴇʀʟɪɴᴋꜱ ᴛʜᴀᴛ ��ʏᴘᴀꜱꜱ ᴅɪꜱᴄᴏʀᴅ ᴡᴀʀɴɪɴɢꜱ\n\n" +
       "<:emoji_14:1508646444607864872>  ʙᴇꜱᴛ ʜʏᴘᴇʀʟɪɴᴋ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
     )
     .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
@@ -720,6 +743,8 @@ client.on("interactionCreate", async (interaction) => {
 
   // ── Ticket button pressed: create ticket channel ──
   if (interaction.isButton() && interaction.customId === "ticket_create") {
+    await interaction.deferReply({ ephemeral: true });
+    
     const ticketNumber = Math.floor(Math.random() * 10000);
     const channelName = `ticket-${ticketNumber}`;
 
@@ -748,7 +773,7 @@ client.on("interactionCreate", async (interaction) => {
         ],
       });
 
-      // Send a notification embed in the ticket channel
+      // Send notification embed in the ticket channel
       const ticketNotificationEmbed = new EmbedBuilder()
         .setTitle("Support Ticket Created")
         .setDescription(
@@ -763,16 +788,14 @@ client.on("interactionCreate", async (interaction) => {
 
       await ticketChannel.send({ embeds: [ticketNotificationEmbed] });
 
-      // Reply to the user
-      await interaction.reply({
+      // Edit deferred reply
+      await interaction.editReply({
         content: `Your support ticket has been created: <#${ticketChannel.id}>`,
-        ephemeral: true,
       });
     } catch (err) {
       console.log(`[v0] Error creating ticket:`, err.message);
-      await interaction.reply({
+      await interaction.editReply({
         content: "Failed to create ticket. Please try again.",
-        ephemeral: true,
       });
     }
     return;
