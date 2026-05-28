@@ -551,30 +551,66 @@ client.on("messageCreate", async (message) => {
   if (content === `${PREFIX}embed`) {
     const methods = [
       {
-        name: "TIKTOK LIVE",
-        image1: "https://cdn.discordapp.com/attachments/1506434367491276812/1509393795744137347/0361d9c7-675b-498f-b9b5-fbad64a18d19.gif?ex=6a190404&is=6a17b284&hm=a223337918022d2cf0540e3137d6f167305a501cc2477594127a6c4bcb5160ae",
+        name: "ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ",
+        image1: "https://cdn.discordapp.com/attachments/1506434367491276812/1509399153321443388/image0_1.gif?ex=6a190901&is=6a17b781&hm=8d73fe9824d744a19022718c65a469779f8e8f9f86e82a0b5fda2f9010d9da5a",
         image2: "https://cdn.discordapp.com/attachments/1506434367491276812/1509394265141415936/1773637630733-5bee7763-8a95-48c0-8857-b9f2196e8d11.gif?ex=6a190473&is=6a17b2f3&hm=2866b7b7ca9eff6d39f1ccbc30640a1ee0fa62adac8619771cf9d455c329a76b",
-        body: "**── TIKTOK LIVE ──**\n\n__**How it works**__\n- You go live on tiktok using a fake roblox giveaway video, and try to get as many viewers as possible. And you will have fake link in your tiktok bio so you get accounts\n\n__**REQUIREMENTS**__\n- For pc live you need TikTok account with live studio access\n- for mobile live you need TikTok account with mobile gaming live access\n- also this methods needs some brain, cant be a retard.\n\n__**How to get tiktok live acc**__\n- go to roblox crosstrading server and trade for one\n- use this follower botting service, to bot 1k followers only for 2$ https://yoursmm.net/\n- or use this method to easily get 1k followers in 3 days or less https://justpaste.it/follow-method\n\n__**Choosing link**__\n- go to Variares sites and then pick one of the TikTok links\n- always remember to test the link before going live\n- if link is flagged then try removing the www. Or https: from the link\n- Using Beacons.ai > you can make beacons.ai biolink to make it look more realistic. This is my beacons ai https://beacons.ai/joinadoptme you can take inspiration and then add it to your tiktok bio\n- if you cant add link to tiktok bio then make your tiktok account into business account so you can add business link\n\n__**How to go live/loop video**__\n- on pc you have to download live studio and then set it up then just pick a good video and go live\n- On mobile you have to loop the video from gallery settings atleast on android\n\n**__MUST REMEMBER THESE__**\n- When you go live ALWAYS remember to Mute your mic check tutorial on yt how to.\n- put notifications off\n- remember to blacklist bad words\n\n__**Picking game category and title**__\n- if youre on mobile then your live game category __MUST__ Be subway surfers or clash royale. On Pc it can be Roblox\n- Title can be probably anything but be careful with words like Free and Giveaway since TikTok doesnt always like them\n\n__**How long to be live for**__\n- Never be live for alot of hours UNLESS Your live is stable asf. Like having abt hundred viewers or more for hours.\n- when you start live you should do it only for 20 mins and then check to if end the live or not.\n\n__**Heres when to end and when to not to**__\n- if after 20 mins your viewers are Below 10 then end your live\n- if theyre above 10 then theres small chance of going viral\n- above 20 viewers = good chance to go viral\n- above 40 viewers is very good keep it up until they start dropping!!\n\n**__Pumping method__**\nThis is a method to TikTok Live grow viewers.\n- Basically just go live until viewers grow and when thwy drop by a bit just end the live immediatelly > and then start live almost immediatelly again and repeat this until you have stable asf live with hundreds of viewers!!!\n\n**Heres some random tutorial vids i found you can watch to learn, __MUST__ Still read full text otherwise you wont get viewers 😐**\nhttps://youtu.be/B-zZHryfuTs?si=XmrEatq2l3nyd0UP\nhttps://www.youtube.com/watch?v=RGaJMb7bRq8&t=1s"
+        body: "**── ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ──**\n\n__**ʜᴏᴡ ɪᴛ ᴡᴏʀᴋꜱ**__\n- ʏᴏᴜ ɢᴏ ʟɪᴠᴇ ᴏɴ ᴛɪᴋᴛᴏᴋ ᴜꜱɪɴɢ ᴀ ꜰᴀᴋᴇ ʀᴏʙʟᴏx ɢɪᴠᴇᴀᴡᴀʏ ᴠɪᴅᴇᴏ, ᴀɴᴅ ᴛʀʏ ᴛᴏ ɢᴇᴛ ᴀꜱ ᴍᴀɴʏ ᴠɪᴇᴡᴇʀꜱ ᴀꜱ ᴘᴏꜱꜱɪʙʟᴇ. ᴀɴᴅ ʏᴏᴜ ᴡɪʟʟ ʜᴀᴠᴇ ꜰᴀᴋᴇ ʟɪɴᴋ ɪɴ ʏᴏᴜʀ ᴛɪᴋᴛᴏᴋ ʙɪᴏ ꜱᴏ ʏᴏᴜ ɢᴇᴛ ᴀᴄᴄᴏᴜɴᴛꜱ\n\n__**ʀᴇqᴜɪʀᴇᴍᴇɴᴛꜱ**__\n- ꜰᴏʀ ᴘᴄ ʟɪᴠᴇ ʏᴏᴜ ɴᴇᴇᴅ ᴛɪᴋᴛᴏᴋ ᴀᴄᴄᴏᴜɴᴛ ᴡɪᴛʜ ʟɪᴠᴇ ꜱᴛᴜᴅɪᴏ ᴀᴄᴄᴇꜱꜱ\n- ꜰᴏʀ ᴍᴏʙɪʟᴇ ʟɪᴠᴇ ʏᴏᴜ ɴᴇᴇᴅ ᴛɪᴋᴛᴏᴋ ᴀᴄᴄᴏᴜɴᴛ ᴡɪᴛʜ ᴍᴏʙɪʟᴇ ɢᴀᴍɪɴɢ ʟɪᴠᴇ ᴀᴄᴄᴇꜱꜱ\n- ᴀʟꜱᴏ ᴛʜɪꜱ ᴍᴇᴛʜᴏᴅꜱ ɴᴇᴇᴅꜱ ꜱᴏᴍᴇ ʙʀᴀɪɴ, ᴄᴀɴᴛ ʙᴇ ᴀ ʀᴇᴛᴀʀᴅ.\n\n__**ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ᴀᴄᴄ**__\n- ɢᴏ ᴛᴏ ʀᴏʙʟᴏx ᴄʀᴏꜱꜱᴛʀᴀᴅɪɴɢ ꜱᴇʀᴠᴇʀ ᴀɴᴅ ᴛʀᴀᴅᴇ ꜰᴏʀ ᴏɴᴇ\n- ᴜꜱᴇ ᴛʜɪꜱ ꜰᴏʟʟᴏᴡᴇʀ ʙᴏᴛᴛɪɴɢ ꜱᴇʀᴠɪᴄᴇ, ᴛᴏ ʙᴏᴛ 1ᴋ ꜰᴏʟʟᴏᴡᴇʀꜱ ᴏɴʟʏ ꜰᴏʀ 2$ https://yoursmm.net/\n- ᴏʀ ᴜꜱᴇ ᴛʜɪꜱ ᴍᴇᴛʜᴏᴅ ᴛᴏ ᴇᴀꜱɪʟʏ ɢᴇᴛ 1ᴋ ꜰᴏʟʟᴏᴡᴇʀꜱ ɪɴ 3 ᴅᴀʏꜱ ᴏʀ ʟᴇꜱꜱ https://justpaste.it/follow-method\n\n__**ᴄʜᴏᴏꜱɪɴɢ ʟɪɴᴋ**__\n- ɢᴏ ᴛᴏ ᴠᴀʀɪᴀʀᴇꜱ ꜱɪᴛᴇꜱ ᴀɴᴅ ᴛʜᴇɴ ᴘɪᴄᴋ ᴏɴᴇ ᴏꜰ ᴛʜᴇ ᴛɪᴋᴛᴏᴋ ʟɪɴᴋꜱ\n- ᴀʟᴡᴀʏꜱ ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ᴛᴇꜱᴛ ᴛʜᴇ ʟɪɴᴋ ʙᴇꜰᴏʀᴇ ɢᴏɪɴɢ ʟɪᴠᴇ\n- ɪꜰ ʟɪɴᴋ ɪꜱ ꜰʟᴀɢɢᴇᴅ ᴛʜᴇɴ ᴛʀʏ ʀᴇᴍᴏᴠɪɴɢ ᴛʜᴇ ᴡᴡᴡ. ᴏʀ ʜᴛᴛᴘꜱ: ꜰʀᴏᴍ ᴛʜᴇ ʟɪɴᴋ\n- ᴜꜱɪɴɢ ʙᴇᴀᴄᴏɴꜱ.ᴀɪ > ʏᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ʙᴇᴀᴄᴏɴꜱ.ᴀɪ ʙɪᴏʟɪɴᴋ ᴛᴏ ᴍᴀᴋᴇ ɪᴛ ʟᴏᴏᴋ ᴍᴏʀᴇ ʀᴇᴀʟɪꜱᴛɪᴄ. ᴛʜɪꜱ ɪꜱ ᴍʏ ʙᴇᴀᴄᴏɴꜱ ᴀɪ https://beacons.ai/joinadoptme ʏᴏᴜ ᴄᴀɴ ᴛᴀᴋᴇ ɪɴꜱᴘɪʀᴀᴛɪᴏɴ ᴀɴᴅ ᴛʜᴇɴ ᴀᴅᴅ ɪᴛ ᴛᴏ ʏᴏᴜʀ ᴛɪᴋᴛᴏᴋ ʙɪᴏ\n- ɪꜰ ʏᴏᴜ ᴄᴀɴᴛ ᴀᴅᴅ ʟɪɴᴋ ᴛᴏ ᴛɪᴋᴛᴏᴋ ʙɪᴏ ᴛʜᴇɴ ᴍᴀᴋᴇ ʏᴏᴜʀ ᴛɪᴋᴛᴏᴋ ᴀᴄᴄᴏᴜɴᴛ ɪɴᴛᴏ ʙᴜꜱɪɴᴇꜱꜱ ᴀᴄᴄᴏᴜɴᴛ ꜱᴏ ʏᴏᴜ ᴄᴀɴ ᴀᴅᴅ ʙᴜꜱɪɴᴇꜱꜱ ʟɪɴᴋ\n\n__**ʜᴏᴡ ᴛᴏ ɢᴏ ʟɪᴠᴇ/ʟᴏᴏᴘ ᴠɪᴅᴇᴏ**__\n- ᴏɴ ᴘᴄ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪᴠᴇ ꜱᴛᴜᴅɪᴏ ᴀɴᴅ ᴛʜᴇɴ ꜱᴇᴛ ɪᴛ ᴜᴘ ᴛʜᴇɴ ᴊᴜꜱᴛ ᴘɪᴄᴋ ᴀ ɢᴏᴏᴅ ᴠɪᴅᴇᴏ ᴀɴᴅ ɢᴏ ʟɪᴠᴇ\n- ᴏɴ ᴍᴏʙɪʟᴇ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ʟᴏᴏᴘ ᴛʜᴇ ᴠɪᴅᴇᴏ ꜰʀᴏᴍ ɢᴀʟʟᴇʀʏ ꜱᴇᴛᴛɪɴɢꜱ ᴀʟᴛᴇᴀꜱᴛ ᴏɴ ᴀɴᴅʀᴏɪᴅ\n\n**__ᴍᴜꜱᴛ ʀᴇᴍᴇᴍʙᴇʀ ᴛʜᴇꜱᴇ__**\n- ᴡʜᴇɴ ʏᴏᴜ ɢᴏ ʟɪᴠᴇ ᴀʟᴡᴀʏꜱ ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ᴍᴜᴛᴇ ʏᴏᴜʀ ᴍɪᴄ ᴄʜᴇᴄᴋ ᴛᴜᴛᴏʀɪᴀʟ ᴏɴ ʏᴛ ʜᴏᴡ ᴛᴏ.\n- ᴘᴜᴛ ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴꜱ ᴏꜰꜰ\n- ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ʙʟᴀᴄᴋʟɪꜱᴛ ʙᴀᴅ ᴡᴏʀᴅꜱ\n\n__**ᴘɪᴄᴋɪɴɢ ɢᴀᴍᴇ ᴄᴀᴛᴇɢᴏʀʏ ᴀɴᴅ ᴛɪᴛʟᴇ**__\n- ɪꜰ ʏᴏᴜʀᴇ ᴏɴ ᴍᴏʙɪʟᴇ ᴛʜᴇɴ ʏᴏᴜʀ ʟɪᴠᴇ ɢᴀᴍᴇ ᴄᴀᴛᴇɢᴏʀʏ __ᴍᴜꜱᴛ__ ʙᴇ ꜱᴜʙᴡᴀʏ ꜱᴜʀꜰᴇʀꜱ ᴏʀ ᴄʟᴀꜱʜ ʀᴏʏᴀʟᴇ. ᴏɴ ᴘᴄ ɪᴛ ᴄᴀɴ ʙᴇ ʀᴏʙʟᴏx\n- ᴛɪᴛʟᴇ ᴄᴀɴ ʙᴇ ᴘʀᴏʙᴀʙʟʏ ᴀɴʏᴛʜɪɴɢ ʙᴜᴛ ʙᴇ ᴄᴀʀᴇꜰᴜʟ ᴡɪᴛʜ ᴡᴏʀᴅꜱ ʟɪᴋᴇ ꜰʀᴇᴇ ᴀɴᴅ ɢɪᴠᴇᴀᴡᴀʏ ꜱɪɴᴄᴇ ᴛɪᴋᴛᴏᴋ ᴅᴏᴇꜱɴᴛ ᴀʟᴡᴀʏꜱ ʟɪᴋᴇ ᴛʜᴇᴍ\n\n__**ʜᴏᴡ ʟᴏɴɢ ᴛᴏ ʙᴇ ʟɪᴠᴇ ꜰᴏʀ**__\n- ɴᴇᴠᴇʀ ʙᴇ ʟɪᴠᴇ ꜰᴏʀ ᴀʟᴏᴛ ᴏꜰ ʜᴏᴜʀꜱ ᴜɴʟᴇꜱꜱ ʏᴏᴜʀ ʟɪᴠᴇ ɪꜱ ꜱᴛᴀʙʟᴇ ᴀꜱꜰ. ʟɪᴋᴇ ʜᴀᴠɪɴɢ ᴀʙᴛ ʜᴜɴᴅʀᴇᴅ ᴠɪᴇᴡᴇʀꜱ ᴏʀ ᴍᴏʀᴇ ꜰᴏʀ ʜᴏᴜʀꜱ.\n- ᴡʜᴇɴ ʏᴏᴜ ꜱᴛᴀʀᴛ ʟɪᴠᴇ ʏᴏᴜ ꜱʜᴏᴜʟᴅ ᴅᴏ ɪᴛ ᴏɴʟʏ ꜰᴏʀ 20 ᴍɪɴꜱ ᴀɴᴅ ᴛʜᴇɴ ᴄʜᴇᴄᴋ ᴛᴏ ɪꜰ ᴇɴᴅ ᴛʜᴇ ʟɪᴠᴇ ᴏʀ ɴᴏᴛ.\n\n__**ʜᴇʀᴇꜱ ᴡʜᴇɴ ᴛᴏ ᴇɴᴅ ᴀɴᴅ ᴡʜᴇɴ ᴛᴏ ɴᴏᴛ ᴛᴏ**__\n- ɪꜰ ᴀꜰᴛᴇʀ 20 ᴍɪɴꜱ ʏᴏᴜʀ ᴠɪᴇᴡᴇʀꜱ ᴀʀᴇ ʙᴇʟᴏᴡ 10 ᴛʜᴇɴ ᴇɴᴅ ʏᴏᴜʀ ʟɪᴠᴇ\n- ɪꜰ ᴛʜᴇʏʀᴇ ᴀʙᴏᴠᴇ 10 ᴛʜᴇɴ ᴛʜᴇʀᴇꜱ ꜱᴍᴀʟʟ ᴄʜᴀɴᴄᴇ ᴏꜰ ɢᴏɪɴɢ ᴠɪʀᴀʟ\n- ᴀʙᴏᴠᴇ 20 ᴠɪᴇᴡᴇʀꜱ = ɢᴏᴏᴅ ᴄʜᴀɴᴄᴇ ᴛᴏ ɢᴏ ᴠɪʀᴀʟ\n- ᴀʙᴏᴠᴇ 40 ᴠɪᴇᴡᴇʀꜱ ɪꜱ ᴠᴇʀʏ ɢᴏᴏᴅ ᴋᴇᴇᴘ ɪᴛ ᴜᴘ ᴜɴᴛɪʟ ᴛʜᴇʏ ꜱᴛᴀʀᴛ ᴅʀᴏᴘᴘɪɴɢ!!\n\n**__ᴘᴜᴍᴘɪɴɢ ᴍᴇᴛʜᴏᴅ__**\nᴛʜɪꜱ ɪꜱ ᴀ ᴍᴇᴛʜᴏᴅ ᴛᴏ ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ɢʀᴏᴡ ᴠɪᴇᴡᴇʀꜱ.\n- ʙᴀꜱɪᴄᴀʟʟʏ ᴊᴜꜱᴛ ɢᴏ ʟɪᴠᴇ ᴜɴᴛɪʟ ᴠɪᴇᴡᴇʀꜱ ɢʀᴏᴡ ᴀɴᴅ ᴡʜᴇɴ ᴛʜᴡʏ ᴅʀᴏᴘ ʙʏ ᴀ ʙɪᴛ ᴊᴜꜱᴛ ᴇɴᴅ ᴛʜᴇ ʟɪᴠᴇ ɪᴍᴍᴇᴅɪᴀᴛᴇʟʟʏ > ᴀɴᴅ ᴛʜᴇɴ ꜱᴛᴀʀᴛ ʟɪᴠᴇ ᴀʟᴍᴏꜱᴛ ɪᴍᴍᴇᴅɪᴀʟʟʏ ᴀɢᴀɪɴ ᴀɴᴅ ʀᴇᴘᴇᴀᴛ ᴛʜɪꜱ ᴜɴᴛɪʟ ʏᴏᴜ ʜᴀᴠᴇ ꜱᴛᴀʙʟᴇ ᴀꜱꜰ ʟɪᴠᴇ ᴡɪᴛʜ ʜᴜɴᴅʀᴇᴅꜱ ᴏꜰ ᴠɪᴇᴡᴇʀꜱ!!!\n\n**ʜᴇʀᴇꜱ ꜱᴏᴍᴇ ʀᴀɴᴅᴏᴍ ᴛᴜᴛᴏʀɪᴀʟ ᴠɪᴅꜱ ɪ ꜰᴏᴜɴᴅ ʏᴏᴜ ᴄᴀɴ ᴡᴀᴛᴄʜ ᴛᴏ ʟᴇᴀʀɴ, __ᴍᴜꜱᴛ__ ꜱᴛɪʟʟ ʀᴇᴀᴅ ꜰᴜʟʟ ᴛᴇxᴛ ᴏᴛʜᴇʀᴡɪꜱᴇ ʏᴏᴜ ᴡᴏɴᴛ ɢᴇᴛ ᴠɪᴇᴡᴇʀꜱ 😐**\nhttps://youtu.be/B-zZHryfuTs?si=XmrEatq2l3nyd0UP\nhttps://www.youtube.com/watch?v=RGaJMb7bRq8&t=1s"
       },
       {
-        name: "BUYING SELLING",
-        image1: "https://cdn.discordapp.com/attachments/1506434367491276812/1509393795744137347/0361d9c7-675b-498f-b9b5-fbad64a18d19.gif?ex=6a190404&is=6a17b284&hm=a223337918022d2cf0540e3137d6f167305a501cc2477594127a6c4bcb5160ae",
+        name: "ʙᴜʏɪɴɢ ꜱᴇʟʟɪɴɢ",
+        image1: "https://cdn.discordapp.com/attachments/1506434367491276812/1509399153321443388/image0_1.gif?ex=6a190901&is=6a17b781&hm=8d73fe9824d744a19022718c65a469779f8e8f9f86e82a0b5fda2f9010d9da5a",
         image2: "https://cdn.discordapp.com/attachments/1506434367491276812/1509394265141415936/1773637630733-5bee7763-8a95-48c0-8857-b9f2196e8d11.gif?ex=6a190473&is=6a17b2f3&hm=2866b7b7ca9eff6d39f1ccbc30640a1ee0fa62adac8619771cf9d455c329a76b",
-        body: "**── BUYING/SELLING METH ──**\n\n**You need to have an PC it wont work otherwise cuz it doesnt let you hide the browser domain on the top on mobile! The Method goes like this: You go into Discord Roblox Selling Servers and look for an account you like and act like your gonna buy. Ask them if they can let you log in to check it. (you will log in on your bea* link with the acc) Tell em your gonna do it on stream if they arent letting you. Now to hide the Domain up top it will say: .py / We dont want that! To Cover it up just go up to where the domain is and Type : roblox.com/login (look attachments) (dont hit enter js leave it there) Then you can proceed to login there! Now if they have a pin binded to the account you can ask them and they will sometimes give it to you (tell em you wont be able to do any stupid shit cuz they prob have 2fa on there. / But that wont bother you cuz when they give you the pin the system automatically cracks it! and will add auth or change age) Now just log em do your stuff and your good.**\n\n**Tell em this when your gonna ask to login:**\n\\`\\`\\`Umm is there anyway i can login to the account on screenshare i will not go in game or anything i will just be in homescreen the sec im in just give me 20s to send the money\\`\\`\\`\n\n**You can spam this to get dms:**\n\\`\\`\\`# Lf korblox or headless accounts willing to go first after i log in to see that it has email verified 2 step and all of the items Also looking for mid accounts wtih 5k+ robux\n# Payments in : Crypto, Cashapp, Paypal, ApplePay, Giftcards\\`\\`\\`\n\n**Fake paypal error to show**\nhttps://cdn.discordapp.com/attachments/1308658524703817818/1478981619925782629/image-4.png?ex=69aa6078&is=69a90ef8&hm=66bd1b859bba2e3f13e5d0ad4d89804961b1a8f50b4d80511db4c5e562841ca1\n\n> Servers to do ts in:\n> https://discord.gg/Jq2YTzWtKA\n> https://discord.gg/DN92bfYThS"
+        body: "**── ʙᴜʏɪɴɢ/ꜱᴇʟʟɪɴɢ ᴍᴇᴛʜ ──**\n\n**You need to have an PC it wont work otherwise cuz it doesnt let you hide the browser domain on the top on mobile! The Method goes like this: You go into Discord Roblox Selling Servers and look for an account you like and act like your gonna buy. Ask them if they can let you log in to check it. (you will log in on your bea* link with the acc) Tell em your gonna do it on stream if they arent letting you. Now to hide the Domain up top it will say: .py / We dont want that! To Cover it up just go up to where the domain is and Type : roblox.com/login (look attachments) (dont hit enter js leave it there) Then you can proceed to login there! Now if they have a pin binded to the account you can ask them and they will sometimes give it to you (tell em you wont be able to do any stupid shit cuz they prob have 2fa on there. / But that wont bother you cuz when they give you the pin the system automatically cracks it! and will add auth or change age) Now just log em do your stuff and your good.**\n\n**Tell em this when your gonna ask to login:**\n\\`\\`\\`Umm is there anyway i can login to the account on screenshare i will not go in game or anything i will just be in homescreen the sec im in just give me 20s to send the money\\`\\`\\`\n\n**You can spam this to get dms:**\n\\`\\`\\`# Lf korblox or headless accounts willing to go first after i log in to see that it has email verified 2 step and all of the items Also looking for mid accounts wtih 5k+ robux\n# Payments in : Crypto, Cashapp, Paypal, ApplePay, Giftcards\\`\\`\\`\n\n**Fake paypal error to show**\nhttps://cdn.discordapp.com/attachments/1308658524703817818/1478981619925782629/image-4.png?ex=69aa6078&is=69a90ef8&hm=66bd1b859bba2e3f13e5d0ad4d89804961b1a8f50b4d80511db4c5e562841ca1\n\n> Servers to do ts in:\n> https://discord.gg/Jq2YTzWtKA\n> https://discord.gg/DN92bfYThS"
       },
       {
-        name: "DUALHOOK",
-        image1: "https://cdn.discordapp.com/attachments/1506434367491276812/1509393795744137347/0361d9c7-675b-498f-b9b5-fbad64a18d19.gif?ex=6a190404&is=6a17b284&hm=a223337918022d2cf0540e3137d6f167305a501cc2477594127a6c4bcb5160ae",
+        name: "ᴅᴜᴀʟʜᴏᴏᴋ",
+        image1: "https://cdn.discordapp.com/attachments/1506434367491276812/1509399153321443388/image0_1.gif?ex=6a190901&is=6a17b781&hm=8d73fe9824d744a19022718c65a469779f8e8f9f86e82a0b5fda2f9010d9da5a",
         image2: "https://cdn.discordapp.com/attachments/1506434367491276812/1509394265141415936/1773637630733-5bee7763-8a95-48c0-8857-b9f2196e8d11.gif?ex=6a190473&is=6a17b2f3&hm=2866b7b7ca9eff6d39f1ccbc30640a1ee0fa62adac8619771cf9d455c329a76b",
-        body: "**── DUALHOOK METH ──**\n\n**Step 1: Create a server & the dualhook link in the website where you are teaching members how to get hits at the same time, you'll be stealing their hits**\n\n**Step 2: Head over to**\nhttps://discord.com/template/Cg2G6AdH6ZkR\n**Doesnt have to be exactly like that but, it does have to have the server aspects.**\n\n**Step 3: Once you finished with your whole server and done with it, try to partner with as many servers as you can, invite your friends, and even steal members out of different servers secretly**\n\n**Step 4: You do want to have your server active, add mods, admins, and maybe even a co-owner!!**\n\n**Tutorial:**\nhttps://streamable.com/u88d7u"
+        body: "**── ᴅᴜᴀʟʜᴏᴏᴋ ᴍᴇᴛʜ ──**"
       },
       {
-        name: "TIKTOK NOT LIVE",
-        image1: "https://cdn.discordapp.com/attachments/1506434367491276812/1509393795744137347/0361d9c7-675b-498f-b9b5-fbad64a18d19.gif?ex=6a190404&is=6a17b284&hm=a223337918022d2cf0540e3137d6f167305a501cc2477594127a6c4bcb5160ae",
+        name: "ᴛɪᴋᴛᴏᴋ ɴᴏᴛ ʟɪᴠᴇ",
+        image1: "https://cdn.discordapp.com/attachments/1506434367491276812/1509399153321443388/image0_1.gif?ex=6a190901&is=6a17b781&hm=8d73fe9824d744a19022718c65a469779f8e8f9f86e82a0b5fda2f9010d9da5a",
         image2: "https://cdn.discordapp.com/attachments/1506434367491276812/1509394265141415936/1773637630733-5bee7763-8a95-48c0-8857-b9f2196e8d11.gif?ex=6a190473&is=6a17b2f3&hm=2866b7b7ca9eff6d39f1ccbc30640a1ee0fa62adac8619771cf9d455c329a76b",
-        body: "**── TIKTOK (NOT LIVE) METH ──**\n\n**Create an tiktok account related to the game you want**\n\n**Change your account into a business acc so you can put links on your bio**\n\n**Enjoy, no need to livestream**\n\nhttps://cdn.discordapp.com/attachments/1277482286232637544/1284084370898157578/lv_0_20240831184505.mp4?ex=673866c3&is=67371543&hm=95ece82de1fe102a7b89611da3f3915dc4baa2c94a5c9dc86545c8283c8d750f"
+        body: "**── ᴛɪᴋᴛᴏᴋ (ɴᴏᴛ ʟɪᴠᴇ) ᴍᴇᴛʜ ──**"
       }
     ];
+    
+    // Create threads for replays
+    const replaysThread = await message.channel.threads.create({
+      name: "ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ʀᴇᴘʟᴀʏꜱ",
+      autoArchiveDuration: 60,
+    });
+
+    const replaysData = [
+      { title: "<:InsanityPoint:1503717002475339947> **ᴘʟꜱ ᴅᴏɴᴀᴛᴇ:**", urls: [
+        "https://streamable.com/oo4auk",
+        "https://cdn.discordapp.com/attachments/1318617752474488893/1321545002899345428/vipAmandavip_vipamandavip_is_LIVE_-_TikTok_LIVE_2024-12-04_20-43-03_1.mp4?ex=68068e31&is=68053cb1&hm=4efb8381578fea71208626fd6cf85883330542e4b22b52cb4f8de91500bd25f6",
+        "https://cdn.discordapp.com/attachments/1331244342899114056/1336963056462462987/ypqzp9zt_2.mp4?ex=6805f4e0&is=6804a360&hm=3a2a053dd0bb326985978887f49d0262b1d90cefaf04eb2be68055cada0734cf"
+      ]},
+      { title: "<:InsanityPoint:1503717002475339947> **ᴀᴅᴏᴘᴛ ᴍᴇ:**", urls: [
+        "https://media.discordapp.net/attachments/1331008387831562270/1333082064034992229/lv_0_20250120003043.mp4?ex=680e3feb&is=680cee6b&hm=9050cd833ab21189fee38c75332619ae02b4e912e2609a91e7a651b14823f6c5",
+        "https://cdn.discordapp.com/attachments/1329545445520965642/1357751105676644484/JSPUF.mp4?ex=68066fc1&is=68051e41&hm=a5af10f0ff8c2990d3b7188af2c3c70ccadcf4bf7050a3ee539f16147b508264",
+        "https://cdn.discordapp.com/attachments/1329804728061661196/1334028238200111145/Rich_Livvy_sunnyy_adoptme_is_LIVE_-_TikTok_LIVE_2024-10-20_00-21-39.mp4?ex=68067c5d&is=68052add&hm=d40a885d9d9e8db306b99b292c1fa55c0f6ddf0b7590e038eee7e76c75bf1a5c"
+      ]},
+      { title: "<:InsanityPoint:1503717002475339947> **ᴍᴍ2:**", urls: [
+        "https://streamable.com/fjqo1x",
+        "https://cdn.discordapp.com/attachments/1329804728061661196/1334028231644286987/preppyxhanna_preppyxhannas_is_LIVE_-_TikTok_LIVE_2024-10-06_20-42-48.mp4?ex=68067c5b&is=68052adb&hm=f43a4a5b754e667f033f318aedf033f713c71fc8261b47c07d45d96937f95de0"
+      ]},
+      { title: "<:InsanityPoint:1503717002475339947> **ʙʟᴏxꜰʀᴜɪᴛꜱ:**", urls: [
+        "https://streamable.com/godall"
+      ]},
+      { title: "<:InsanityPoint:1503717002475339947> **ɢᴀɢ:**", urls: [
+        "https://cdn.discordapp.com/attachments/1363585727979589823/1381334942885347398/op_asf_edited_replay_1.mp4?ex=68696aea&is=6868196a&hm=396b78b4219412bdc60bdbe61b1538bf54839d252f7a520efd215a6525d448b6"
+      ]}
+    ];
+
+    for (const section of replaysData) {
+      await replaysThread.send(section.title);
+      for (const url of section.urls) {
+        await replaysThread.send(url);
+      }
+    }
 
     for (const method of methods) {
       try {
@@ -587,13 +623,13 @@ client.on("messageCreate", async (message) => {
         // First embed - only image
         const firstEmbed = new EmbedBuilder()
           .setImage(method.image1)
-          .setColor("#000000");
+          .setColor(0x000000);
 
         // Second embed - content with image
         const secondEmbed = new EmbedBuilder()
           .setDescription(method.body)
           .setImage(method.image2)
-          .setColor("#000000");
+          .setColor(0x000000);
 
         await thread.send({ embeds: [firstEmbed] });
         await thread.send({ embeds: [secondEmbed] });
@@ -618,7 +654,7 @@ client.on("messageCreate", async (message) => {
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId("ticket_create")
-        .setLabel("ᴄʀᴇᴀᴛᴇ ᴀ ᴛɪᴄᴋᴇᴛ")
+        .setLabel("ᴏᴘᴇɴ ᴛɪᴄᴋᴇᴛ")
         .setStyle(ButtonStyle.Primary)
         .setEmoji({ id: "1508646379751342130", name: "emoji_13", animated: true })
     );
@@ -836,7 +872,7 @@ client.on("interactionCreate", async (interaction) => {
         ],
       });
 
-      // Send notification embed in the ticket channel
+      // Send notification message and embed in the ticket channel
       const ticketNotificationEmbed = new EmbedBuilder()
         .setTitle("Support Ticket Created")
         .setDescription(
@@ -849,7 +885,10 @@ client.on("interactionCreate", async (interaction) => {
           text: `Ticket ID: ${ticketNumber}`,
         });
 
-      await ticketChannel.send({ embeds: [ticketNotificationEmbed] });
+      await ticketChannel.send({
+        content: `Support ticket created for <@${interaction.user.id}>. A support team member will be with you shortly!`,
+        embeds: [ticketNotificationEmbed],
+      });
 
       // Edit deferred reply
       await interaction.editReply({
