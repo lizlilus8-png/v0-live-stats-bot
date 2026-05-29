@@ -237,6 +237,9 @@ client.on("guildMemberAdd", async (member) => {
   const channel = member.guild.channels.cache.get(WELCOME_CHANNEL_ID);
   if (!channel || !channel.isTextBased()) return;
 
+  const now = new Date();
+  const utcTime = now.toLocaleString('en-US', { timeZone: 'UTC' });
+
   const welcomeEmbed = new EmbedBuilder()
     .setDescription(
       "<:emoji_19:1509035464714358794>  <:emoji_19:1509035464714358794> <:emoji_19:1509035464714358794>\n" +
@@ -247,7 +250,7 @@ client.on("guildMemberAdd", async (member) => {
     .setImage(WELCOME_GIF)
     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
     .setFooter({
-      text: "discord.gg/insanity | 05/26/2026 2:01 PM",
+      text: `discord.gg/insanity | ${utcTime}`,
     });
 
   await channel.send({
