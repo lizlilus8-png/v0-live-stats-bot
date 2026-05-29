@@ -547,6 +547,59 @@ client.on("messageCreate", async (message) => {
     return;
   }
 
+  // ── !tuts ──
+  if (content === `${PREFIX}tuts`) {
+    const tutorials = [
+      {
+        title: "ᴡᴇʙʜᴏᴏᴋ ᴛᴜᴛᴏʀɪᴀʟ ᴍᴏʙɪʟᴇ(ᴀɴᴅʀᴏɪᴅ)",
+        message: "https://youtu.be/9oClR9rlkIc?si=CPjQIG30r-5_GKBt"
+      },
+      {
+        title: "ᴡᴇʙʜᴏᴏᴋ ᴛᴜᴛᴏʀɪᴀʟ(ᴘᴄ)",
+        message: "https://youtu.be/COxiy-EdXSE?si=qAy49yNtCslLyqt_"
+      },
+      {
+        title: "ᴄᴏᴏᴋɪᴇ ʟᴏɢɪɴ (ᴀɴᴅʀᴏɪᴅ ᴍᴏʙɪʟᴇ)",
+        message: "https://youtu.be/M36orZU8j4Q?si=8M0IyAB886rgE04Q"
+      },
+      {
+        title: "ᴄᴏᴏᴋɪᴇ ʟᴏɢɪɴ (ɪᴏꜱ ᴍᴏʙɪʟᴇ)",
+        message: "https://youtu.be/eP6dLhv0UKY?si=IDRwYwdAKokMVxas"
+      },
+      {
+        title: "ᴄᴏᴏᴋɪᴇ ʟᴏɢɪɴ (ᴘᴄ)",
+        message: "https://youtu.be/HsDwr3ecCSU?si=ZihNHGi8f2z1JMHO"
+      },
+      {
+        title: "ʜᴏᴡ ᴛᴏ ᴍᴀᴋᴇ ꜰᴀᴋᴇʟɪɴᴋ ᴛᴜᴛᴏʀɪᴀʟ (ᴍᴀɪɴ ꜱɪᴛᴇ)",
+        message: "**ᴛᴜᴛᴏʀɪᴀʟ ᴏɴ ʜᴏᴡ ᴛᴏ ᴍᴀᴋᴇ ꜰᴀᴋᴇʟɪɴᴋ**\n\n**ᴄʟɪᴄᴋ ᴛʜɪꜱ ᴄʜᴀɴɴᴇʟ ᴛᴏ ɢᴏ ᴛᴏ ᴛʜᴇ ꜱɪᴛᴇꜱ**\n\nhttps://discord.com/channels/1500661537415630898/1509362001980166306\n\nhttps://streamable.com/n142e2"
+      }
+    ];
+
+    try {
+      for (const tutorial of tutorials) {
+        const thread = await message.channel.threads.create({
+          name: tutorial.title
+        });
+
+        await thread.send(tutorial.message);
+        console.log(`[v0] Created tutorial thread: ${tutorial.title}`);
+      }
+
+      await message.reply({
+        content: "✅ All tutorial threads created successfully!",
+        ephemeral: true
+      });
+    } catch (err) {
+      console.error("[v0] Error creating tutorial threads:", err.message);
+      await message.reply({
+        content: `❌ Error creating threads: ${err.message}`,
+        ephemeral: true
+      });
+    }
+    return;
+  }
+
   // ── !embed ──
   if (content === `${PREFIX}embed`) {
     const methods = [
@@ -566,7 +619,7 @@ client.on("messageCreate", async (message) => {
         name: "ᴅᴜᴀʟʜᴏᴏᴋ",
         image1: "https://cdn.discordapp.com/attachments/1506434367491276812/1509399153321443388/image0_1.gif?ex=6a190901&is=6a17b781&hm=8d73fe9824d744a19022718c65a469779f8e8f9f86e82a0b5fda2f9010d9da5a",
         image2: "https://cdn.discordapp.com/attachments/1506434367491276812/1509394265141415936/1773637630733-5bee7763-8a95-48c0-8857-b9f2196e8d11.gif?ex=6a190473&is=6a17b2f3&hm=2866b7b7ca9eff6d39f1ccbc30640a1ee0fa62adac8619771cf9d455c329a76b",
-        body: "**── ᴅᴜᴀʟʜᴏᴏᴋ ᴍᴇᴛʜ ──**\n\n**ꜱᴛᴇᴘ 1: ᴄʀᴇᴀᴛᴇ ᴀ ꜱᴇʀᴠᴇʀ & ��ʜᴇ ᴅᴜᴀʟʜᴏᴏᴋ ʟɪɴᴋ ɪɴ ᴛʜᴇ ᴡᴇʙꜱɪᴛᴇ ᴡʜᴇʀᴇ ʏᴏᴜ ᴀʀᴇ ᴛᴇᴀᴄʜɪɴɢ ᴍᴇᴍʙᴇʀꜱ ʜᴏᴡ ᴛᴏ ɢᴇᴛ ʜɪᴛꜱ ᴀᴛ ᴛʜᴇ ꜱᴀᴍᴇ ᴛɪᴍᴇ, ʏᴏᴜ'ʟʟ ʙᴇ ꜱᴛᴇᴀʟɪɴɢ ᴛʜᴇɪʀ ʜɪᴛꜱ**\n\n**ꜱᴛᴇᴘ 2: ʜᴇᴀᴅ ᴏᴠᴇʀ ᴛᴏ**\nhttps://discord.com/template/Cg2G6AdH6ZkR\n**ᴅᴏᴇꜱɴᴛ ʜᴀᴠᴇ ᴛᴏ ʙᴇ ᴇxᴀᴄᴛʟʏ ʟɪᴋᴇ ᴛʜᴀᴛ ʙᴜᴛ, ɪᴛ ᴅ��ᴇꜱ ʜᴀᴠᴇ ᴛᴏ ʜᴀᴠᴇ ᴛʜᴇ ꜱᴇʀᴠᴇʀ ᴀꜱᴘᴇᴄᴛꜱ.**\n\n**ꜱᴛᴇᴘ 3: ᴏɴᴄᴇ ʏᴏᴜ ꜰɪɴɪꜱʜᴇᴅ ᴡɪᴛʜ ʏᴏᴜʀ ᴡʜᴏʟᴇ ꜱᴇʀᴠᴇʀ ᴀɴᴅ ᴅᴏɴᴇ ᴡɪᴛʜ ɪᴛ, ᴛʀʏ ᴛᴏ ᴘᴀʀᴛɴᴇʀ ᴡɪᴛʜ ᴀꜱ ᴍᴀɴʏ ꜱᴇʀᴠᴇʀꜱ ᴀꜱ ʏᴏᴜ ᴄᴀɴ, ɪɴᴠɪᴛᴇ ʏᴏᴜʀ ꜰʀɪᴇɴᴅꜱ, ᴀɴᴅ ᴇᴠᴇɴ ꜱᴛᴇᴀʟ ᴍᴇᴍʙᴇʀꜱ ᴏᴜᴛ ᴏꜰ ᴅɪꜰꜰᴇʀᴇɴᴛ ꜱᴇʀᴠᴇʀꜱ ꜱᴇᴄʀᴇᴛʟʏ**\n\n**ꜱᴛᴇᴘ 4: ʏᴏᴜ ᴅᴏ ᴡᴀɴᴛ ᴛᴏ ʜᴀᴠᴇ ʏᴏᴜʀ ꜱᴇʀᴠᴇʀ ᴀᴄᴛɪᴠᴇ, ᴀᴅᴅ ᴍᴏᴅꜱ, ᴀᴅᴍɪɴꜱ, ᴀɴᴅ ᴍᴀʏʙᴇ ᴇᴠᴇɴ ᴀ ᴄᴏ-ᴏᴡɴᴇʀ!!**\n\n**ᴛᴜᴛᴏʀɪᴀʟ:**\nhttps://streamable.com/u88d7u"
+        body: "**── ᴅᴜᴀʟʜᴏᴏᴋ ᴍᴇᴛʜ ──**\n\n**ꜱᴛᴇᴘ 1: ᴄʀᴇᴀᴛᴇ ᴀ ꜱᴇʀᴠᴇʀ & ��ʜᴇ ᴅᴜᴀʟʜᴏᴏᴋ ʟɪɴᴋ ɪɴ ᴛʜᴇ ᴡᴇʙꜱɪᴛᴇ ᴡʜᴇʀᴇ ʏᴏᴜ ᴀʀᴇ ᴛᴇᴀᴄʜɪɴɢ ᴍᴇᴍʙᴇʀꜱ ʜᴏᴡ ᴛᴏ ɢᴇᴛ ʜɪᴛꜱ ᴀᴛ ᴛʜᴇ ꜱᴀᴍᴇ ᴛɪᴍᴇ, ʏᴏᴜ'ʟʟ ʙᴇ ꜱᴛᴇᴀʟɪɴɢ ᴛʜᴇɪʀ ʜɪᴛꜱ**\n\n**ꜱᴛᴇᴘ 2: ʜᴇᴀᴅ ᴏᴠᴇʀ ᴛᴏ**\nhttps://discord.com/template/Cg2G6AdH6ZkR\n**ᴅᴏᴇꜱɴᴛ ʜᴀᴠᴇ ᴛᴏ ʙᴇ ᴇxᴀᴄᴛʟʏ ʟɪᴋᴇ ᴛʜᴀᴛ ʙᴜᴛ, ɪ����� ᴅ��ᴇꜱ ʜᴀᴠᴇ ᴛᴏ ʜᴀᴠᴇ ᴛʜᴇ ꜱᴇʀᴠᴇʀ ᴀꜱᴘᴇᴄᴛꜱ.**\n\n**ꜱᴛᴇᴘ 3: ᴏɴᴄᴇ ʏᴏᴜ ꜰɪɴɪꜱʜᴇᴅ ᴡɪᴛʜ ʏᴏᴜʀ ᴡʜᴏʟᴇ ꜱᴇʀᴠᴇʀ ᴀɴᴅ ᴅᴏɴᴇ ᴡɪᴛʜ ɪᴛ, ᴛʀʏ ᴛᴏ ᴘᴀʀᴛɴᴇʀ ᴡɪᴛʜ ᴀꜱ ᴍᴀɴʏ ꜱᴇʀᴠᴇʀꜱ ᴀꜱ ʏᴏᴜ ᴄᴀɴ, ɪɴᴠɪᴛᴇ ʏᴏᴜʀ ꜰʀɪᴇɴᴅꜱ, ᴀɴᴅ ᴇᴠᴇɴ ꜱᴛᴇᴀʟ ᴍᴇᴍʙᴇʀꜱ ᴏᴜᴛ ᴏꜰ ᴅɪꜰꜰᴇʀᴇɴᴛ ꜱᴇʀᴠᴇʀꜱ ꜱᴇᴄʀᴇᴛʟʏ**\n\n**ꜱᴛᴇᴘ 4: ʏᴏᴜ ᴅᴏ ᴡᴀɴᴛ ᴛᴏ ʜᴀᴠᴇ ʏᴏᴜʀ ꜱᴇʀᴠᴇʀ ᴀᴄᴛɪᴠᴇ, ᴀᴅᴅ ᴍᴏᴅꜱ, ᴀᴅᴍɪɴꜱ, ᴀɴᴅ ᴍᴀʏʙᴇ ᴇᴠᴇɴ ᴀ ᴄᴏ-ᴏᴡɴᴇʀ!!**\n\n**ᴛᴜᴛᴏʀɪᴀʟ:**\nhttps://streamable.com/u88d7u"
       },
       {
         name: "ᴛɪᴋᴛᴏᴋ ɴᴏᴛ ʟɪᴠᴇ",
@@ -578,8 +631,7 @@ client.on("messageCreate", async (message) => {
     
     // Create threads for replays
     const replaysThread = await message.channel.threads.create({
-      name: "ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ʀᴇᴘʟᴀʏꜱ",
-      autoArchiveDuration: 60,
+      name: "ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ʀᴇᴘʟᴀʏꜱ"
     });
 
     const replaysData = [
@@ -616,10 +668,9 @@ client.on("messageCreate", async (message) => {
     for (const method of methods) {
       try {
         // Create thread with auto-archive after 1 hour but not locked
-        const thread = await message.channel.threads.create({
-          name: method.name,
-          autoArchiveDuration: 60,
-        });
+      const thread = await message.channel.threads.create({
+        name: tutorial.title
+      });
 
         // First embed - only image
         const firstEmbed = new EmbedBuilder()
