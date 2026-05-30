@@ -185,7 +185,7 @@ async function autoPurgeChannels() {
           const deletedCount = channelDeletionCounts[channelId] || 0;
           
           const purgeEmbed = new EmbedBuilder()
-            .setDescription(`**─── <a:emoji_8:1506236357775720548> \`ɪɴꜱᴀɴɪ���ʏ | ᴘᴜʀɢᴇ\` <a:emoji_8:1506236357775720548> ───**`)
+            .setDescription(`**─── <a:emoji_8:1506236357775720548> \`ɪɴꜱᴀɴɪ�����ʏ | ᴘᴜʀɢᴇ\` <a:emoji_8:1506236357775720548> ───**`)
             .setImage("https://cdn.discordapp.com/attachments/1507701712327016488/1509825761031487649/image0_1.gif?ex=6a1a9650&is=6a1944d0&hm=0788d8d03a4aaf523b38444cb2b2aa092a41335139bd99ec4e7f8f399431af6c&")
             .setFooter({
               text: `Auto purge finished • Deleted ${deletedCount} messages in ${elapsedSeconds}s`,
@@ -514,9 +514,9 @@ client.on("messageCreate", async (message) => {
   if (content === `${PREFIX}server`) {
     const serverEmbed = new EmbedBuilder()
       .setDescription(
-        "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ | ꜱᴇʀᴠᴇʀꜱ` <a:emoji_8:1506236357775720548> ───\n\n" +
-        "<a:emoji_13:1508646379751342130>  ꜱᴇʀᴠᴇʀꜱ ᴜ ᴡᴀɴᴛ ᴛᴏ ʜɪᴛ/ʙᴇᴀᴍ ɪɴ\n\n" +
-        "<:emoji_14:1508646444607864872>  ᴀʟʟ ꜱᴇʀᴠᴇʀꜱ ʟɪꜱᴛ ᴛᴏ ʙᴇᴀᴍ**"
+        "**─── <a:emoji_8:1506236357775720548> `INSANITY | SERVERS` <a:emoji_8:1506236357775720548> ───\n\n" +
+        "<a:emoji_13:1508646379751342130>  SERVERS U WANT TO HIT/BEAM IN\n\n" +
+        "<:emoji_14:1508646444607864872>  ALL SERVERS LIST TO BEAM**"
       )
       .setThumbnail("https://cdn.discordapp.com/attachments/1506891768938102947/1508616463479734312/bonsai-discord_1.gif?ex=6a163011&is=6a14de91&hm=d9c287b5c3c48aba045acc2bbbc6f815e71ccb4d8d3ad2126d2fd82c1ce684ec")
       .setImage("https://cdn.discordapp.com/attachments/1507701712327016488/1509827919705280512/a_83bbc624f3ac843c95b3387cdb7f4106.gif?ex=6a1a9853&is=6a1946d3&hm=9ae824ac32110fa5432cca99c88ee601537be2745b61ec15ac9aed54f83b0a8a&")
@@ -807,9 +807,9 @@ client.on("messageCreate", async (message) => {
   if (content === `${PREFIX}websites`) {
     const websitesEmbed = new EmbedBuilder()
       .setDescription(
-        "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ  | ꜱɪᴛᴇꜱ` <a:emoji_8:1506236357775720548> ───\n\n" +
-        "<a:emoji_13:1508646379751342130> 1 ᴄᴜʀʀᴇɴᴛ ᴀᴄᴛɪᴠᴇ ᴅᴏᴍᴀɪɴ\n\n" +
-        "<:emoji_14:1508646444607864872> ʙʟᴀᴢɪɴɢ ꜰᴀꜱᴛ & ꜰᴇᴀᴛᴜʀᴇ ʟᴏᴀᴅᴇᴅ ꜱɪᴛᴇꜱ**"
+        "**─── <a:emoji_8:1506236357775720548> `INSANITY | SITES` <a:emoji_8:1506236357775720548> ───\n\n" +
+        "<a:emoji_13:1508646379751342130> 1 CURRENT ACTIVE DOMAIN\n\n" +
+        "<:emoji_14:1508646444607864872> BLAZING FAST & FEATURE LOADED SITES**"
       )
       .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
       .setThumbnail("https://cdn.discordapp.com/attachments/1506434367491276812/1509385290362519693/bonsai-discord_1.gif?ex=6a18fc18&is=6a17aa98&hm=7a50f1def95236c0e9a80eee26c43f24e1298b5a0c6820ea55ddc3b34b97a3d2&");
@@ -817,7 +817,7 @@ client.on("messageCreate", async (message) => {
     const websitesRow = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setURL("https://discord.com/oauth2/authorize?client_id=1443059700311527586&redirect_uri=https://www.logged.tg/api/auth&response_type=code&scope=identify&prompt=none&state=eyJyZWZlcnJhbCI6ImFwaSIsIl9fTE9DQUxfUEFTU0VEIjp7Il9fSU5JVElBTF9VUkwiOiJodHRwczovL3d3dy5sb2dnZWQudGcvYXV0aC9hcGkiLCJfX1JFRElSRUNUX1VSTCI6Imh0dHBzOi8vd3d3LmxvZ2dlZC50Zy9kYXNoYm9hcmQiLCJfX0NBTExCQUNLX1VSTCI6Imh0dHBzOi8vd3d3LmxvZ2dlZC50Zy9hcGkvYXV0aCIsIl9fU1dBUF9IT1NUIjoid3d3LmxvZ2dlZC50ZyJ9fQ==")
-        .setLabel("ᴅᴀꜱʜʙᴏᴀʀᴅ")
+        .setLabel("DASHBOARD")
         .setStyle(ButtonStyle.Link)
         .setEmoji({ id: "1508646379751342130", name: "emoji_13", animated: true })
     );
@@ -830,9 +830,9 @@ client.on("messageCreate", async (message) => {
   if (content === `${PREFIX}tools`) {
     const toolsEmbed = new EmbedBuilder()
       .setDescription(
-        "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ  | ᴛᴏᴏʟꜱ` <a:emoji_8:1506236357775720548> ───\n\n" +
-        "<a:emoji_13:1508646379751342130> 1 ᴄᴜʀʀᴇɴᴛ ᴀᴄᴛɪᴠᴇ ᴅᴏᴍᴀɪɴ\n\n" +
-        "<:emoji_14:1508646444607864872> ʙʟᴀᴢɪɴɢ ꜰᴀꜱᴛ & ꜰᴇᴀᴛᴜʀᴇ ʟᴏᴀᴅᴇᴅ ꜱɪᴛᴇꜱ**"
+        "**─── <a:emoji_8:1506236357775720548> `INSANITY | TOOLS` <a:emoji_8:1506236357775720548> ───\n\n" +
+        "<a:emoji_13:1508646379751342130> 1 CURRENT ACTIVE DOMAIN\n\n" +
+        "<:emoji_14:1508646444607864872> BLAZING FAST & FEATURE LOADED SITES**"
       )
       .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
       .setThumbnail("https://cdn.discordapp.com/attachments/1506434367491276812/1509385290362519693/bonsai-discord_1.gif?ex=6a18fc18&is=6a17aa98&hm=7a50f1def95236c0e9a80eee26c43f24e1298b5a0c6820ea55ddc3b34b97a3d2&");
@@ -845,7 +845,7 @@ client.on("messageCreate", async (message) => {
         .setEmoji({ id: "1508646379751342130", name: "emoji_13", animated: true }),
       new ButtonBuilder()
         .setURL("https://linkurlshort.page.gd/")
-        .setLabel("ʜʏᴘᴇʀʟɪɴᴋ")
+      .setLabel("HYPERLINK")
         .setStyle(ButtonStyle.Link)
         .setEmoji({ id: "1508646379751342130", name: "emoji_13", animated: true }),
       new ButtonBuilder()
@@ -863,9 +863,9 @@ client.on("messageCreate", async (message) => {
   if (content === `${PREFIX}verifyme`) {
     const verifyEmbed = new EmbedBuilder()
       .setDescription(
-        "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ | ᴠᴇʀɪꜰʏ` <a:emoji_8:1506236357775720548> ───\n\n" +
-        "<a:emoji_13:1508646379751342130> ʙᴇꜱᴛ ʙᴇᴀᴍɪɴɢ ꜱᴇʀᴠᴇʀ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ\n\n" +
-        "<:emoji_14:1508646444607864872> ᴄʟɪᴄᴋ ᴠᴇʀɪꜰʏ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ <@&1506114487185440819> ʀᴏʟᴇ**"
+        "**─── <a:emoji_8:1506236357775720548> `INSANITY | VERIFY` <a:emoji_8:1506236357775720548> ───\n\n" +
+        "<a:emoji_13:1508646379751342130> BEST BEAMING SERVER OF ALL TIME\n\n" +
+        "<:emoji_14:1508646444607864872> CLICK VERIFY BELOW TO GET <@&1506114487185440819> ROLE**"
       )
       .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
       .setThumbnail("https://cdn.discordapp.com/attachments/1506434367491276812/1509385290362519693/bonsai-discord_1.gif?ex=6a18fc18&is=6a17aa98&hm=7a50f1def95236c0e9a80eee26c43f24e1298b5a0c6820ea55ddc3b34b97a3d2&");
@@ -873,7 +873,7 @@ client.on("messageCreate", async (message) => {
     const verifyRow = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setURL("https://discord.com/oauth2/authorize?client_id=1502865967766568970&redirect_uri=https://restorecord.com/api/callback&response_type=code&scope=identify+guilds.join&state=1500661537415630898&prompt=none")
-        .setLabel("ꜱᴛᴀʀᴛ ᴠᴇʀɪꜰʏ")
+        .setLabel("START VERIFY")
         .setStyle(ButtonStyle.Link)
         .setEmoji({ id: "1508646493169647657", name: "emoji_15", animated: true })
     );
@@ -887,9 +887,9 @@ client.on("messageCreate", async (message) => {
   // Build the embed that prompts the user to submit a link
   const embed = new EmbedBuilder()
     .setDescription(
-      "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ   | ʜʏᴘᴇʀʟɪɴᴋ` <a:emoji_8:1506236357775720548> ───\n\n" +
-      "<a:emoji_13:1508646379751342130> ᴜꜱᴇ ᴛʜɪꜱ ᴛᴏᴏʟ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ʜʏᴘᴇʀʟɪɴᴋꜱ ᴛʜᴀᴛ ʙʏᴘᴀꜱꜱ ᴅɪꜱᴄᴏʀᴅ ᴡᴀʀɴɪɴɢꜱ\n\n" +
-      "<:emoji_14:1508646444607864872>  ʙᴇꜱᴛ ʜʏᴘᴇʀʟɪɴᴋ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
+      "**─── <a:emoji_8:1506236357775720548> `INSANITY | HYPERLINK` <a:emoji_8:1506236357775720548> ───\n\n" +
+      "<a:emoji_13:1508646379751342130> USE THIS TOOL TO GENERATE HYPERLINKS THAT BYPASS DISCORD WARNINGS\n\n" +
+      "<:emoji_14:1508646444607864872>  BEST HYPERLINK OF ALL TIME**"
     )
     .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
     .setFooter({
