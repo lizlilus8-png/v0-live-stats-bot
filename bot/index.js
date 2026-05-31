@@ -1163,6 +1163,121 @@ client.on("messageCreate", async (message) => {
     return;
   }
 
+  // ── !ban ──
+  if (content.startsWith(`${PREFIX}ban`)) {
+    // Check if user has administrator permissions
+    if (!message.member.permissions.has(PermissionFlagsBits.Administrator)) {
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> You need administrator permissions to use this command.",
+      });
+      return;
+    }
+
+    try {
+      // Parse the command: !ban @user [reason]
+      const args = content.slice(PREFIX.length + 3).trim().split(" ");
+      
+      if (args.length < 1) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Usage: `!ban @user [reason]`",
+        });
+        return;
+      }
+
+      const userMention = args[0];
+      const banReason = args.slice(1).join(" ") || "No reason provided";
+
+      // Parse mention to get user ID
+      const userId = userMention.replace(/[<@!>]/g, "");
+      
+      if (!userId || isNaN(userId)) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Please mention a valid user. Usage: `!ban @user [reason]`",
+        });
+        return;
+      }
+
+      // Get the member to ban
+      const member = await message.guild.members.fetch(userId).catch(() => null);
+      
+      if (!member) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> User not found in this server.",
+        });
+        return;
+      }
+
+      // Ban the member
+      await message.guild.members.ban(userId, { reason: banReason });
+
+      await message.reply({
+        content: `<a:emoji_13:1508646379751342130> Successfully banned ${member.user.username}. Reason: ${banReason}`,
+      });
+
+      console.log(`[v0] User ${member.user.username} (${userId}) banned by ${message.author.username}. Reason: ${banReason}`);
+    } catch (err) {
+      console.error("[bot] ban error:", err.message);
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> Failed to ban user.",
+      });
+    }
+    return;
+  }
+
+  // ── !purge ──
+  if (content.startsWith(`${PREFIX}purge`)) {
+    // Check if user has administrator permissions
+    if (!message.member.permissions.has(PermissionFlagsBits.Administrator)) {
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> You need administrator permissions to use this command.",
+      });
+      return;
+    }
+
+    try {
+      // Parse the command: !purge [amount]
+      const args = content.slice(PREFIX.length + 5).trim();
+      let amount = args ? parseInt(args) : 100;
+
+      // Validate amount
+      if (isNaN(amount) || amount < 1) {
+        amount = 100;
+      }
+
+      // Cap at 1000 messages
+      if (amount > 1000) {
+        amount = 1000;
+      }
+
+      // Fetch and delete messages
+      const messages = await message.channel.messages.fetch({ limit: amount });
+      
+      // Delete in bulk (Discord allows up to 100 at a time)
+      let deletedCount = 0;
+      for (let i = 0; i < messages.size; i += 100) {
+        const batch = Array.from(messages.values()).slice(i, i + 100);
+        const deletePromises = batch.map(msg => msg.delete().catch(() => null));
+        const results = await Promise.all(deletePromises);
+        deletedCount += results.filter(r => r !== null).length;
+      }
+
+      const confirmMessage = await message.reply({
+        content: `<a:emoji_13:1508646379751342130> Purged ${deletedCount} messages!`,
+      });
+
+      // Delete the confirmation message after 3 seconds
+      setTimeout(() => confirmMessage.delete().catch(() => null), 3000);
+
+      console.log(`[v0] Purged ${deletedCount} messages in ${message.channel.name} by ${message.author.username}`);
+    } catch (err) {
+      console.error("[bot] purge error:", err.message);
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> Failed to purge messages.",
+      });
+    }
+    return;
+  }
+
   if (content !== `${PREFIX}hyperlink`) return;
 
   // Build the embed that prompts the user to submit a link
@@ -1170,7 +1285,7 @@ client.on("messageCreate", async (message) => {
     .setDescription(
       "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ   | ʜʏᴘᴇʀʟɪɴᴋ` <a:emoji_8:1506236357775720548> ───\n\n" +
       "<a:emoji_13:1508646379751342130> ᴜꜱᴇ ᴛʜɪꜱ ᴛᴏᴏʟ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ʜʏᴘᴇʀʟɪɴᴋꜱ ᴛʜᴀᴛ ʙʏ���ᴀꜱ�� ᴅɪꜱᴄᴏʀᴅ ᴡᴀʀɴɪɴɢꜱ\n\n" +
-      "<:emoji_14:1508646444607864872>  ʙᴇꜱᴛ ʜʏᴘᴇʀʟɪɴᴋ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
+      "<:emoji_14:1508646444607864872>  ʙᴇꜱᴛ ʜʏᴘᴇʀʟ��ɴᴋ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
     )
     .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
     .setFooter({
