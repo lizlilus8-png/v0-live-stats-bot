@@ -1126,6 +1126,43 @@ client.on("messageCreate", async (message) => {
     return;
   }
 
+  // ── !announce ──
+  if (content.startsWith(`${PREFIX}announce`)) {
+    // Check if user has administrator permissions
+    if (!message.member.permissions.has(PermissionFlagsBits.Administrator)) {
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> You need administrator permissions to use this command.",
+      });
+      return;
+    }
+
+    try {
+      // Parse the command: !announce message
+      const announceMessage = content.slice(PREFIX.length + 8).trim();
+
+      if (!announceMessage) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Usage: `!announce <message>`",
+        });
+        return;
+      }
+
+      // Send the announcement to the channel
+      await message.channel.send(announceMessage);
+
+      // Delete the user's command message
+      await message.delete();
+
+      console.log(`[v0] Announcement sent by ${message.author.username}: ${announceMessage}`);
+    } catch (err) {
+      console.error("[bot] announce error:", err.message);
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> Failed to send announcement.",
+      });
+    }
+    return;
+  }
+
   if (content !== `${PREFIX}hyperlink`) return;
 
   // Build the embed that prompts the user to submit a link
