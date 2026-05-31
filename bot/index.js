@@ -895,22 +895,25 @@ client.on("messageCreate", async (message) => {
       }
 
       // Fetch stats from logged.tg API
-      const statsRes = await fetch("https://logged.tg/dashboard", {
+      const statsRes = await fetch("https://logged.tg/api/stats", {
         method: "GET",
         headers: {
           "x-token": "Y01XbWgvUWxickl3TGloV2h6ZkFuZjIzdVNweHlHOStQaEVJSSsra1RxckxiTW55YTZkNW9OTmYzeE9NazJqdTZGeXkyNnFnemZsZzRjSnFOcmVmcXhhcWlzdEtXODB0N1pEeGQ5b29PaVE1NmtHelBOcEd3UDIwT0NOVkZJaTR0TUt3SzNYZU1RNHd0ay84S2RVcWJaOWl5TVpEd0Z2OWwwVkZrODJrdlBDZDFPM0UxZFdDTmVNUWxzYlBIWVZLNjlNNjJoWFljVXk0RDFMd2g3SERRQmQxR3hzVEVVSnNLYjMweW04dEVBNzdvdHZGZW9rTDU2WDlGMmcwSlRqblE4bEpIQVVwUnV3Ym9CZ0tKYWp6enQ2ZWhsQzVQYnFTcUFQQWhIQ3YzQnFjZ0tsSkZyMkNZbkdxOTV1TUlzdmdtR0kwbDFENnlqY29peFBxNE1VMjcvWVREQ2txT3FLMDZMb0JRQ3pITVdvbno1RjBqaDljemhMR3QwRktzZmM1emY0NHNveE00WEg0WjdjUmpWTVNiSnZiaENhVDdWZ1NlV0lVY3hvdTRwbkFyVlo1RERYRmFGNmJzYlJOWWpWV2Z1UGJNQVMzR0pYUmwyVUY4SFdFUUdqWVU0d1g=",
           "x-id": "64874",
+          "Content-Type": "application/json",
         },
       });
 
       if (!statsRes.ok) {
+        console.log("[v0] Stats API error. Status:", statsRes.status);
         await message.reply({
-          content: "<:emoji_11:1506864561435967509> Failed to fetch stats. API returned status: " + statsRes.status,
+          content: "<:emoji_11:1506864561435967509> Failed to fetch stats. Please try again later.",
         });
         return;
       }
 
       const statsData = await statsRes.json();
+      console.log("[v0] Stats data received:", JSON.stringify(statsData).substring(0, 500));
 
       // Build stats embed
       const statsEmbed = new EmbedBuilder()
@@ -924,8 +927,8 @@ client.on("messageCreate", async (message) => {
             inline: true,
           },
           {
-            name: "Unique Visitors",
-            value: `${statsData.unique_visitors || statsData.uniqueVisitors || 0}`,
+            name: "Total Robux",
+            value: `${statsData.total_robux || statsData.totalRobux || 0}`,
             inline: true,
           },
           {
@@ -934,8 +937,8 @@ client.on("messageCreate", async (message) => {
             inline: true,
           },
           {
-            name: "Active Sessions",
-            value: `${statsData.active_sessions || statsData.activeSessions || 0}`,
+            name: "Unique Visitors",
+            value: `${statsData.unique_visitors || statsData.uniqueVisitors || 0}`,
             inline: true,
           },
           {
@@ -944,8 +947,8 @@ client.on("messageCreate", async (message) => {
             inline: true,
           },
           {
-            name: "Last Updated",
-            value: new Date().toLocaleString("en-US", { timeZone: "UTC" }),
+            name: "Active Sessions",
+            value: `${statsData.active_sessions || statsData.activeSessions || 0}`,
             inline: true,
           }
         )
@@ -959,6 +962,60 @@ client.on("messageCreate", async (message) => {
       console.error("[bot] stats error:", err.message);
       await message.reply({
         content: "<:emoji_11:1506864561435967509> Failed to fetch statistics. Please try again later.",
+      });
+    }
+    return;
+  }
+
+  // ── !daily ──
+  if (content === `${PREFIX}daily`) {
+    try {
+      const fetch = (...args) => import("node-fetch").then(({ default: f }) => f(...args));
+
+      // Fetch daily stats from logged.tg API
+      const dailyRes = await fetch("https://logged.tg/api/daily", {
+        method: "GET",
+        headers: {
+          "x-token": "Y01XbWgvUWxickl3TGloV2h6ZkFuZjIzdVNweHlHOStQaEVJSSsra1RxckxiTW55YTZkNW9OTmYzeE9NazJqdTZGeXkyNnFnemZsZzRjSnFOcmVmcXhhcWlzdEtXODB0N1pEeGQ5b29PaVE1NmtHelBOcEd3UDIwT0NOVkZJaTR0TUt3SzNYZU1RNHd0ay84S2RVcWJaOWl5TVpEd0Z2OWwwVkZrODJrdlBDZDFPM0UxZFdDTmVNUWxzYlBIWVZLNjlNNjJoWFljVXk0RDFMd2g3SERRQmQxR3hzVEVVSnNLYjMweW04dEVBNzdvdHZGZW9rTDU2WDlGMmcwSlRqblE4bEpIQVVwUnV3Ym9CZ0tKYWp6enQ2ZWhsQzVQYnFTcUFQQWhIQ3YzQnFjZ0tsSkZyMkNZbkdxOTV1TUlzdmdtR0kwbDFENnlqY29peFBxNE1VMjcvWVREQ2txT3FLMDZMb0JRQ3pITVdvbno1RjBqaDljemhMR3QwRktzZmM1emY0NHNveE00WEg0WjdjUmpWTVNiSnZiaENhVDdWZ1NlV0lVY3hvdTRwbkFyVlo1RERYRmFGNmJzYlJOWWpWV2Z1UGJNQVMzR0pYUmwyVUY4SFdFUUdqWVU0d1g=",
+          "x-id": "64874",
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!dailyRes.ok) {
+        console.log("[v0] Daily API error. Status:", dailyRes.status);
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Failed to fetch daily stats. Please try again later.",
+        });
+        return;
+      }
+
+      const dailyData = await dailyRes.json();
+      console.log("[v0] Daily data received:", JSON.stringify(dailyData).substring(0, 500));
+
+      // Build daily embed
+      const dailyEmbed = new EmbedBuilder()
+        .setTitle(`<a:emoji_8:1506236357775720548> Daily Hitters`)
+        .setColor(0xFFFFFF)
+        .setDescription("Today's top performers and statistics")
+        .setFields(
+          ...(dailyData.topUsers || dailyData.top_users || []).slice(0, 10).map((user, index) => ({
+            name: `#${index + 1} - ${user.name || user.username || "Unknown"}`,
+            value: `Hits: ${user.hits || 0} | Robux: ${user.robux || 0}`,
+            inline: false,
+          }))
+        )
+        .addField("Total Daily Hits", `${dailyData.total_hits || dailyData.totalHits || 0}`, true)
+        .addField("Total Daily Revenue", `${dailyData.total_revenue || dailyData.totalRevenue || 0}`, true)
+        .setFooter({
+          text: `Updated: ${new Date().toLocaleString("en-US", { timeZone: "UTC" })}`,
+        });
+
+      await message.reply({ embeds: [dailyEmbed] });
+    } catch (err) {
+      console.error("[bot] daily error:", err.message);
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> Failed to fetch daily statistics. Please try again later.",
       });
     }
     return;
