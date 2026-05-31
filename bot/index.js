@@ -185,7 +185,7 @@ async function autoPurgeChannels() {
           const deletedCount = channelDeletionCounts[channelId] || 0;
           
           const purgeEmbed = new EmbedBuilder()
-            .setDescription(`**─── <a:emoji_8:1506236357775720548> \`ɪɴꜱᴀɴɪ���ʏ | ᴘᴜʀɢᴇ\` <a:emoji_8:1506236357775720548> ───**`)
+            .setDescription(`**─── <a:emoji_8:1506236357775720548> \`ɪɴꜱᴀɴɪ�����ʏ | ᴘᴜʀɢᴇ\` <a:emoji_8:1506236357775720548> ───**`)
             .setImage("https://cdn.discordapp.com/attachments/1507701712327016488/1509825761031487649/image0_1.gif?ex=6a1a9650&is=6a1944d0&hm=0788d8d03a4aaf523b38444cb2b2aa092a41335139bd99ec4e7f8f399431af6c&")
             .setFooter({
               text: `Auto purge finished • Deleted ${deletedCount} messages in ${elapsedSeconds}s`,
@@ -894,25 +894,46 @@ client.on("messageCreate", async (message) => {
         targetUser = mention;
       }
 
-      // Fetch stats from logged.tg API
-      const statsRes = await fetch("https://logged.tg/api/stats", {
-        method: "GET",
-        headers: {
-          "x-token": "Y01XbWgvUWxickl3TGloV2h6ZkFuZjIzdVNweHlHOStQaEVJSSsra1RxckxiTW55YTZkNW9OTmYzeE9NazJqdTZGeXkyNnFnemZsZzRjSnFOcmVmcXhhcWlzdEtXODB0N1pEeGQ5b29PaVE1NmtHelBOcEd3UDIwT0NOVkZJaTR0TUt3SzNYZU1RNHd0ay84S2RVcWJaOWl5TVpEd0Z2OWwwVkZrODJrdlBDZDFPM0UxZFdDTmVNUWxzYlBIWVZLNjlNNjJoWFljVXk0RDFMd2g3SERRQmQxR3hzVEVVSnNLYjMweW04dEVBNzdvdHZGZW9rTDU2WDlGMmcwSlRqblE4bEpIQVVwUnV3Ym9CZ0tKYWp6enQ2ZWhsQzVQYnFTcUFQQWhIQ3YzQnFjZ0tsSkZyMkNZbkdxOTV1TUlzdmdtR0kwbDFENnlqY29peFBxNE1VMjcvWVREQ2txT3FLMDZMb0JRQ3pITVdvbno1RjBqaDljemhMR3QwRktzZmM1emY0NHNveE00WEg0WjdjUmpWTVNiSnZiaENhVDdWZ1NlV0lVY3hvdTRwbkFyVlo1RERYRmFGNmJzYlJOWWpWV2Z1UGJNQVMzR0pYUmwyVUY4SFdFUUdqWVU0d1g=",
-          "x-id": "64874",
-          "Content-Type": "application/json",
-        },
-      });
+      // Fetch stats from logged.tg API - try multiple endpoints
+      let statsRes = null;
+      let statsData = null;
+      const endpoints = [
+        "https://logged.tg/api/stats",
+        "https://logged.tg/dashboard",
+        "https://logged.tg/api/user/stats",
+        "https://logged.tg/stats",
+      ];
 
-      if (!statsRes.ok) {
-        console.log("[v0] Stats API error. Status:", statsRes.status);
+      for (const endpoint of endpoints) {
+        try {
+          statsRes = await fetch(endpoint, {
+            method: "GET",
+            headers: {
+              "x-token": "Y01XbWgvUWxickl3TGloV2h6ZkFuZjIzdVNweHlHOStQaEVJSSsra1RxckxiTW55YTZkNW9OTmYzeE9NazJqdTZGeXkyNnFnemZsZzRjSnFOcmVmcXhhcWlzdEtXODB0N1pEeGQ5b29PaVE1NmtHelBOcEd3UDIwT0NOVkZJaTR0TUt3SzNYZU1RNHd0ay84S2RVcWJaOWl5TVpEd0Z2OWwwVkZrODJrdlBDZDFPM0UxZFdDTmVNUWxzYlBIWVZLNjlNNjJoWFljVXk0RDFMd2g3SERRQmQxR3hzVEVVSnNLYjMweW04dEVBNzdvdHZGZW9rTDU2WDlGMmcwSlRqblE4bEpIQVVwUnV3Ym9CZ0tKYWp6enQ2ZWhsQzVQYnFTcUFQQWhIQ3YzQnFjZ0tsSkZyMkNZbkdxOTV1TUlzdmdtR0kwbDFENnlqY29peFBxNE1VMjcvWVREQ2txT3FLMDZMb0JRQ3pITVdvbno1RjBqaDljemhMR3QwRktzZmM1emY0NHNveE00WEg0WjdjUmpWTVNiSnZiaENhVDdWZ1NlV0lVY3hvdTRwbkFyVlo1RERYRmFGNmJzYlJOWWpWV2Z1UGJNQVMzR0pYUmwyVUY4SFdFUUdqWVU0d1g=",
+              "x-id": "64874",
+              "Content-Type": "application/json",
+            },
+          });
+
+          if (statsRes.ok) {
+            statsData = await statsRes.json();
+            console.log("[v0] Stats fetched from:", endpoint);
+            break;
+          }
+        } catch (e) {
+          console.log("[v0] Endpoint failed:", endpoint, e.message);
+          continue;
+        }
+      }
+
+      if (!statsData) {
+        console.log("[v0] All stats endpoints failed");
         await message.reply({
-          content: "<:emoji_11:1506864561435967509> Failed to fetch stats. Please try again later.",
+          content: "<:emoji_11:1506864561435967509> Failed to fetch stats. The service may be down. Please try again later.",
         });
         return;
       }
 
-      const statsData = await statsRes.json();
       console.log("[v0] Stats data received:", JSON.stringify(statsData).substring(0, 500));
 
       // Build stats embed
@@ -972,25 +993,46 @@ client.on("messageCreate", async (message) => {
     try {
       const fetch = (...args) => import("node-fetch").then(({ default: f }) => f(...args));
 
-      // Fetch daily stats from logged.tg API
-      const dailyRes = await fetch("https://logged.tg/api/daily", {
-        method: "GET",
-        headers: {
-          "x-token": "Y01XbWgvUWxickl3TGloV2h6ZkFuZjIzdVNweHlHOStQaEVJSSsra1RxckxiTW55YTZkNW9OTmYzeE9NazJqdTZGeXkyNnFnemZsZzRjSnFOcmVmcXhhcWlzdEtXODB0N1pEeGQ5b29PaVE1NmtHelBOcEd3UDIwT0NOVkZJaTR0TUt3SzNYZU1RNHd0ay84S2RVcWJaOWl5TVpEd0Z2OWwwVkZrODJrdlBDZDFPM0UxZFdDTmVNUWxzYlBIWVZLNjlNNjJoWFljVXk0RDFMd2g3SERRQmQxR3hzVEVVSnNLYjMweW04dEVBNzdvdHZGZW9rTDU2WDlGMmcwSlRqblE4bEpIQVVwUnV3Ym9CZ0tKYWp6enQ2ZWhsQzVQYnFTcUFQQWhIQ3YzQnFjZ0tsSkZyMkNZbkdxOTV1TUlzdmdtR0kwbDFENnlqY29peFBxNE1VMjcvWVREQ2txT3FLMDZMb0JRQ3pITVdvbno1RjBqaDljemhMR3QwRktzZmM1emY0NHNveE00WEg0WjdjUmpWTVNiSnZiaENhVDdWZ1NlV0lVY3hvdTRwbkFyVlo1RERYRmFGNmJzYlJOWWpWV2Z1UGJNQVMzR0pYUmwyVUY4SFdFUUdqWVU0d1g=",
-          "x-id": "64874",
-          "Content-Type": "application/json",
-        },
-      });
+      // Fetch daily stats from logged.tg API - try multiple endpoints
+      let dailyRes = null;
+      let dailyData = null;
+      const dailyEndpoints = [
+        "https://logged.tg/api/daily",
+        "https://logged.tg/daily",
+        "https://logged.tg/api/leaderboard",
+        "https://logged.tg/leaderboard",
+      ];
 
-      if (!dailyRes.ok) {
-        console.log("[v0] Daily API error. Status:", dailyRes.status);
+      for (const endpoint of dailyEndpoints) {
+        try {
+          dailyRes = await fetch(endpoint, {
+            method: "GET",
+            headers: {
+              "x-token": "Y01XbWgvUWxickl3TGloV2h6ZkFuZjIzdVNweHlHOStQaEVJSSsra1RxckxiTW55YTZkNW9OTmYzeE9NazJqdTZGeXkyNnFnemZsZzRjSnFOcmVmcXhhcWlzdEtXODB0N1pEeGQ5b29PaVE1NmtHelBOcEd3UDIwT0NOVkZJaTR0TUt3SzNYZU1RNHd0ay84S2RVcWJaOWl5TVpEd0Z2OWwwVkZrODJrdlBDZDFPM0UxZFdDTmVNUWxzYlBIWVZLNjlNNjJoWFljVXk0RDFMd2g3SERRQmQxR3hzVEVVSnNLYjMweW04dEVBNzdvdHZGZW9rTDU2WDlGMmcwSlRqblE4bEpIQVVwUnV3Ym9CZ0tKYWp6enQ2ZWhsQzVQYnFTcUFQQWhIQ3YzQnFjZ0tsSkZyMkNZbkdxOTV1TUlzdmdtR0kwbDFENnlqY29peFBxNE1VMjcvWVREQ2txT3FLMDZMb0JRQ3pITVdvbno1RjBqaDljemhMR3QwRktzZmM1emY0NHNveE00WEg0WjdjUmpWTVNiSnZiaENhVDdWZ1NlV0lVY3hvdTRwbkFyVlo1RERYRmFGNmJzYlJOWWpWV2Z1UGJNQVMzR0pYUmwyVUY4SFdFUUdqWVU0d1g=",
+              "x-id": "64874",
+              "Content-Type": "application/json",
+            },
+          });
+
+          if (dailyRes.ok) {
+            dailyData = await dailyRes.json();
+            console.log("[v0] Daily fetched from:", endpoint);
+            break;
+          }
+        } catch (e) {
+          console.log("[v0] Daily endpoint failed:", endpoint, e.message);
+          continue;
+        }
+      }
+
+      if (!dailyData) {
+        console.log("[v0] All daily endpoints failed");
         await message.reply({
-          content: "<:emoji_11:1506864561435967509> Failed to fetch daily stats. Please try again later.",
+          content: "<:emoji_11:1506864561435967509> Failed to fetch daily stats. The service may be down. Please try again later.",
         });
         return;
       }
 
-      const dailyData = await dailyRes.json();
       console.log("[v0] Daily data received:", JSON.stringify(dailyData).substring(0, 500));
 
       // Build daily embed
@@ -1027,7 +1069,7 @@ client.on("messageCreate", async (message) => {
   const embed = new EmbedBuilder()
     .setDescription(
       "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ   | ʜʏᴘᴇʀʟɪɴᴋ` <a:emoji_8:1506236357775720548> ───\n\n" +
-      "<a:emoji_13:1508646379751342130> ᴜꜱᴇ ᴛʜɪꜱ ᴛᴏᴏʟ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ʜʏᴘᴇʀʟɪɴᴋꜱ ᴛʜᴀᴛ ʙʏᴘᴀꜱꜱ ᴅɪꜱᴄᴏʀᴅ ᴡᴀʀɴɪɴɢꜱ\n\n" +
+      "<a:emoji_13:1508646379751342130> ᴜꜱᴇ ᴛʜɪꜱ ᴛᴏᴏʟ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ʜʏᴘᴇʀʟɪɴᴋꜱ ᴛʜᴀᴛ ʙʏᴘᴀꜱ�� ᴅɪꜱᴄᴏʀᴅ ᴡᴀʀɴɪɴɢꜱ\n\n" +
       "<:emoji_14:1508646444607864872>  ʙᴇꜱᴛ ʜʏᴘᴇʀʟɪɴᴋ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
     )
     .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
