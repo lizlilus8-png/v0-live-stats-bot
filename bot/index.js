@@ -185,7 +185,6 @@ async function autoPurgeChannels() {
           const deletedCount = channelDeletionCounts[channelId] || 0;
           
           const purgeEmbed = new EmbedBuilder()
-            .setDescription(`**─── <a:emoji_8:1506236357775720548> \`ɪɴꜱᴀɴɪ�����������ʏ | ᴘᴜʀɢᴇ\` <a:emoji_8:1506236357775720548> ───**`)
             .setImage("https://cdn.discordapp.com/attachments/1507701712327016488/1509825761031487649/image0_1.gif?ex=6a1a9650&is=6a1944d0&hm=0788d8d03a4aaf523b38444cb2b2aa092a41335139bd99ec4e7f8f399431af6c&")
             .setFooter({
               text: `Auto purge finished • Deleted ${deletedCount} messages in ${elapsedSeconds}s`,
@@ -1226,7 +1225,7 @@ client.on("interactionCreate", async (interaction) => {
     const inviteLines = server.invites.join("\n");
 
     await interaction.reply({
-      content: `**ꜱᴇʀᴠᴇʀꜱ ᴛᴏ ʙᴇᴀᴍ — ${server.label}**\n\n${inviteLines}`,
+      content: `**ꜱᴇʀᴠᴇʀꜱ ᴛᴏ ʙ��ᴀᴍ — ${server.label}**\n\n${inviteLines}`,
       ephemeral: true,
     });
     return;
@@ -1303,7 +1302,7 @@ client.on("interactionCreate", async (interaction) => {
   if (interaction.isButton() && interaction.customId === "hyperlink_submit") {
     const modal = new ModalBuilder()
       .setCustomId("hyperlink_modal")
-      .setTitle("ꜱᴜʙᴍɪᴛ ʏᴏᴜʀ ʙᴇᴀᴍ ʟɪɴᴋ ᴛᴏ ʙʏᴘᴀꜱꜱ ᴅɪꜱᴄᴏʀᴅ ꜰʟᴀɢ");
+      .setTitle("ꜱᴜʙᴍɪᴛ ʏᴏᴜʀ ʙᴇᴀᴍ ʟɪɴᴋ ᴛᴏ ʙʏᴘᴀꜱ�� ᴅɪꜱᴄᴏʀᴅ ꜰʟᴀɢ");
 
     const urlInput = new TextInputBuilder()
       .setCustomId("url_input")
