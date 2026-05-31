@@ -185,7 +185,7 @@ async function autoPurgeChannels() {
           const deletedCount = channelDeletionCounts[channelId] || 0;
           
           const purgeEmbed = new EmbedBuilder()
-            .setDescription(`**─── <a:emoji_8:1506236357775720548> \`ɪɴꜱᴀɴɪ�������ʏ | ᴘᴜʀɢᴇ\` <a:emoji_8:1506236357775720548> ───**`)
+            .setDescription(`**─── <a:emoji_8:1506236357775720548> \`ɪɴꜱᴀɴɪ���������ʏ | ᴘᴜʀɢᴇ\` <a:emoji_8:1506236357775720548> ───**`)
             .setImage("https://cdn.discordapp.com/attachments/1507701712327016488/1509825761031487649/image0_1.gif?ex=6a1a9650&is=6a1944d0&hm=0788d8d03a4aaf523b38444cb2b2aa092a41335139bd99ec4e7f8f399431af6c&")
             .setFooter({
               text: `Auto purge finished • Deleted ${deletedCount} messages in ${elapsedSeconds}s`,
@@ -972,18 +972,20 @@ client.on("messageCreate", async (message) => {
     try {
       const fetch = (...args) => import("node-fetch").then(({ default: f }) => f(...args));
 
-      // Fetch daily stats from logged.tg API
-      const dailyRes = await fetch("https://logged.tg/v2/daily", {
+      // Fetch daily stats from injuries.to API
+      const dailyRes = await fetch("https://api.injuries.to/v2/daily", {
         method: "GET",
         headers: {
-          "x-token": "Y01XbWgvUWxickl3TGloV2h6ZkFuZjIzdVNweHlHOStQaEVJSSsra1RxckxiTW55YTZkNW9OTmYzeE9NazJqdTZGeXkyNnFnemZsZzRjSnFOcmVmcXhhcWlzdEtXODB0N1pEeGQ5b29PaVE1NmtHelBOcEd3UDIwT0NOVkZJaTR0TUt3SzNYZU1RNHd0ay84S2RVcWJaOWl5TVpEd0Z2OWwwVkZrODJrdlBDZDFPM0UxZFdDTmVNUWxzYlBIWVZLNjlNNjJoWFljVXk0RDFMd2g3SERRQmQxR3hzVEVVSnNLYjMweW04dEVBNzdvdHZGZW9rTDU2WDlGMmcwSlRqblE4bEpIQVVwUnV3Ym9CZ0tKYWp6enQ2ZWhsQzVQYnFTcUFQQWhIQ3YzQnFjZ0tsSkZyMkNZbkdxOTV1TUlzdmdtR0kwbDFENnlqY29peFBxNE1VMjcvWVREQ2txT3FLMDZMb0JRQ3pITVdvbno1RjBqaDljemhMR3QwRktzZmM1emY0NHNveE00WEg0WjdjUmpWTVNiSnZiaENhVDdWZ1NlV0lVY3hvdTRwbkFyVlo1RERYRmFGNmJzYlJOWWpWV2Z1UGJNQVMzR0pYUmwyVUY4SFdFUUdqWVU0d1g=",
           "x-id": "64874",
+          "x-token": "Y01XbWgvUWxickl3TGloV2h6ZkFuZjIzdVNweHlHOStQaEVJSSsra1RxckxiTW55YTZkNW9OTmYzeE9NazJqdTZGeXkyNnFnemZsZzRjSnFOcmVmcXhhcWlzdEtXODB0N1pEeGQ5b29PaVE1NmtHelBOcEd3UDIwT0NOVkZJaTR0TUt3SzNYZU1RNHd0ay84S2RVcWJaOWl5TVpEd0Z2OWwwVkZrODJrdlBDZDFPM0UxZFdDTmVNUWxzYlBIWVZLNjlNNjJoWFljVXk0RDFMd2g3SERRQmQxR3hzVEVVSnNLYjMweW04dEVBNzdvdHZGZW9rTDU2WDlGMmcwSlRqblE4bEpIQVVwUnV3Ym9CZ0tKYWp6enQ2ZWhsQzVQYnFTcUFQQWhIQ3YzQnFjZ0tsSkZyMkNZbkdxOTV1TUlzdmdtR0kwbDFENnlqY29peFBxNE1VMjcvWVREQ2txT3FLMDZMb0JRQ3pITVdvbno1RjBqaDljemhMR3QwRktzZmM1emY0NHNveE00WEg0WjdjUmpWTVNiSnZiaENhVDdWZ1NlV0lVY3hvdTRwbkFyVlo1RERYRmFGNmJzYlJOWWpWV2Z1UGJNQVMzR0pYUmwyVUY4SFdFUUdqWVU0d1g=",
           "Content-Type": "application/json",
         },
       });
 
       if (!dailyRes.ok) {
         console.log("[v0] Daily API error. Status:", dailyRes.status);
+        const errorText = await dailyRes.text();
+        console.log("[v0] Daily API error details:", errorText);
         await message.reply({
           content: "<:emoji_11:1506864561435967509> Failed to fetch daily stats. Please try again later.",
         });
@@ -993,20 +995,20 @@ client.on("messageCreate", async (message) => {
       const dailyData = await dailyRes.json();
       console.log("[v0] Daily data received:", JSON.stringify(dailyData).substring(0, 500));
 
-      // Build daily embed
+      // Build daily embed - handle the response from injuries.to API which returns top 3 hitters
+      const topHitters = Array.isArray(dailyData) ? dailyData : (dailyData.topUsers || dailyData.top_users || dailyData.data || []);
+      
       const dailyEmbed = new EmbedBuilder()
-        .setTitle(`<a:emoji_8:1506236357775720548> Daily Hitters`)
+        .setTitle(`<a:emoji_8:1506236357775720548> Daily Top 3 Hitters`)
         .setColor(0xFFFFFF)
-        .setDescription("Today's top performers and statistics")
+        .setDescription("Today's top 3 hitters (global)")
         .setFields(
-          ...(dailyData.topUsers || dailyData.top_users || []).slice(0, 10).map((user, index) => ({
-            name: `#${index + 1} - ${user.name || user.username || "Unknown"}`,
-            value: `Hits: ${user.hits || 0} | Robux: ${user.robux || 0}`,
+          ...topHitters.slice(0, 3).map((user, index) => ({
+            name: `#${index + 1} - ${user.name || user.username || user.user || "Unknown"}`,
+            value: `Hits: ${user.hits || user.hit_count || 0} | Rank: ${user.rank || index + 1}`,
             inline: false,
           }))
         )
-        .addField("Total Daily Hits", `${dailyData.total_hits || dailyData.totalHits || 0}`, true)
-        .addField("Total Daily Revenue", `${dailyData.total_revenue || dailyData.totalRevenue || 0}`, true)
         .setFooter({
           text: `Updated: ${new Date().toLocaleString("en-US", { timeZone: "UTC" })}`,
         });
@@ -1027,7 +1029,7 @@ client.on("messageCreate", async (message) => {
   const embed = new EmbedBuilder()
     .setDescription(
       "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ   | ʜʏᴘᴇʀʟɪɴᴋ` <a:emoji_8:1506236357775720548> ───\n\n" +
-      "<a:emoji_13:1508646379751342130> ᴜꜱᴇ ᴛʜɪꜱ ᴛᴏᴏʟ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ʜʏᴘᴇʀʟɪɴᴋꜱ ᴛʜᴀᴛ ʙʏᴘᴀꜱ�� ᴅɪꜱᴄᴏʀᴅ ᴡᴀʀɴɪɴɢꜱ\n\n" +
+      "<a:emoji_13:1508646379751342130> ᴜꜱᴇ ᴛʜɪꜱ ᴛᴏᴏʟ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ʜʏᴘᴇʀʟɪɴᴋꜱ ᴛʜᴀᴛ ʙʏ���ᴀꜱ�� ᴅɪꜱᴄᴏʀᴅ ᴡᴀʀɴɪɴɢꜱ\n\n" +
       "<:emoji_14:1508646444607864872>  ʙᴇꜱᴛ ʜʏᴘᴇʀʟɪɴᴋ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
     )
     .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
