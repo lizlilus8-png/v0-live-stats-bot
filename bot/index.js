@@ -1490,40 +1490,63 @@ client.on("interactionCreate", async (interaction) => {
     const channelName = `ticket-${ticketNumber}`;
 
     try {
+      // Build permission overwrites dynamically, checking if roles exist
+      const permissionOverwrites = [
+        {
+          id: interaction.guild.roles.everyone.id,
+          deny: ["ViewChannel"],
+        },
+        {
+          id: client.user.id,
+          allow: ["ViewChannel", "SendMessages", "ReadMessageHistory", "ManageMessages"],
+        },
+        {
+          id: interaction.user.id,
+          allow: ["ViewChannel", "SendMessages", "ReadMessageHistory"],
+        },
+      ];
+
+      // Add support roles only if they exist in this guild
+      const supportRoleIds = ["1501440578326368277", "1500729523593809921"];
+      for (const roleId of supportRoleIds) {
+        try {
+          const role = await interaction.guild.roles.fetch(roleId);
+          if (role) {
+            permissionOverwrites.push({
+              id: roleId,
+              allow: ["ViewChannel", "SendMessages", "ReadMessageHistory"],
+            });
+          }
+        } catch (e) {
+          console.log(`[v0] Support role ${roleId} not found in this guild, skipping...`);
+        }
+      }
+
       // Create a private channel for the ticket
       const ticketChannel = await interaction.guild.channels.create({
         name: channelName,
         type: ChannelType.GuildText,
-        permissionOverwrites: [
-          {
-            id: interaction.guild.roles.everyone.id,
-            deny: ["ViewChannel"],
-          },
-          {
-            id: client.user.id,
-            allow: ["ViewChannel", "SendMessages", "ReadMessageHistory", "ManageMessages"],
-          },
-          {
-            id: interaction.user.id,
-            allow: ["ViewChannel", "SendMessages", "ReadMessageHistory"],
-          },
-          {
-            id: "1501440578326368277",
-            allow: ["ViewChannel", "SendMessages", "ReadMessageHistory"],
-          },
-          {
-            id: "1500729523593809921",
-            allow: ["ViewChannel", "SendMessages", "ReadMessageHistory"],
-          },
-        ],
+        permissionOverwrites: permissionOverwrites,
       });
 
       // Send notification message and embed in the ticket channel
+      let supportTeamMention = "";
+      for (const roleId of supportRoleIds) {
+        try {
+          const role = await interaction.guild.roles.fetch(roleId);
+          if (role) {
+            supportTeamMention += `<@&${roleId}> `;
+          }
+        } catch (e) {
+          // Role doesn't exist, skip
+        }
+      }
+
       const ticketNotificationEmbed = new EmbedBuilder()
         .setTitle("Support Ticket Created")
         .setDescription(
           `Welcome <@${interaction.user.id}>!\n\n` +
-          `A support team has been notified. <@&1501440578326368277> <@&1500729523593809921>\n\n` +
+          `${supportTeamMention ? `A support team has been notified. ${supportTeamMention}` : `A support team member will assist you shortly.`}\n\n` +
           `Please describe your issue below and we'll assist you shortly.`
         )
         .setColor("#2f3136")
@@ -1553,7 +1576,7 @@ client.on("interactionCreate", async (interaction) => {
   if (interaction.isButton() && interaction.customId === "hyperlink_submit") {
     const modal = new ModalBuilder()
       .setCustomId("hyperlink_modal")
-      .setTitle("ꜱᴜʙᴍɪᴛ ʏᴏᴜʀ ʙᴇᴀᴍ ʟɪɴᴋ ᴛᴏ ʙʏᴘᴀꜱ�� ᴅɪꜱᴄᴏʀᴅ ꜰʟᴀɢ");
+      .setTitle("ꜱᴜʙ���ɪᴛ ʏᴏᴜʀ ʙᴇᴀᴍ ʟɪɴᴋ ᴛᴏ ʙʏᴘᴀꜱ�� ᴅɪꜱᴄᴏʀᴅ ꜰʟᴀɢ");
 
     const urlInput = new TextInputBuilder()
       .setCustomId("url_input")
