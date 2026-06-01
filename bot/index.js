@@ -207,10 +207,10 @@ client.once("ready", async () => {
   console.log(`[bot] Online as ${client.user.tag}`);
   client.user.setActivity("!hyperlink", { type: ActivityType.Listening });
 
-  // Run auto-purge every 7 hours (25200000 milliseconds)
-  setInterval(autoPurgeChannels, 54000000);
+  // Run auto-purge every 10 hours (36000000 milliseconds)
+  setInterval(autoPurgeChannels, 36000000);
   // Run immediately on startup
-  console.log("[v0] Auto-purge scheduled every 15 hours");
+  console.log("[v0] Auto-purge scheduled every 10 hours");
   autoPurgeChannels();
 
   // Register /announce slash command globally
@@ -1197,24 +1197,31 @@ client.on("messageCreate", async (message) => {
         return;
       }
 
-      // Get the member to ban
-      const member = await message.guild.members.fetch(userId).catch(() => null);
+      // Get user info to display in response
+      const targetUser = await client.users.fetch(userId).catch(() => null);
       
-      if (!member) {
+      if (!targetUser) {
         await message.reply({
-          content: "<:emoji_11:1506864561435967509> User not found in this server.",
+          content: "<:emoji_11:1506864561435967509> User not found.",
         });
         return;
       }
 
-      // Ban the member
-      await message.guild.members.ban(userId, { reason: banReason });
+      // Ban the user
+      try {
+        await message.guild.bans.create(userId, { reason: banReason });
+      } catch (err) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Failed to ban user. Make sure they're in the server and I have ban permissions.",
+        });
+        throw err;
+      }
 
       await message.reply({
-        content: `<a:emoji_13:1508646379751342130> Successfully banned ${member.user.username}. Reason: ${banReason}`,
+        content: `<a:emoji_13:1508646379751342130> Successfully banned ${targetUser.username}. Reason: ${banReason}`,
       });
 
-      console.log(`[v0] User ${member.user.username} (${userId}) banned by ${message.author.username}. Reason: ${banReason}`);
+      console.log(`[v0] User ${targetUser.username} (${userId}) banned by ${message.author.username}. Reason: ${banReason}`);
     } catch (err) {
       console.error("[bot] ban error:", err.message);
       await message.reply({
@@ -1250,15 +1257,36 @@ client.on("messageCreate", async (message) => {
       }
 
       // Fetch and delete messages
-      const messages = await message.channel.messages.fetch({ limit: amount });
-      
-      // Delete in bulk (Discord allows up to 100 at a time)
+      let allMessages = [];
+      let lastId = undefined;
+      let fetchedCount = 0;
+
+      // Fetch all messages up to the amount specified
+      while (fetchedCount < amount) {
+        const fetchOptions = { limit: 100 };
+        if (lastId) fetchOptions.before = lastId;
+
+        const messages = await message.channel.messages.fetch(fetchOptions);
+        if (messages.size === 0) break;
+
+        allMessages = allMessages.concat(Array.from(messages.values()));
+        lastId = messages.last().id;
+        fetchedCount += messages.size;
+      }
+
+      // Slice to the exact amount requested
+      allMessages = allMessages.slice(0, amount);
+
+      // Delete in bulk (Discord allows up to 100 at a time, and bulkDelete is much faster)
       let deletedCount = 0;
-      for (let i = 0; i < messages.size; i += 100) {
-        const batch = Array.from(messages.values()).slice(i, i + 100);
-        const deletePromises = batch.map(msg => msg.delete().catch(() => null));
-        const results = await Promise.all(deletePromises);
-        deletedCount += results.filter(r => r !== null).length;
+      for (let i = 0; i < allMessages.length; i += 100) {
+        const batch = allMessages.slice(i, i + 100);
+        try {
+          const deleted = await message.channel.bulkDelete(batch, true);
+          deletedCount += deleted.size;
+        } catch (err) {
+          console.log(`[v0] Error bulk deleting batch:`, err.message);
+        }
       }
 
       const confirmMessage = await message.reply({
