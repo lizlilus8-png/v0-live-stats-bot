@@ -207,23 +207,16 @@ client.once("ready", async () => {
   console.log(`[bot] Online as ${client.user.tag}`);
   client.user.setActivity("!hyperlink", { type: ActivityType.Listening });
 
-  // Run auto-purge every 10 hours (36000000 milliseconds)
-  // Schedule it to run 10 hours from now, then every 10 hours after that
-  const tenHoursInMs = 36000000;
+  // Run auto-purge immediately on startup, then every 10 hours (36000000 milliseconds)
+  console.log("[v0] Running auto-purge on startup...");
+  autoPurgeChannels();
   
-  // Set first run to happen in 10 hours from now
-  setTimeout(() => {
+  setInterval(() => {
     console.log("[v0] Running scheduled auto-purge...");
     autoPurgeChannels();
-    
-    // Then run every 10 hours after the first run
-    setInterval(() => {
-      console.log("[v0] Running scheduled auto-purge...");
-      autoPurgeChannels();
-    }, tenHoursInMs);
-  }, tenHoursInMs);
+  }, 36000000);
   
-  console.log("[v0] Auto-purge scheduled to run in 10 hours, then every 10 hours after that");
+  console.log("[v0] Auto-purge scheduled to run every 10 hours");
 
   // Register /announce slash command globally
   const announceCommand = new SlashCommandBuilder()
