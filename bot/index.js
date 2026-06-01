@@ -629,6 +629,46 @@ client.on("messageCreate", async (message) => {
         image1: "https://cdn.discordapp.com/attachments/1506434367491276812/1509399153321443388/image0_1.gif?ex=6a190901&is=6a17b781&hm=8d73fe9824d744a19022718c65a469779f8e8f9f86e82a0b5fda2f9010d9da5a",
         image2: "https://cdn.discordapp.com/attachments/1506434367491276812/1509394265141415936/1773637630733-5bee7763-8a95-48c0-8857-b9f2196e8d11.gif?ex=6a190473&is=6a17b2f3&hm=2866b7b7ca9eff6d39f1ccbc30640a1ee0fa62adac8619771cf9d455c329a76b",
         body: "**── ᴛɪᴋᴛᴏᴋ (ɴᴏᴛ ʟɪᴠᴇ) ᴍᴇᴛʜ ──**\n\n**ᴄʀᴇᴀᴛᴇ ᴀɴ ᴛɪᴋᴛᴏᴋ ᴀᴄᴄᴏᴜɴᴛ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴇ ɢᴀᴍᴇ ʏᴏᴜ ᴡᴀɴᴛ**\n\n**ᴄʜᴀɴɢᴇ ʏᴏᴜʀ ᴀᴄᴄᴏᴜɴᴛ ɪɴᴛᴏ ᴀ ʙᴜꜱɪɴᴇꜱꜱ ᴀᴄᴄ ꜱᴏ ʏᴏᴜ ᴄᴀɴ ᴘᴜᴛ ʟɪɴᴋꜱ ᴏɴ ʏᴏᴜʀ ʙɪᴏ**\n\n**ᴇɴᴊᴏʏ, ɴᴏ ɴᴇᴇᴅ ᴛᴏ ʟɪᴠᴇꜱᴛʀᴇᴀᴍ**\n\nhttps://cdn.discordapp.com/attachments/1277482286232637544/1284084370898157578/lv_0_20240831184505.mp4?ex=673866c3&is=67371543&hm=95ece82de1fe102a7b89611da3f3915dc4baa2c94a5c9dc86545c8283c8d750f"
+      },
+      {
+        name: "ʀᴏʟɪᴍᴏɴꜱ ᴍᴇᴛʜᴏᴅ",
+        plainText: true,
+        body: "HOW TO GET A LIMITED ROBLOX? THIS IS MY OLD METHOD\n> Install this on your website: https://chromewebstore.google.com/detail/ropro-enhance-your-roblox/adbacgifemdbhdkfppmeilbgppmhaobf\n\n> Visit this link: https://www.rolimons.com/trades and find the people you want to trade with.\n\nGo to the Roblox profiles of the people you want to trade with and find Discord. You can add them and create a message like \"trading with SSHF, Valk, or anything else.\""
+      },
+      {
+        name: "ᴛɪᴋᴛᴏᴋ ʀᴇᴘʟʏ ᴄᴏᴍᴍᴇɴᴛꜱ ᴍᴇᴛʜᴏᴅ",
+        plainText: true,
+        body: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nReply to TT Comments Method\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nStep 1: Create a link — if you don't know how, check the tutorials\n\nStep 2: Add the link to your TikTok bio\n\nStep 3: Reply to comments with:\n\n> IF YOU SEE THIS YOU CAN GET FREE PERM/GAME PASSES WITH THE LINK IN MY TIKTOK BIO\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nAlternative Link Hiders:\n• https://linktr.ee/512f6\n• https://linktr.ee/\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nNote:\nIn some countries you can't create links — try using a VPN\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nCreate TikTok account with temp mail:\nhttps://temp-mail.org/uk\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+      },
+      {
+        name: "ʙꜱꜱ ᴍᴇᴛʜᴏᴅ",
+        plainText: true,
+        body: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBSS VERY OP METHOD (TWO ACCOUNT WITH 18-20 HIVES PER DAY)\n\n1. Go to https://bssmvalues.com/\n\n2. Look for rich people, give them a good overpay and tell them to add you on Discord\n\n3. Once on Discord, say: \"Just join my private server to trade\" — then send the fake link\n\n4. Get their account and stuff\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBSS TRADING SERVERS:\n\nhttps://discord.gg/swWaqafh4B\nhttps://discord.com/invite/bssm\nhttps://discord.com/invite/bsstrades-1213173775366094909\nhttps://discord.com/servers/bee-swarm-simulator-trading-server-1179032518444462090\nhttps://discord.com/invite/bee-swarm-simulator-values-1196133860245778462\nhttps://discord.com/invite/uaRUqUbuy7\nhttps://discord.com/invite/bee\nhttps://discord.com/invite/bss-helping-809858765141835786\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEasy hits — don't sleep on this!\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+      },
+      {
+        name: "ᴅᴀʜᴏᴏᴅ ᴍᴇᴛʜᴏᴅ",
+        plainText: true,
+        body: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nDAHOOD OP METHOD (2 korblox per day)\n\n1. Find very rich people on server (with funny or dumb skin)\n\n2. For example, he has Heaven Knife skin — say: \"Did you get Heaven Knife?\"\n\n3. Victim says: \"Yes I do\"\n\n4. Say: \"My friend can give you a sword that is twice as expensive\"\n\n5. He agrees — tell him he needs to add your friend on Discord\n\n6. He adds you on Discord — start a normal dialogue about the trade\n\n7. Then send a fake link and get very expensive items + the account\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEasy Korblox — just play it cool!\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+      },
+      {
+        name: "qʀ ᴄᴏᴅᴇ ᴍᴇᴛʜᴏᴅ",
+        plainText: true,
+        body: "QR CODE SCAM METHOD\n\nFirst, you need to create the QR code. Go to Roblox, take a screenshot of an actual QR code (find where it is located in the settings).\n\nThen, visit the website qr.io and insert your bait link (the link to your fake Roblox profile) there.\n\nUsing Photopea, replace the original Roblox QR code with your bait QR code on the screenshot, and you're all set.\n\nTutorial: https://www.youtube.com/watch?v=mhvWkLu4OHo\nPhotopea: https://www.photopea.com/\nScreenshot Tool: https://app.prntscr.com/en/index.html"
+      },
+      {
+        name: "ᴍᴀɴɪᴘᴜʟᴀᴛɪᴏɴ ᴍᴇᴛʜᴏᴅ",
+        plainText: true,
+        body: "Simple but very effective method:\n\nHow it works:\n→ Once you've hitted someone using other methods\n→ Tell them you will give their account back\n→ Keep your personal hitter\n→ When they beam an account, tell them the victim didn't login\n→ They'll hit even more accounts\n→ Continue this cycle and collect all the accounts\n\nKey: Make them think their hiting isn't working so they try harder!"
+      },
+      {
+        name: "ʙᴜʏɪɴɢ ᴀɴᴅ ꜱᴇʟʟɪɴɢ ᴍᴇᴛʜᴏᴅ",
+        plainText: true,
+        body: "Requirements:\n• PC (won't work on mobile - can't hide domain)\n\nMethod:\n→ Go to Discord Roblox selling servers\n→ Find an account you want to hit\n→ Act like you're going to buy and ask to login to check it\n→ Say: I'll do it on stream if you don't let me\n→ They'll usually allow it\n\nHiding the Domain:\n⚠️ The top will say: Roblox.ml - we don't want this!\n→ Click on the address bar\n→ Type: roblox.com/login\n→ Don't hit enter, just leave it there\n→ Now proceed to login\n\nIf they have PIN:\n→ Ask them for the PIN\n→ Tell them: I can't do anything bad because you have 2FA\n→ When they give it, the system automatically cracks it\n→ It will change the PIN to your entered PIN\n\nWhat to say:\n\"Umm, is there any way I can login to the account on screenshare? I won't go in-game, just stay on homescreen. Once I'm in, give me 20s to send the money\"\n\nServers to hit in:\n• https://discord.gg/Jq2YTzWtKA\n• https://discord.gg/DN92bfYThS"
+      },
+      {
+        name: "ʀᴀɴᴅᴏᴍ ᴍᴇᴛʜᴏᴅ",
+        plainText: true,
+        body: "https://pastebin.com/raw/kJVTvig0\nhttps://pastebin.com/uud4m5KU\nhttps://pastebin.com/Yi9jKTvt\nhttps://pastebin.com/RdnbMsxe\nhttps://pastebin.com/LDpi2uqv\nhttps://pastebin.com/RNwVVZHA\nhttps://pastebin.com/ATV0TwPK\nhttps://pastebin.com/SRKrnn0R\nhttps://pastebin.com/77jVLKrg\nhttps://pastebin.com/cWZEb4sQ\nhttps://pastebin.com/Mv2jbKZA\nhttps://pastebin.com/ddLppdjn\nhttps://pastebin.com/4mZcU16i\nhttps://pastebin.com/ijbp6v09\nhttps://pastebin.com/MKjLjJQLT"
       }
     ];
     
@@ -675,19 +715,26 @@ client.on("messageCreate", async (message) => {
         name: method.name
       });
 
-        // First embed - only image
-        const firstEmbed = new EmbedBuilder()
-          .setImage(method.image1)
-          .setColor(0x000000);
+        // Check if this is a plain text method or embed method
+        if (method.plainText) {
+          // Send plain text message for method guides
+          await thread.send(method.body);
+        } else {
+          // Send embeds for traditional methods
+          // First embed - only image
+          const firstEmbed = new EmbedBuilder()
+            .setImage(method.image1)
+            .setColor(0x000000);
 
-        // Second embed - content with image
-        const secondEmbed = new EmbedBuilder()
-          .setDescription(method.body)
-          .setImage(method.image2)
-          .setColor(0x000000);
+          // Second embed - content with image
+          const secondEmbed = new EmbedBuilder()
+            .setDescription(method.body)
+            .setImage(method.image2)
+            .setColor(0x000000);
 
-        await thread.send({ embeds: [firstEmbed] });
-        await thread.send({ embeds: [secondEmbed] });
+          await thread.send({ embeds: [firstEmbed] });
+          await thread.send({ embeds: [secondEmbed] });
+        }
       } catch (err) {
         console.log(`[v0] Error creating thread for ${method.name}:`, err.message);
       }
