@@ -207,11 +207,9 @@ client.once("ready", async () => {
   console.log(`[bot] Online as ${client.user.tag}`);
   client.user.setActivity("!hyperlink", { type: ActivityType.Listening });
 
-  // Run auto-purge immediately on startup, then every 10 hours (36000000 milliseconds)
-  console.log("[v0] Running auto-purge on startup...");
-  autoPurgeChannels();
-  
-  setInterval(() => {
+  // Run auto-purge every 10 hours (36000000 milliseconds)
+  // DO NOT run on startup - only schedule the interval
+  let autoPurgeInterval = setInterval(() => {
     console.log("[v0] Running scheduled auto-purge...");
     autoPurgeChannels();
   }, 36000000);
