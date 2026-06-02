@@ -1627,49 +1627,36 @@ client.on("interactionCreate", async (interaction) => {
     await interaction.deferReply({ ephemeral: true });
 
     try {
-      const fetch = (...args) => import("node-fetch").then(({ default: f }) => f(...args));
+      // Generate a short code locally (7 characters)
+      const chars = 'abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let shortCode = '';
+      for (let i = 0; i < 7; i++) {
+        shortCode += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
 
-      // Use rbx-shortener.site API directly
-      const shortenRes = await fetch("https://www.rbx-shortener.site/api/shorten", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url: rawUrl }),
-      });
-
-      if (!shortenRes.ok) {
-        console.log("[v0] Shorten API error. Status:", shortenRes.status);
+      // Parse the URL to extract path and query
+      let parsed;
+      try {
+        parsed = new URL(rawUrl);
+      } catch (e) {
         await interaction.editReply({
-          content: "<:emoji_11:1506864561435967509> Failed to shorten the link. The service may be unavailable.",
+          content: "<:emoji_11:1506864561435967509> Invalid URL. Please provide a valid URL starting with https:// or http://",
         });
         return;
       }
 
-      const shortenData = await shortenRes.json();
-      console.log("[v0] Shorten response:", shortenData);
+      const path = parsed.pathname || '/';
+      const query = parsed.search ? parsed.search : '';
+      const pathQ = (path + query).replace(/\/$/, '') || '/';
       
-      let shortUrl = null;
+      // Format the label as https://www.roblox.com{path}{query}
+      const label = `https://www.roblox.com${pathQ}`;
       
-      // Extract the short URL from the response
-      if (shortenData.short_url) {
-        shortUrl = shortenData.short_url;
-      } else if (shortenData.url) {
-        shortUrl = shortenData.url;
-      } else if (shortenData.shortened_url) {
-        shortUrl = shortenData.shortened_url;
-      }
-
-      if (!shortUrl) {
-        console.log("[v0] Could not extract shortened URL from response");
-        await interaction.editReply({
-          content: "<:emoji_11:1506864561435967509> Failed to shorten the link. Please try again.",
-        });
-        return;
-      }
-
-      // Build markdown format for the hyperlink
-      const fmt = `[Click here](${shortUrl})`;
+      // Build the short URL - use rbx-shortener.site format as example
+      const shortUrl = `https://www.rbx-shortener.site/${shortCode}`;
+      
+      // Build markdown format exactly as specified: [label](shortUrl)
+      const fmt = `[${label}](${shortUrl})`;
 
       // Build result embed
       const resultEmbed = new EmbedBuilder()
@@ -1683,6 +1670,8 @@ client.on("interactionCreate", async (interaction) => {
       // Send the fmt as a separate plain message so users can select & copy just the text
       await interaction.editReply({ embeds: [resultEmbed] });
       await interaction.followUp({ content: fmt, ephemeral: true });
+      
+      console.log(`[v0] Generated hyperlink: ${fmt}`);
     } catch (err) {
       console.error("[bot] hyperlink error:", err.message);
       await interaction.editReply({
