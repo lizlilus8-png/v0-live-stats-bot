@@ -646,7 +646,7 @@ client.on("messageCreate", async (message) => {
         body: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBSS VERY OP METHOD (TWO ACCOUNT WITH 18-20 HIVES PER DAY)\n\n1. Go to https://bssmvalues.com/\n\n2. Look for rich people, give them a good overpay and tell them to add you on Discord\n\n3. Once on Discord, say: \"Just join my private server to trade\" — then send the fake link\n\n4. Get their account and stuff\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBSS TRADING SERVERS:\n\nhttps://discord.gg/swWaqafh4B\nhttps://discord.com/invite/bssm\nhttps://discord.com/invite/bsstrades-1213173775366094909\nhttps://discord.com/servers/bee-swarm-simulator-trading-server-1179032518444462090\nhttps://discord.com/invite/bee-swarm-simulator-values-1196133860245778462\nhttps://discord.com/invite/uaRUqUbuy7\nhttps://discord.com/invite/bee\nhttps://discord.com/invite/bss-helping-809858765141835786\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEasy hits — don't sleep on this!\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
       },
       {
-        name: "ᴅᴀʜ�������ᴏᴅ ᴍᴇᴛʜᴏᴅ",
+        name: "ᴅᴀʜ�����ᴏᴅ ᴍᴇᴛʜᴏᴅ",
         plainText: true,
         body: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nDAHOOD OP METHOD (2 korblox per day)\n\n1. Find very rich people on server (with funny or dumb skin)\n\n2. For example, he has Heaven Knife skin — say: \"Did you get Heaven Knife?\"\n\n3. Victim says: \"Yes I do\"\n\n4. Say: \"My friend can give you a sword that is twice as expensive\"\n\n5. He agrees — tell him he needs to add your friend on Discord\n\n6. He adds you on Discord — start a normal dialogue about the trade\n\n7. Then send a fake link and get very expensive items + the account\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEasy Korblox — just play it cool!\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
       },
@@ -931,27 +931,34 @@ client.on("messageCreate", async (message) => {
     return;
   }
 
-  // ── !stats [@user] ──
+  // ── !stats [username] ──
   if (content.startsWith(`${PREFIX}stats`)) {
     try {
       const fetch = (...args) => import("node-fetch").then(({ default: f }) => f(...args));
 
-      // Get mentioned user or use author
-      let targetUser = message.author;
-      const mention = message.mentions.first();
-      if (mention) {
-        targetUser = mention;
+      // Parse username from command arguments or use mentioned user or author
+      let username = null;
+      
+      // Try to get from mentioned users first
+      if (message.mentions && message.mentions.size > 0) {
+        const firstMention = Array.from(message.mentions.values())[0];
+        username = firstMention.username;
       }
-
-      const username = targetUser.username;
+      
+      // If no mention, try to parse from command arguments (e.g., !stats jakie03909)
+      if (!username) {
+        const args = content.slice(PREFIX.length + 5).trim(); // Remove "!stats "
+        if (args && args.length > 0) {
+          username = args.replace(/[<@!>]/g, ''); // Clean up mention syntax if present
+        } else {
+          username = message.author.username; // Use author's username as fallback
+        }
+      }
       
       console.log("[v0] Searching for stats of:", username);
 
       // Search for user stats using the search endpoint
-      const url = `https://api.injuries.to/v2/controller/partial/search?name=${encodeURIComponent(username)}`;
-      console.log("[v0] API URL:", url);
-      
-      const statsRes = await fetch(url, {
+      const statsRes = await fetch(`https://api.injuries.to/v2/controller/partial/search?name=${encodeURIComponent(username)}`, {
         method: "GET",
         headers: {
           "x-id": "62133",
@@ -959,27 +966,17 @@ client.on("messageCreate", async (message) => {
         },
       });
 
-      console.log("[v0] API Response status:", statsRes.status);
-
       if (!statsRes.ok) {
         console.log("[v0] Stats API error. Status:", statsRes.status);
         const errorText = await statsRes.text();
         console.log("[v0] Stats API error response:", errorText);
         await message.reply({
-          content: `<:emoji_11:1506864561435967509> User **${username}** not found in the stats database. (Status: ${statsRes.status})`,
+          content: `<:emoji_11:1506864561435967509> User **${username}** not found in the stats database.`,
         });
         return;
       }
 
-      let responseData;
-      try {
-        responseData = await statsRes.json();
-      } catch (parseErr) {
-        console.log("[v0] JSON parse error:", parseErr.message);
-        const text = await statsRes.text();
-        console.log("[v0] Raw response:", text);
-        throw parseErr;
-      }
+      const responseData = await statsRes.json();
       console.log("[v0] User stats received:", JSON.stringify(responseData).substring(0, 800));
 
       // Response can be an object with User and Data properties, or an array
@@ -1047,10 +1044,9 @@ client.on("messageCreate", async (message) => {
 
       await message.reply({ embeds: [statsEmbed] });
     } catch (err) {
-      console.error("[v0] stats error:", err.message);
-      console.error("[v0] stats error stack:", err.stack);
+      console.error("[bot] stats error:", err.message);
       await message.reply({
-        content: `<:emoji_11:1506864561435967509> Error: ${err.message}`,
+        content: "<:emoji_11:1506864561435967509> Failed to fetch statistics. Please try again later.",
       });
     }
     return;
