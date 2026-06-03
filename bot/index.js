@@ -931,19 +931,29 @@ client.on("messageCreate", async (message) => {
     return;
   }
 
-  // ── !stats [@user] ──
+  // ── !stats [username] ──
   if (content.startsWith(`${PREFIX}stats`)) {
     try {
       const fetch = (...args) => import("node-fetch").then(({ default: f }) => f(...args));
 
-      // Get mentioned user or use author
-      let targetUser = message.author;
-      const mention = message.mentions.first();
-      if (mention) {
-        targetUser = mention;
+      // Parse username from command arguments or use mentioned user or author
+      let username = null;
+      
+      // Try to get from mentioned users first
+      if (message.mentions && message.mentions.size > 0) {
+        const firstMention = Array.from(message.mentions.values())[0];
+        username = firstMention.username;
       }
-
-      const username = targetUser.username;
+      
+      // If no mention, try to parse from command arguments (e.g., !stats jakie03909)
+      if (!username) {
+        const args = content.slice(PREFIX.length + 5).trim(); // Remove "!stats "
+        if (args && args.length > 0) {
+          username = args.replace(/[<@!>]/g, ''); // Clean up mention syntax if present
+        } else {
+          username = message.author.username; // Use author's username as fallback
+        }
+      }
       
       console.log("[v0] Searching for stats of:", username);
 
@@ -1549,7 +1559,7 @@ client.on("interactionCreate", async (interaction) => {
     const inviteLines = server.invites.join("\n");
 
     await interaction.reply({
-      content: `**ꜱᴇʀᴠᴇʀꜱ ᴛᴏ ʙ��ᴀᴍ — ${server.label}**\n\n${inviteLines}`,
+      content: `**ꜱᴇʀᴠᴇʀꜱ ᴛᴏ ʙ��ᴀ�� — ${server.label}**\n\n${inviteLines}`,
       ephemeral: true,
     });
     return;
