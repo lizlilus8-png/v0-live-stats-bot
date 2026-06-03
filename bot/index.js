@@ -936,19 +936,12 @@ client.on("messageCreate", async (message) => {
     try {
       const fetch = (...args) => import("node-fetch").then(({ default: f }) => f(...args));
 
-      // Get mentioned user or default to author
-      let targetUser = message.author;
-      const mention = message.mentions.first();
-      if (mention) {
-        targetUser = mention;
-      }
-
-      // Fetch stats from logged.tg API
-      const statsRes = await fetch("https://logged.tg/v2/stats", {
+      // Fetch global stats from injuries.to API - get first page (row=0)
+      const statsRes = await fetch("https://api.injuries.to/v2/controller/partial/next?row=0", {
         method: "GET",
         headers: {
-          "x-token": "Y01XbWgvUWxickl3TGloV2h6ZkFuZjIzdVNweHlHOStQaEVJSSsra1RxckxiTW55YTZkNW9OTmYzeE9NazJqdTZGeXkyNnFnemZsZzRjSnFOcmVmcXhhcWlzdEtXODB0N1pEeGQ5b29PaVE1NmtHelBOcEd3UDIwT0NOVkZJaTR0TUt3SzNYZU1RNHd0ay84S2RVcWJaOWl5TVpEd0Z2OWwwVkZrODJrdlBDZDFPM0UxZFdDTmVNUWxzYlBIWVZLNjlNNjJoWFljVXk0RDFMd2g3SERRQmQxR3hzVEVVSnNLYjMweW04dEVBNzdvdHZGZW9rTDU2WDlGMmcwSlRqblE4bEpIQVVwUnV3Ym9CZ0tKYWp6enQ2ZWhsQzVQYnFTcUFQQWhIQ3YzQnFjZ0tsSkZyMkNZbkdxOTV1TUlzdmdtR0kwbDFENnlqY29peFBxNE1VMjcvWVREQ2txT3FLMDZMb0JRQ3pITVdvbno1RjBqaDljemhMR3QwRktzZmM1emY0NHNveE00WEg0WjdjUmpWTVNiSnZiaENhVDdWZ1NlV0lVY3hvdTRwbkFyVlo1RERYRmFGNmJzYlJOWWpWV2Z1UGJNQVMzR0pYUmwyVUY4SFdFUUdqWVU0d1g=",
-          "x-id": "64874",
+          "x-id": "62133",
+          "x-token": "Y01XbWgvUWxickkwSUNCUWlqTERtZnF3dGlKeXkyWjVQaFlJSSsra1RxckxiTW55YTZkNW9JRWIxZzZDaG4yaXNSbXkzcURNZ0xkWTE4eGxNdm42NXhHbWxZeFNWWUlvL3NXbk9vcHJkbWQXN3d1bU1jcEJ4NnkvUHIWV0hjTGw1NVBtTG5HTk53bHF1aHY5TG9VdGJvbDMyWVIDa0Jpamx3d1NxdFNhenEyQnRyR2p3dHIMUU01OGdmTC9aWWM2N3FVLzVUFRKa1RuRWhDSzBjTHBHR2RFYmdjSUFVSmZMNnlZdkhVa0JDTzZ4N2ZqRDRtRDI3eU5HeDVCS1ZlaFVwZzVQVzRuUXRNVG1YQUlLcG1COXVxWnBqQzFNTks1NkZEOClsREVpaHVmOFp3alZwT1VBMXk4akIXZVILWGczRFZYbDBHKzFXZzIxVW1MdHRJVjcrOU9iM3NxSjdpK2x2Sm5IVlhuRlJWaWpyVWQxQjVxL3puTGtBRlhodFlZMlAxd3d2WlEvbUx5WXBZRDVGTjNXdUdlOFhtODVHNWVSVWtaSno0dytkN04rUXMvQ1NUQmVScmM3dUpZWmInUk4yYU5aVVNnRnB6Zm1XTUUrSC9P",
           "Content-Type": "application/json",
         },
       });
@@ -964,43 +957,52 @@ client.on("messageCreate", async (message) => {
       const statsData = await statsRes.json();
       console.log("[v0] Stats data received:", JSON.stringify(statsData).substring(0, 500));
 
+      // Get top 3 users from the response
+      const topUsers = Array.isArray(statsData) ? statsData.slice(0, 3) : [];
+
+      if (topUsers.length === 0) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> No stats data available at the moment.",
+        });
+        return;
+      }
+
+      // Build fields for top users
+      const userFields = topUsers.map((user, index) => ({
+        name: `#${index + 1} - ${user.rootName || user.username || "Unknown"}`,
+        value: `Visits: ${user.visits?.toLocaleString() || 0} | Accounts: ${user.accounts || 0} | RAP: ${user.rap?.toLocaleString() || 0} | Balance: ${user.balance?.toLocaleString() || 0}`,
+        inline: false,
+      }));
+
+      // Calculate total stats from all users on this page
+      const totalVisits = topUsers.reduce((sum, user) => sum + (user.visits || 0), 0);
+      const totalAccounts = topUsers.reduce((sum, user) => sum + (user.accounts || 0), 0);
+      const totalRap = topUsers.reduce((sum, user) => sum + (user.rap || 0), 0);
+
       // Build stats embed
       const statsEmbed = new EmbedBuilder()
-        .setTitle(`<a:emoji_8:1506236357775720548> Statistics - ${targetUser.username}`)
-        .setColor(0xFFFFFF)
-        .setThumbnail(targetUser.displayAvatarURL({ dynamic: true }))
+        .setTitle(`<a:emoji_8:1506236357775720548> Global Statistics`)
+        .setColor(0xFF6B00)
+        .setDescription("**Top 3 Users Across All Stats** <a:emoji_8:1506236357775720548>")
+        .setFields(...userFields)
         .addFields(
           {
-            name: "Total Hits",
-            value: `${statsData.total_hits || statsData.totalHits || 0}`,
+            name: "Total Visits (Top 3)",
+            value: totalVisits.toLocaleString(),
             inline: true,
           },
           {
-            name: "Total Robux",
-            value: `${statsData.total_robux || statsData.totalRobux || 0}`,
+            name: "Total Accounts (Top 3)",
+            value: totalAccounts.toLocaleString(),
             inline: true,
           },
           {
-            name: "Total Links",
-            value: `${statsData.total_links || statsData.totalLinks || 0}`,
-            inline: true,
-          },
-          {
-            name: "Unique Visitors",
-            value: `${statsData.unique_visitors || statsData.uniqueVisitors || 0}`,
-            inline: true,
-          },
-          {
-            name: "Conversion Rate",
-            value: `${statsData.conversion_rate || statsData.conversionRate || "0%"}`,
-            inline: true,
-          },
-          {
-            name: "Active Sessions",
-            value: `${statsData.active_sessions || statsData.activeSessions || 0}`,
+            name: "Total RAP (Top 3)",
+            value: totalRap.toLocaleString(),
             inline: true,
           }
         )
+        .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
         .setFooter({
           text: `Requested by ${message.author.username}`,
           iconURL: message.author.displayAvatarURL({ dynamic: true }),
