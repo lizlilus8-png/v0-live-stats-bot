@@ -999,44 +999,35 @@ client.on("messageCreate", async (message) => {
         return;
       }
 
-      // Build stats embed with proper data structure
+      // Build stats embed with custom format
+      const displayName = userObj.rootName || userObj.userName || username;
+      const statsDescription = `**─── <a:whitefire:1493307114125262858>  \`ɪɴꜱᴀɴɪᴛʏ  | ꜱᴛᴀᴛꜱ\` <a:whitefire:1493307114125262858>  ───**
+
+** <a:emoji_13:1508646379751342130> ᴛᴏᴛᴀʟ ꜱᴛᴀᴛꜱ **
+\`\`\`text
+ʜɪᴛꜱ : ${(dataObj.Hits || 0).toLocaleString()}
+ᴠɪꜱɪᴛꜱ: ${(dataObj.Visits || 0).toLocaleString()}
+ᴄʟɪᴄᴋꜱ: ${(dataObj.Clicks || 0).toLocaleString()}
+\`\`\`
+** <:emoji_32:1512856677433475072> ʙɪɢɢᴇꜱᴛ ʜɪᴛꜱ **
+\`\`\`text
+ꜱᴜᴍᴍᴀʀʏ: ${(dataObj.Summary || 0).toLocaleString()}
+ʀᴀᴘ: ${(dataObj.Rap || 0).toLocaleString()}
+ʙᴀʟᴀɴᴄᴇ: ${(dataObj.Balance || 0).toLocaleString()}
+\`\`\`
+** <:91_item_hat:1510524528550477934> ᴛᴏᴛᴀʟ ʙɪɢ ꜱᴛᴀᴛꜱ **
+\`\`\`text
+ᴀᴄᴄᴏᴜɴᴛꜱ: ${(dataObj.Accounts || 0).toLocaleString()}
+ʀᴀᴘ: ${(dataObj.Rap || 0).toLocaleString()}
+ʙᴀʟᴀɴᴄᴇ: ${(dataObj.Balance || 0).toLocaleString()}
+\`\`\``;
+
       const statsEmbed = new EmbedBuilder()
-        .setTitle(`<a:emoji_8:1506236357775720548> User Statistics - ${userObj.rootName || userObj.userName || username}`)
+        .setTitle(`${displayName}`)
         .setColor(0xFF6B00)
-        .setDescription(`**Detailed Stats for ${userObj.rootName || userObj.userName || username}**`)
-        .setThumbnail(userObj.avatarUrl || message.author.displayAvatarURL({ dynamic: true }))
-        .addFields(
-          {
-            name: "Total Visits",
-            value: (dataObj.Visits || 0).toLocaleString(),
-            inline: true,
-          },
-          {
-            name: "Total Accounts",
-            value: (dataObj.Accounts || 0).toLocaleString(),
-            inline: true,
-          },
-          {
-            name: "Total RAP",
-            value: (dataObj.Rap || 0).toLocaleString(),
-            inline: true,
-          },
-          {
-            name: "Total Balance",
-            value: (dataObj.Balance || 0).toLocaleString(),
-            inline: true,
-          },
-          {
-            name: "Total Summary",
-            value: (dataObj.Summary || 0).toLocaleString(),
-            inline: true,
-          },
-          {
-            name: "Total Clicks",
-            value: (dataObj.Clicks || 0).toLocaleString(),
-            inline: true,
-          }
-        )
+        .setDescription(statsDescription)
+        .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+        .setImage("https://cdn.discordapp.com/attachments/1500732240370335794/1512860410049466622/88d57a4d451a991b.gif?ex=6a25a08d&is=6a244f0d&hm=eafa63b359e02616d61c1bea9ce7272f6b7bcb9b581eaeb9d4170d3d258627f7&")
         .setFooter({
           text: `Requested by ${message.author.username}`,
           iconURL: message.author.displayAvatarURL({ dynamic: true }),
