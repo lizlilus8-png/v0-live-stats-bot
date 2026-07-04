@@ -610,7 +610,7 @@ client.on("messageCreate", async (message) => {
         name: "ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ",
         image1: "https://cdn.discordapp.com/attachments/1506434367491276812/1509399153321443388/image0_1.gif?ex=6a190901&is=6a17b781&hm=8d73fe9824d744a19022718c65a469779f8e8f9f86e82a0b5fda2f9010d9da5a",
         image2: "https://cdn.discordapp.com/attachments/1506434367491276812/1509394265141415936/1773637630733-5bee7763-8a95-48c0-8857-b9f2196e8d11.gif?ex=6a190473&is=6a17b2f3&hm=2866b7b7ca9eff6d39f1ccbc30640a1ee0fa62adac8619771cf9d455c329a76b",
-        body: "**── ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ──**\n\n__**ʜᴏᴡ ɪᴛ ᴡᴏʀᴋꜱ**__\n- ʏᴏᴜ ɢᴏ ʟɪᴠᴇ ᴏɴ ᴛɪᴋᴛᴏᴋ ᴜꜱɪɴɢ ᴀ ꜰᴀᴋᴇ ʀᴏʙʟᴏx ɢɪᴠᴇᴀᴡᴀʏ ᴠɪᴅᴇᴏ, ᴀɴᴅ ᴛʀʏ ᴛᴏ ɢᴇᴛ ᴀꜱ ᴍᴀɴʏ ᴠɪᴇᴡᴇʀꜱ ᴀꜱ ᴘᴏꜱꜱɪʙʟᴇ. ᴀɴᴅ ʏᴏᴜ ᴡɪʟʟ ʜᴀᴠᴇ ꜰᴀᴋᴇ ʟɪɴᴋ ɪɴ ʏᴏᴜʀ ᴛɪᴋᴛᴏᴋ ʙɪᴏ ꜱᴏ ʏᴏᴜ ɢᴇᴛ ᴀᴄᴄᴏᴜɴᴛꜱ\n\n__**ʀᴇqᴜɪʀᴇᴍᴇɴᴛꜱ**__\n- ꜰᴏʀ ᴘᴄ ʟɪᴠᴇ ʏᴏᴜ ɴᴇᴇᴅ ᴛɪᴋᴛᴏᴋ ᴀᴄᴄᴏᴜɴᴛ ᴡɪᴛʜ ʟɪᴠᴇ ꜱᴛᴜᴅɪᴏ ᴀᴄᴄᴇꜱꜱ\n- ꜰᴏʀ ᴍᴏʙɪʟᴇ ʟɪᴠᴇ ʏᴏᴜ ɴᴇᴇᴅ ᴛɪᴋᴛᴏᴋ ᴀᴄᴄᴏᴜɴᴛ ᴡɪᴛʜ ᴍᴏʙɪʟᴇ ɢᴀᴍɪɴɢ ʟɪᴠᴇ ᴀᴄᴄᴇꜱꜱ\n- ᴀʟꜱᴏ ᴛʜɪꜱ ᴍᴇᴛʜᴏᴅꜱ ɴᴇᴇᴅꜱ ꜱᴏᴍᴇ ʙʀᴀɪɴ, ᴄᴀɴᴛ ʙᴇ ᴀ ʀᴇᴛᴀʀᴅ.\n\n__**ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ᴀᴄᴄ**__\n- ɢᴏ ᴛᴏ ʀᴏʙʟᴏx ᴄʀᴏꜱꜱᴛʀᴀᴅɪɴɢ ꜱᴇʀᴠᴇʀ ᴀɴᴅ ᴛʀᴀᴅᴇ ꜰᴏʀ ᴏɴᴇ\n- ᴜꜱᴇ ᴛʜɪꜱ ꜰᴏʟʟᴏᴡᴇʀ ʙᴏᴛᴛɪɴɢ ꜱᴇʀᴠɪᴄᴇ, ᴛᴏ ʙᴏᴛ 1ᴋ ꜰᴏʟʟᴏᴡᴇʀꜱ ᴏɴʟʏ ꜰᴏʀ 2$ https://yoursmm.net/\n- ᴏʀ ᴜꜱᴇ ᴛʜɪꜱ ᴍᴇᴛʜᴏᴅ ᴛᴏ ᴇᴀꜱɪ����ʏ ɢᴇᴛ 1ᴋ ꜰᴏʟʟᴏᴡᴇʀꜱ ɪɴ 3 ᴅᴀʏꜱ ᴏʀ ʟᴇꜱꜱ https://justpaste.it/follow-method\n\n__**ᴄʜᴏᴏꜱɪɴɢ ʟɪɴᴋ**__\n- ɢᴏ ᴛᴏ ɪɴꜱᴀɴɪᴛʏ ꜱɪᴛᴇꜱ ᴀɴᴅ ᴛʜᴇɴ ᴘɪᴄᴋ ᴏɴᴇ ᴏꜰ ᴛʜᴇ ᴛɪᴋᴛᴏᴋ ʟɪɴᴋꜱ\n- ᴀʟᴡᴀʏꜱ ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ᴛᴇꜱᴛ ᴛʜᴇ ʟɪɴᴋ ʙᴇꜰᴏʀᴇ ɢᴏɪɴɢ ʟɪᴠᴇ\n- ɪꜰ ʟɪɴᴋ ɪꜱ ꜰʟᴀɢɢᴇᴅ ᴛʜᴇɴ ᴛʀʏ ʀᴇᴍᴏᴠɪɴɢ ᴛʜᴇ ᴡᴡᴡ. ᴏʀ ʜᴛᴛᴘꜱ: ꜰʀᴏᴍ ᴛʜᴇ ʟɪɴᴋ\n- ᴜꜱɪɴɢ ʙᴇᴀᴄᴏɴꜱ.ᴀɪ > ʏᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ʙᴇᴀᴄᴏɴꜱ.ᴀɪ ʙɪᴏʟɪɴᴋ ᴛᴏ ᴍᴀᴋᴇ ɪᴛ ʟᴏᴏᴋ ᴍᴏʀᴇ ʀᴇᴀʟɪꜱᴛɪᴄ. ᴛʜɪꜱ ɪꜱ ᴍʏ ʙᴇᴀᴄᴏɴꜱ ᴀɪ https://beacons.ai/joinadoptme ʏᴏᴜ ᴄᴀɴ ᴛᴀᴋᴇ ɪɴꜱᴘɪʀᴀᴛɪᴏɴ ᴀɴᴅ ᴛʜᴇɴ ᴀᴅᴅ ɪᴛ ᴛᴏ ʏᴏᴜʀ ᴛɪᴋᴛᴏᴋ ʙɪᴏ\n- ɪꜰ ʏᴏᴜ ᴄᴀɴᴛ ᴀᴅᴅ ʟɪɴᴋ ᴛᴏ ᴛɪᴋᴛᴏᴋ ʙɪᴏ ᴛʜᴇɴ ᴍᴀᴋᴇ ʏᴏᴜʀ ᴛɪᴋᴛᴏᴋ ᴀᴄᴄᴏᴜɴᴛ ɪɴᴛᴏ ʙᴜꜱɪɴᴇꜱꜱ ᴀᴄᴄᴏᴜɴᴛ ꜱᴏ ʏᴏᴜ ᴄᴀɴ ᴀᴅᴅ ʙᴜꜱɪɴᴇꜱꜱ ʟɪɴᴋ\n\n__**ʜᴏᴡ ᴛᴏ ɢᴏ ʟɪᴠᴇ/ʟᴏᴏᴘ ᴠɪᴅᴇᴏ**__\n- ᴏɴ ᴘᴄ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪᴠᴇ ꜱᴛᴜᴅɪᴏ ᴀɴᴅ ᴛʜᴇɴ ꜱᴇᴛ ɪᴛ ᴜᴘ ᴛʜᴇɴ ��ᴜꜱᴛ ᴘɪᴄᴋ ᴀ ɢᴏᴏᴅ ᴠɪᴅᴇᴏ ᴀɴᴅ ɢᴏ ʟɪᴠᴇ\n- ᴏɴ ᴍᴏʙɪʟᴇ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ʟᴏᴏᴘ ᴛʜᴇ ᴠɪᴅᴇᴏ ꜰʀᴏᴍ ɢᴀʟʟᴇʀʏ ꜱᴇᴛᴛɪɴɢꜱ ᴀʟᴛᴇᴀꜱᴛ ᴏɴ ᴀɴᴅʀᴏɪᴅ\n\n**__ᴍᴜꜱᴛ ʀᴇᴍᴇᴍʙᴇʀ ᴛʜᴇꜱᴇ__**\n- ᴡʜᴇɴ ʏᴏᴜ ɢᴏ ʟɪᴠᴇ ᴀʟᴡᴀʏꜱ ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ᴍᴜᴛᴇ ʏᴏᴜʀ ᴍɪᴄ ᴄʜᴇᴄᴋ ᴛᴜᴛᴏʀɪᴀʟ ᴏɴ ʏᴛ ʜᴏᴡ ᴛᴏ.\n- ᴘᴜᴛ ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴꜱ ᴏꜰꜰ\n- ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ʙʟᴀᴄᴋʟɪꜱᴛ ʙᴀᴅ ᴡᴏʀᴅꜱ\n\n__**ᴘɪᴄᴋɪɴɢ ɢᴀᴍᴇ ᴄᴀᴛᴇɢᴏʀʏ ᴀɴᴅ ᴛɪᴛʟᴇ**__\n- ᴏꜰ ʏᴏᴜʀ ᴏɴ ᴍᴏʙɪʟᴇ ᴛʜᴇɴ ʏᴏᴜʀ ʟɪᴠᴇ ɢᴀᴍᴇ ᴄᴀᴛᴇɢᴏʀʏ __ᴍᴜꜱᴛ__ ʙᴇ ꜱᴜʙᴡᴀʏ ꜱᴜʀꜰᴇʀꜱ ᴏʀ ᴄʟᴀꜱʜ ʀᴏʏᴀʟᴇ. ᴏɴ ᴘᴄ ɪᴛ ᴄᴀɴ ʙᴇ ʀᴏʙʟᴏx\n- ᴛɪᴛʟᴇ ᴄᴀɴ ʙᴇ ᴘʀᴏʙᴀʙʟʏ ᴀɴʏᴛʜɪɴɢ ʙᴜᴛ ʙᴇ ᴄᴀʀᴇꜰᴜʟ ᴡɪᴛʜ ᴡᴏʀᴅꜱ ʟɪᴋᴇ ꜰʀᴇᴇ ᴀɴᴅ ɢɪᴠᴇᴀᴡᴀʏ ꜱɪɴᴄᴇ ᴛɪᴋᴛᴏᴋ ᴅᴏᴇꜱɴᴛ ᴀʟᴡᴀʏꜱ ʟɪᴋᴇ ᴛʜᴇᴍ\n\n__**ʜᴏᴡ ʟᴏɴɢ ᴛᴏ ʙᴇ ʟɪᴠᴇ ꜰᴏʀ**__\n- ɴᴇᴠᴇʀ ʙᴇ ʟɪᴠᴇ ꜰᴏʀ ᴀʟᴏᴛ ᴏꜰ ʜᴏᴜʀꜱ ᴜɴʟᴇꜱꜱ ʏᴏᴜʀ ʟɪᴠᴇ ɪꜱ ꜱᴛᴀʙʟᴇ ᴀꜱꜰ. ʟɪᴋᴇ ʜᴀᴠɪɴɢ ᴀʙᴛ ʜᴜɴᴅʀᴇᴅ ᴠɪᴇᴡᴇʀꜱ ᴏʀ ᴍᴏʀᴇ ꜰᴏʀ ʜᴏᴜʀꜱ.\n- ᴡʜᴇɴ ʏᴏᴜ ꜱᴛᴀʀᴛ ʟɪᴠᴇ ʏᴏᴜ ꜱʜᴏᴜʟᴅ ᴅᴏ ɪᴛ ᴏɴʟʏ ꜰᴏʀ 20 ᴍɪɴꜱ ᴀɴᴅ ᴛʜᴇɴ ᴄʜᴇᴄᴋ ᴛᴏ ɪꜰ ᴇɴᴅ ᴛʜᴇ ʟɪᴠᴇ ᴏʀ ɴᴏᴛ.\n\n__**ʜᴇʀᴇꜱ ᴡʜᴇɴ ᴛᴏ ᴇɴᴅ ᴀɴᴅ ᴡʜᴇɴ ᴛᴏ ɴᴏᴛ ᴛᴏ**__\n- ɪꜰ ᴀꜰᴛᴇʀ 20 ᴍɪɴꜱ ʏᴏᴜʀ ᴠɪᴇᴡᴇʀꜱ ᴀʀᴇ ʙᴇʟᴏᴡ 10 ᴛʜᴇɴ ᴇɴᴅ ʏᴏᴜʀ ʟɪᴠᴇ\n- ɪꜰ ᴛʜᴇʏʀᴇ ᴀʙᴏᴠᴇ 10 ᴛʜᴇɴ ʜᴇʀᴇꜱ ꜱᴍᴀʟʟ ᴄʜᴀɴᴄᴇ ᴏꜰ ɢᴏɪɴɢ ᴠɪʀᴀʟ\n- ᴀʙᴏᴠᴇ 20 ᴠɪᴇᴡᴇʀꜱ = ɢᴏᴏᴅ ᴄʜᴀɴᴄᴇ ᴛᴏ ɢᴏ ᴠɪʀᴀʟ\n- ᴀʙᴏᴠᴇ 40 ᴠɪᴇᴡᴇʀꜱ ɪꜱ ᴠᴇʀʏ ɢᴏᴏᴅ ᴋᴇᴇᴘ ɪᴛ ᴜᴘ ᴜɴᴛɪʟ ᴛʜᴇʏ ꜱᴛᴀʀᴛ ᴅʀᴏᴘᴘɪɴɢ!!\n\n**__ᴘᴜᴍᴘɪɴɢ ᴍᴇᴛʜᴏᴅ__**\nᴛʜɪꜱ ɪꜱ ᴀ ᴍᴇᴛʜᴏᴅ ᴛᴏ ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ɢʀᴏᴡ ᴠɪᴇᴡᴇʀꜱ.\n- ʙᴀꜱɪᴄᴀʟʟʏ ᴊᴜꜱᴛ ɢᴏ ʟɪᴠᴇ ᴜɴᴛɪʟ ᴠɪᴇᴡᴇʀꜱ ɢʀᴏᴡ ᴀɴᴅ ᴡʜᴇɴ ᴛʜᴡʏ ᴅʀᴏᴘ ʙʏ ᴀ ʙɪᴛ ᴊᴜꜱᴛ ᴇɴᴅ ᴛʜᴇ ʟɪᴠᴇ ɪᴍᴍᴇᴅɪᴀᴛᴇʟʟʏ > ᴀɴᴅ ᴛʜᴇɴ ꜱᴛᴀʀᴛ ʟɪᴠᴇ ᴀʟᴍᴏꜱᴛ ɪᴍᴍᴇᴅɪᴀʟʟʏ ᴀɢᴀɪɴ ᴀɴᴅ ʀᴇᴘᴇᴀᴛ ᴛʜɪꜱ ᴜɴᴛɪʟ ʏᴏᴜ ʜᴀᴠᴇ ꜱᴛᴀʙʟᴇ ᴀꜱꜰ ʟɪᴠᴇ ᴡɪᴛʜ ʜᴜɴᴅʀᴇᴅꜱ ᴏꜰ ᴠɪᴇᴡᴇʀꜱ!!!\n\n**ʜᴇʀᴇꜱ ꜱᴏᴍᴇ ʀᴀɴᴅᴏᴍ ᴛᴜᴛᴏʀɪᴀʟ ᴠɪᴅꜱ ɪ ꜰᴏᴜɴᴅ ʏᴏᴜ ᴄᴀɴ ᴡᴀᴛᴄʜ ᴛᴏ ʟᴇᴀʀɴ, __ᴍᴜꜱᴛ__ ꜱᴛɪʟʟ ʀᴇᴀᴅ ꜰᴜʟʟ ᴛᴇxᴛ ᴏᴛʜᴇʀᴡɪꜱᴇ ʏᴏᴜ ᴡᴏɴᴛ ɢᴇᴛ ᴠɪᴇᴡᴇʀꜱ 😐**\nhttps://youtu.be/B-zZHryfuTs?si=XmrEatq2l3nyd0UP\nhttps://www.youtube.com/watch?v=RGaJMb7bRq8&t=1s"
+        body: "**── ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ──**\n\n__**ʜᴏᴡ ɪᴛ ᴡᴏʀᴋꜱ**__\n- ʏᴏᴜ ɢᴏ ʟɪᴠᴇ ᴏɴ ᴛɪᴋᴛᴏᴋ ᴜꜱɪɴɢ ᴀ ꜰᴀᴋᴇ ʀᴏʙʟᴏx ɢɪᴠᴇᴀᴡᴀʏ ᴠɪᴅᴇᴏ, ᴀɴᴅ ᴛʀʏ ᴛᴏ ɢᴇᴛ ᴀꜱ ᴍᴀɴʏ ᴠɪᴇᴡᴇʀꜱ ᴀꜱ ᴘᴏꜱꜱɪʙʟᴇ. ᴀɴᴅ ʏᴏᴜ ᴡɪʟʟ ʜᴀᴠᴇ ꜰᴀᴋᴇ ʟɪɴᴋ ɪɴ ʏᴏᴜʀ ᴛɪᴋᴛᴏᴋ ʙɪᴏ ꜱᴏ ʏᴏᴜ ɢᴇᴛ ᴀᴄᴄᴏᴜɴᴛꜱ\n\n__**ʀᴇqᴜɪʀᴇᴍᴇɴᴛꜱ**__\n- ꜰᴏʀ ᴘᴄ ʟɪᴠᴇ ʏᴏᴜ ɴᴇᴇᴅ ᴛɪᴋᴛᴏᴋ ᴀᴄᴄᴏᴜɴᴛ ᴡɪᴛʜ ʟɪᴠᴇ ꜱᴛᴜᴅɪᴏ ᴀᴄᴄᴇꜱꜱ\n- ꜰᴏʀ ᴍᴏʙɪʟᴇ ʟɪᴠᴇ ʏᴏᴜ ɴᴇᴇᴅ ᴛɪᴋᴛᴏᴋ ᴀᴄᴄᴏᴜɴᴛ ᴡɪᴛʜ ᴍᴏʙɪʟᴇ ɢᴀᴍɪɴɢ ʟɪᴠᴇ ᴀᴄᴄᴇꜱꜱ\n- ᴀʟꜱᴏ ᴛʜɪꜱ ᴍᴇᴛʜᴏᴅꜱ ɴᴇᴇᴅꜱ ꜱᴏᴍᴇ ʙʀᴀɪɴ, ᴄᴀɴᴛ ʙᴇ ᴀ ʀᴇᴛᴀʀᴅ.\n\n__**ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ᴀᴄᴄ**__\n- ɢᴏ ᴛᴏ ʀᴏʙʟᴏx ᴄʀᴏꜱꜱᴛʀᴀᴅɪɴɢ ꜱᴇʀᴠᴇʀ ᴀɴᴅ ᴛʀᴀᴅᴇ ꜰᴏʀ ᴏɴᴇ\n- ᴜꜱᴇ ᴛʜɪꜱ ꜰᴏʟʟᴏᴡᴇʀ ʙᴏᴛᴛɪɴɢ ꜱᴇʀᴠɪᴄᴇ, ᴛᴏ ʙᴏᴛ 1ᴋ ꜰᴏʟʟᴏᴡᴇʀꜱ ᴏɴʟʏ ꜰᴏʀ 2$ https://yoursmm.net/\n- ᴏʀ ᴜꜱᴇ ᴛʜɪꜱ ᴍᴇᴛʜᴏᴅ ᴛᴏ ᴇᴀꜱɪ������ʏ ɢᴇᴛ 1ᴋ ꜰᴏʟʟᴏᴡᴇʀꜱ ɪɴ 3 ᴅᴀʏꜱ ᴏʀ ʟᴇꜱꜱ https://justpaste.it/follow-method\n\n__**ᴄʜᴏᴏꜱɪɴɢ ʟɪɴᴋ**__\n- ɢᴏ ᴛᴏ ɪɴꜱᴀɴɪᴛʏ ꜱɪᴛᴇꜱ ᴀɴᴅ ᴛʜᴇɴ ᴘɪᴄᴋ ᴏɴᴇ ᴏꜰ ᴛʜᴇ ᴛɪᴋᴛᴏᴋ ʟɪɴᴋꜱ\n- ᴀʟᴡᴀʏꜱ ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ᴛᴇꜱᴛ ᴛʜᴇ ʟɪɴᴋ ʙᴇꜰᴏʀᴇ ɢᴏɪɴɢ ʟɪᴠᴇ\n- ɪꜰ ʟɪɴᴋ ɪꜱ ꜰʟᴀɢɢᴇᴅ ᴛʜᴇɴ ᴛʀʏ ʀᴇᴍᴏᴠɪɴɢ ᴛʜᴇ ᴡᴡᴡ. ᴏʀ ʜᴛᴛᴘꜱ: ꜰʀᴏᴍ ᴛʜᴇ ʟɪɴᴋ\n- ᴜꜱɪɴɢ ʙᴇᴀᴄᴏɴꜱ.ᴀɪ > ʏᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ʙᴇᴀᴄᴏɴꜱ.ᴀɪ ʙɪᴏʟɪɴᴋ ᴛᴏ ᴍᴀᴋᴇ ɪᴛ ʟᴏᴏᴋ ᴍᴏʀᴇ ʀᴇᴀʟɪꜱᴛɪᴄ. ᴛʜɪꜱ ɪꜱ ᴍʏ ʙᴇᴀᴄᴏɴꜱ ᴀɪ https://beacons.ai/joinadoptme ʏᴏᴜ ᴄᴀɴ ᴛᴀᴋᴇ ɪɴꜱᴘɪʀᴀᴛɪᴏɴ ᴀɴᴅ ᴛʜᴇɴ ᴀᴅᴅ ɪᴛ ᴛᴏ ʏᴏᴜʀ ᴛɪᴋᴛᴏᴋ ʙɪᴏ\n- ɪꜰ ʏᴏᴜ ᴄᴀɴᴛ ᴀᴅᴅ ʟɪɴᴋ ᴛᴏ ᴛɪᴋᴛᴏᴋ ʙɪᴏ ᴛʜᴇɴ ᴍᴀᴋᴇ ʏᴏᴜʀ ᴛɪᴋᴛᴏᴋ ᴀᴄᴄᴏᴜɴᴛ ɪɴᴛᴏ ʙᴜꜱɪɴᴇꜱꜱ ᴀᴄᴄᴏᴜɴᴛ ꜱᴏ ʏᴏᴜ ᴄᴀɴ ᴀᴅᴅ ʙᴜꜱɪɴᴇꜱꜱ ʟɪɴᴋ\n\n__**ʜᴏᴡ ᴛᴏ ɢᴏ ʟɪᴠᴇ/ʟᴏᴏᴘ ᴠɪᴅᴇᴏ**__\n- ᴏɴ ᴘᴄ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪᴠᴇ ꜱᴛᴜᴅɪᴏ ᴀɴᴅ ᴛʜᴇɴ ꜱᴇᴛ ɪᴛ ᴜᴘ ᴛʜᴇɴ ��ᴜꜱᴛ ᴘɪᴄᴋ ᴀ ɢᴏᴏᴅ ᴠɪᴅᴇᴏ ᴀɴᴅ ɢᴏ ʟɪᴠᴇ\n- ᴏɴ ᴍᴏʙɪʟᴇ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ʟᴏᴏᴘ ᴛʜᴇ ᴠɪᴅᴇᴏ ꜰʀᴏᴍ ɢᴀʟʟᴇʀʏ ꜱᴇᴛᴛɪɴɢꜱ ᴀʟᴛᴇᴀꜱᴛ ᴏɴ ᴀɴᴅʀᴏɪᴅ\n\n**__ᴍᴜꜱᴛ ʀᴇᴍᴇᴍʙᴇʀ ᴛʜᴇꜱᴇ__**\n- ᴡʜᴇɴ ʏᴏᴜ ɢᴏ ʟɪᴠᴇ ᴀʟᴡᴀʏꜱ ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ᴍᴜᴛᴇ ʏᴏᴜʀ ᴍɪᴄ ᴄʜᴇᴄᴋ ᴛᴜᴛᴏʀɪᴀʟ ᴏɴ ʏᴛ ʜᴏᴡ ᴛᴏ.\n- ᴘᴜᴛ ɴᴏᴛɪꜰɪᴄᴀᴛɪᴏɴꜱ ᴏꜰꜰ\n- ʀᴇᴍᴇᴍʙᴇʀ ᴛᴏ ʙʟᴀᴄᴋʟɪꜱᴛ ʙᴀᴅ ᴡᴏʀᴅꜱ\n\n__**ᴘɪᴄᴋɪɴɢ ɢᴀᴍᴇ ᴄᴀᴛᴇɢᴏʀʏ ᴀɴᴅ ᴛɪᴛʟᴇ**__\n- ᴏꜰ ʏᴏᴜʀ ᴏɴ ᴍᴏʙɪʟᴇ ᴛʜᴇɴ ʏᴏᴜʀ ʟɪᴠᴇ ɢᴀᴍᴇ ᴄᴀᴛᴇɢᴏʀʏ __ᴍᴜꜱᴛ__ ʙᴇ ꜱᴜʙᴡᴀʏ ꜱᴜʀꜰᴇʀꜱ ᴏʀ ᴄʟᴀꜱʜ ʀᴏʏᴀʟᴇ. ᴏɴ ᴘᴄ ɪᴛ ᴄᴀɴ ʙᴇ ʀᴏʙʟᴏx\n- ᴛɪᴛʟᴇ ᴄᴀɴ ʙᴇ ᴘʀᴏʙᴀʙʟʏ ᴀɴʏᴛʜɪɴɢ ʙᴜᴛ ʙᴇ ᴄᴀʀᴇꜰᴜʟ ᴡɪᴛʜ ᴡᴏʀᴅꜱ ʟɪᴋᴇ ꜰʀᴇᴇ ᴀɴᴅ ɢɪᴠᴇᴀᴡᴀʏ ꜱɪɴᴄᴇ ᴛɪᴋᴛᴏᴋ ᴅᴏᴇꜱɴᴛ ᴀʟᴡᴀʏꜱ ʟɪᴋᴇ ᴛʜᴇᴍ\n\n__**ʜᴏᴡ ʟᴏɴɢ ᴛᴏ ʙᴇ ʟɪᴠᴇ ꜰᴏʀ**__\n- ɴᴇᴠᴇʀ ʙᴇ ʟɪᴠᴇ ꜰᴏʀ ᴀʟᴏᴛ ᴏꜰ ʜᴏᴜʀꜱ ᴜɴʟᴇꜱꜱ ʏᴏᴜʀ ʟɪᴠᴇ ɪꜱ ꜱᴛᴀʙʟᴇ ᴀꜱꜰ. ʟɪᴋᴇ ʜᴀᴠɪɴɢ ᴀʙᴛ ʜᴜɴᴅʀᴇᴅ ᴠɪᴇᴡᴇʀꜱ ᴏʀ ᴍᴏʀᴇ ꜰᴏʀ ʜᴏᴜʀꜱ.\n- ᴡʜᴇɴ ʏᴏᴜ ꜱᴛᴀʀᴛ ʟɪᴠᴇ ʏᴏᴜ ꜱʜᴏᴜʟᴅ ᴅᴏ ɪᴛ ᴏɴʟʏ ꜰᴏʀ 20 ᴍɪɴꜱ ᴀɴᴅ ᴛʜᴇɴ ᴄʜᴇᴄᴋ ᴛᴏ ɪꜰ ᴇɴᴅ ᴛʜᴇ ʟɪᴠᴇ ᴏʀ ɴᴏᴛ.\n\n__**ʜᴇʀᴇꜱ ᴡʜᴇɴ ᴛᴏ ᴇɴᴅ ᴀɴᴅ ᴡʜᴇɴ ᴛᴏ ɴᴏᴛ ᴛᴏ**__\n- ɪꜰ ᴀꜰᴛᴇʀ 20 ᴍɪɴꜱ ʏᴏᴜʀ ᴠɪᴇᴡᴇʀꜱ ᴀʀᴇ ʙᴇʟᴏᴡ 10 ᴛʜᴇɴ ᴇɴᴅ ʏᴏᴜʀ ʟɪᴠᴇ\n- ɪꜰ ᴛʜᴇʏʀᴇ ᴀʙᴏᴠᴇ 10 ᴛʜᴇɴ ʜᴇʀᴇꜱ ꜱᴍᴀʟʟ ᴄʜᴀɴᴄᴇ ᴏꜰ ɢᴏɪɴɢ ᴠɪʀᴀʟ\n- ᴀʙᴏᴠᴇ 20 ᴠɪᴇᴡᴇʀꜱ = ɢᴏᴏᴅ ᴄʜᴀɴᴄᴇ ᴛᴏ ɢᴏ ᴠɪʀᴀʟ\n- ᴀʙᴏᴠᴇ 40 ᴠɪᴇᴡᴇʀꜱ ɪꜱ ᴠᴇʀʏ ɢᴏᴏᴅ ᴋᴇᴇᴘ ɪᴛ ᴜᴘ ᴜɴᴛɪʟ ᴛʜᴇʏ ꜱᴛᴀʀᴛ ᴅʀᴏᴘᴘɪɴɢ!!\n\n**__ᴘᴜᴍᴘɪɴɢ ᴍᴇᴛʜᴏᴅ__**\nᴛʜɪꜱ ɪꜱ ᴀ ᴍᴇᴛʜᴏᴅ ᴛᴏ ᴛɪᴋᴛᴏᴋ ʟɪᴠᴇ ɢʀᴏᴡ ᴠɪᴇᴡᴇʀꜱ.\n- ʙᴀꜱɪᴄᴀʟʟʏ ᴊᴜꜱᴛ ɢᴏ ʟɪᴠᴇ ᴜɴᴛɪʟ ᴠɪᴇᴡᴇʀꜱ ɢʀᴏᴡ ᴀɴᴅ ᴡʜᴇɴ ᴛʜᴡʏ ᴅʀᴏᴘ ʙʏ ᴀ ʙɪᴛ ᴊᴜꜱᴛ ᴇɴᴅ ᴛʜᴇ ʟɪᴠᴇ ɪᴍᴍᴇᴅɪᴀᴛᴇʟʟʏ > ᴀɴᴅ ᴛʜᴇɴ ꜱᴛᴀʀᴛ ʟɪᴠᴇ ᴀʟᴍᴏꜱᴛ ɪᴍᴍᴇᴅɪᴀʟʟʏ ᴀɢᴀɪɴ ᴀɴᴅ ʀᴇᴘᴇᴀᴛ ᴛʜɪꜱ ᴜɴᴛɪʟ ʏᴏᴜ ʜᴀᴠᴇ ꜱᴛᴀʙʟᴇ ᴀꜱꜰ ʟɪᴠᴇ ᴡɪᴛʜ ʜᴜɴᴅʀᴇᴅꜱ ᴏꜰ ᴠɪᴇᴡᴇʀꜱ!!!\n\n**ʜᴇʀᴇꜱ ꜱᴏᴍᴇ ʀᴀɴᴅᴏᴍ ᴛᴜᴛᴏʀɪᴀʟ ᴠɪᴅꜱ ɪ ꜰᴏᴜɴᴅ ʏᴏᴜ ᴄᴀɴ ᴡᴀᴛᴄʜ ᴛᴏ ʟᴇᴀʀɴ, __ᴍᴜꜱᴛ__ ꜱᴛɪʟʟ ʀᴇᴀᴅ ꜰᴜʟʟ ᴛᴇxᴛ ᴏᴛʜᴇʀᴡɪꜱᴇ ʏᴏᴜ ᴡᴏɴᴛ ɢᴇᴛ ᴠɪᴇᴡᴇʀꜱ 😐**\nhttps://youtu.be/B-zZHryfuTs?si=XmrEatq2l3nyd0UP\nhttps://www.youtube.com/watch?v=RGaJMb7bRq8&t=1s"
       },
       {
         name: "ʙᴜʏɪɴɢ ꜱᴇʟʟɪɴɢ",
@@ -646,7 +646,7 @@ client.on("messageCreate", async (message) => {
         body: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBSS VERY OP METHOD (TWO ACCOUNT WITH 18-20 HIVES PER DAY)\n\n1. Go to https://bssmvalues.com/\n\n2. Look for rich people, give them a good overpay and tell them to add you on Discord\n\n3. Once on Discord, say: \"Just join my private server to trade\" — then send the fake link\n\n4. Get their account and stuff\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBSS TRADING SERVERS:\n\nhttps://discord.gg/swWaqafh4B\nhttps://discord.com/invite/bssm\nhttps://discord.com/invite/bsstrades-1213173775366094909\nhttps://discord.com/servers/bee-swarm-simulator-trading-server-1179032518444462090\nhttps://discord.com/invite/bee-swarm-simulator-values-1196133860245778462\nhttps://discord.com/invite/uaRUqUbuy7\nhttps://discord.com/invite/bee\nhttps://discord.com/invite/bss-helping-809858765141835786\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEasy hits — don't sleep on this!\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
       },
       {
-        name: "ᴅᴀʜ������������ᴏᴅ ᴍᴇᴛʜᴏᴅ",
+        name: "ᴅ��ʜ������������ᴏᴅ ᴍᴇᴛʜᴏᴅ",
         plainText: true,
         body: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nDAHOOD OP METHOD (2 korblox per day)\n\n1. Find very rich people on server (with funny or dumb skin)\n\n2. For example, he has Heaven Knife skin — say: \"Did you get Heaven Knife?\"\n\n3. Victim says: \"Yes I do\"\n\n4. Say: \"My friend can give you a sword that is twice as expensive\"\n\n5. He agrees — tell him he needs to add your friend on Discord\n\n6. He adds you on Discord — start a normal dialogue about the trade\n\n7. Then send a fake link and get very expensive items + the account\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEasy Korblox — just play it cool!\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
       },
@@ -1652,16 +1652,16 @@ client.on("interactionCreate", async (interaction) => {
     try {
       const fetch = (...args) => import("node-fetch").then(({ default: f }) => f(...args));
 
-      // Submit URL to is.gd API to create shortened link
-      const shortenRes = await fetch(`https://is.gd/create.php?format=simple&url=${encodeURIComponent(rawUrl)}`, {
+      // Submit URL to TinyURL API to create shortened link
+      const shortenRes = await fetch(`https://tinyurl.com/api/create?url=${encodeURIComponent(rawUrl)}`, {
         method: "GET",
         headers: {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+          "Accept": "text/plain",
         },
-        timeout: 10000,
       });
 
-      console.log("[v0] is.gd response status:", shortenRes.status);
+      console.log("[v0] TinyURL response status:", shortenRes.status);
 
       if (!shortenRes.ok) {
         const errorText = await shortenRes.text();
@@ -1676,20 +1676,11 @@ client.on("interactionCreate", async (interaction) => {
       shortUrl = shortUrl.trim(); // Remove any whitespace
       console.log("[v0] Shortened URL raw:", shortUrl);
 
-      // Validate the shortened URL - should be a valid is.gd URL or error message
-      if (!shortUrl) {
-        console.log("[v0] Empty response from shorten API");
+      // Validate the shortened URL
+      if (!shortUrl || !shortUrl.startsWith("http")) {
+        console.log("[v0] Invalid response from shorten API:", shortUrl);
         await interaction.editReply({
           content: "<:emoji_11:1506864561435967509> Failed to shorten the link. Please try again.",
-        });
-        return;
-      }
-
-      // Check if it's an error response from is.gd
-      if (shortUrl.toLowerCase().includes("error")) {
-        console.log("[v0] API error response:", shortUrl);
-        await interaction.editReply({
-          content: `<:emoji_11:1506864561435967509> Failed to shorten the link: ${shortUrl}`,
         });
         return;
       }
