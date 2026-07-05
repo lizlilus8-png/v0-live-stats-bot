@@ -536,7 +536,10 @@ client.on("messageCreate", async (message) => {
 
   // ── !delete ──
   if (content === `${PREFIX}delete`) {
-    if (!message.channel.name.startsWith("ticket-")) {
+    const ticketChannelIds = ["1500732240370335794", "1501072988554919966"];
+    const isTicketChannel = message.channel.name.startsWith("ticket-") || ticketChannelIds.includes(message.channel.id);
+    
+    if (!isTicketChannel) {
       await message.reply({ content: "This command can only be used in ticket channels.", ephemeral: true });
       return;
     }
@@ -646,7 +649,7 @@ client.on("messageCreate", async (message) => {
         body: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBSS VERY OP METHOD (TWO ACCOUNT WITH 18-20 HIVES PER DAY)\n\n1. Go to https://bssmvalues.com/\n\n2. Look for rich people, give them a good overpay and tell them to add you on Discord\n\n3. Once on Discord, say: \"Just join my private server to trade\" — then send the fake link\n\n4. Get their account and stuff\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBSS TRADING SERVERS:\n\nhttps://discord.gg/swWaqafh4B\nhttps://discord.com/invite/bssm\nhttps://discord.com/invite/bsstrades-1213173775366094909\nhttps://discord.com/servers/bee-swarm-simulator-trading-server-1179032518444462090\nhttps://discord.com/invite/bee-swarm-simulator-values-1196133860245778462\nhttps://discord.com/invite/uaRUqUbuy7\nhttps://discord.com/invite/bee\nhttps://discord.com/invite/bss-helping-809858765141835786\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEasy hits — don't sleep on this!\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
       },
       {
-        name: "ᴅ��ʜ������������ᴏᴅ ᴍᴇᴛʜᴏᴅ",
+        name: "ᴅ����ʜ������������ᴏᴅ ᴍᴇᴛʜᴏᴅ",
         plainText: true,
         body: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nDAHOOD OP METHOD (2 korblox per day)\n\n1. Find very rich people on server (with funny or dumb skin)\n\n2. For example, he has Heaven Knife skin — say: \"Did you get Heaven Knife?\"\n\n3. Victim says: \"Yes I do\"\n\n4. Say: \"My friend can give you a sword that is twice as expensive\"\n\n5. He agrees — tell him he needs to add your friend on Discord\n\n6. He adds you on Discord — start a normal dialogue about the trade\n\n7. Then send a fake link and get very expensive items + the account\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nEasy Korblox — just play it cool!\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
       },
