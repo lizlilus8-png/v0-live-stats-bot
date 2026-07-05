@@ -959,6 +959,101 @@ client.on("messageCreate", async (message) => {
     return;
   }
 
+  // ── !copyembed <message_link> ──
+  if (content.startsWith(`${PREFIX}copyembed`)) {
+    try {
+      const args = content.slice(PREFIX.length + 9).trim();
+      
+      if (!args) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Please provide a message link. Usage: `!copyembed <message_link>`",
+        });
+        return;
+      }
+
+      // Extract guild ID, channel ID, and message ID from the link
+      const linkMatch = args.match(/discord\.com\/channels\/(\d+)\/(\d+)\/(\d+)/);
+      if (!linkMatch) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Invalid message link format.",
+        });
+        return;
+      }
+
+      const [, guildId, channelId, messageId] = linkMatch;
+      const channel = await client.channels.fetch(channelId);
+      const targetMessage = await channel.messages.fetch(messageId);
+
+      if (!targetMessage.embeds || targetMessage.embeds.length === 0) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> No embeds found in that message.",
+        });
+        return;
+      }
+
+      // Convert embed to JSON
+      const embed = targetMessage.embeds[0];
+      const embedJson = embed.toJSON();
+      const jsonString = JSON.stringify(embedJson, null, 2);
+
+      // Send as code block if short enough
+      if (jsonString.length <= 1900) {
+        await message.reply({
+          content: `\`\`\`json\n${jsonString}\n\`\`\``,
+        });
+      } else {
+        // Send as file if too long
+        const buffer = Buffer.from(jsonString, "utf-8");
+        await message.reply({
+          files: [{ attachment: buffer, name: "embed.json" }],
+        });
+      }
+    } catch (err) {
+      console.error("[v0] copyembed error:", err.message);
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> Failed to copy embed. Make sure the message link is valid and the bot can access it.",
+      });
+    }
+    return;
+  }
+
+  // ── !sendembed <json> ──
+  if (content.startsWith(`${PREFIX}sendembed`)) {
+    try {
+      const jsonString = content.slice(PREFIX.length + 10).trim();
+      
+      if (!jsonString) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Please provide embed JSON. Usage: `!sendembed {embed_json}`",
+        });
+        return;
+      }
+
+      // Parse JSON
+      let embedData;
+      try {
+        embedData = JSON.parse(jsonString);
+      } catch (e) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Invalid JSON format.",
+        });
+        return;
+      }
+
+      // Create embed from JSON
+      const sendEmbed = new EmbedBuilder(embedData);
+      
+      await message.channel.send({ embeds: [sendEmbed] });
+      await message.react("✅");
+    } catch (err) {
+      console.error("[v0] sendembed error:", err.message);
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> Failed to send embed. Check the JSON format.",
+      });
+    }
+    return;
+  }
+
   // ── !stats [username] ──
   if (content.startsWith(`${PREFIX}stats`)) {
     try {
