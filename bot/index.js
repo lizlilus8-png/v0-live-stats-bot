@@ -536,10 +536,7 @@ client.on("messageCreate", async (message) => {
 
   // ── !delete ──
   if (content === `${PREFIX}delete`) {
-    const ticketChannelIds = ["1500732240370335794", "1501072988554919966"];
-    const isTicketChannel = message.channel.name.startsWith("ticket-") || ticketChannelIds.includes(message.channel.id);
-    
-    if (!isTicketChannel) {
+    if (!message.channel.name.startsWith("ticket-")) {
       await message.reply({ content: "This command can only be used in ticket channels.", ephemeral: true });
       return;
     }
@@ -860,7 +857,7 @@ client.on("messageCreate", async (message) => {
     const websitesEmbed = new EmbedBuilder()
       .setDescription(
         "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ  | ꜱɪᴛᴇꜱ` <a:emoji_8:1506236357775720548> ───\n\n" +
-        "<a:emoji_13:1508646379751342130> 1 ᴄᴜʀʀᴇɴᴛ ᴀᴄᴛɪᴠᴇ ᴅᴏᴍᴀɪɴ\n\n" +
+        "<a:emoji_13:1508646379751342130> 1 ᴄᴜʀʀᴇɴᴛ ᴀᴄ��ɪᴠᴇ ᴅᴏᴍᴀɪɴ\n\n" +
         "<:emoji_14:1508646444607864872> ʙʟᴀᴢɪɴɢ ꜰᴀꜱᴛ & ꜰᴇᴀᴛᴜʀᴇ ʟᴏᴀᴅᴇᴅ ꜱɪᴛᴇꜱ**"
       )
       .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
@@ -1563,42 +1560,56 @@ client.on("interactionCreate", async (interaction) => {
     const channelName = `ticket-${ticketNumber}`;
 
     try {
+      // Build permission overwrites dynamically
+      const permissionOverwrites = [
+        {
+          id: interaction.guild.roles.everyone.id,
+          deny: ["ViewChannel"],
+        },
+        {
+          id: client.user.id,
+          allow: ["ViewChannel", "SendMessages", "ReadMessageHistory", "ManageMessages"],
+        },
+        {
+          id: interaction.user.id,
+          allow: ["ViewChannel", "SendMessages", "ReadMessageHistory"],
+        },
+      ];
+
+      // Add support roles only if they exist in this guild
+      const supportRoleIds = ["1501440578326368277", "1500729523593809921"];
+      let supportRoleMentions = "";
+      
+      for (const roleId of supportRoleIds) {
+        try {
+          const role = await interaction.guild.roles.fetch(roleId);
+          if (role) {
+            permissionOverwrites.push({
+              id: roleId,
+              allow: ["ViewChannel", "SendMessages", "ReadMessageHistory"],
+            });
+            supportRoleMentions += `<@&${roleId}> `;
+          }
+        } catch (e) {
+          // Role doesn't exist in this guild, skip
+        }
+      }
+
       // Create a private channel for the ticket
       const ticketChannel = await interaction.guild.channels.create({
         name: channelName,
         type: ChannelType.GuildText,
-        permissionOverwrites: [
-          {
-            id: interaction.guild.roles.everyone.id,
-            deny: ["ViewChannel"],
-          },
-          {
-            id: client.user.id,
-            allow: ["ViewChannel", "SendMessages", "ReadMessageHistory", "ManageMessages"],
-          },
-          {
-            id: interaction.user.id,
-            allow: ["ViewChannel", "SendMessages", "ReadMessageHistory"],
-          },
-          {
-            id: "1501440578326368277",
-            allow: ["ViewChannel", "SendMessages", "ReadMessageHistory"],
-          },
-          {
-            id: "1500729523593809921",
-            allow: ["ViewChannel", "SendMessages", "ReadMessageHistory"],
-          },
-        ],
+        permissionOverwrites: permissionOverwrites,
       });
 
       // Send notification message and embed in the ticket channel
+      const descriptionText = supportRoleMentions 
+        ? `Welcome <@${interaction.user.id}>!\n\nA support team has been notified. ${supportRoleMentions}\n\nPlease describe your issue below and we'll assist you shortly.`
+        : `Welcome <@${interaction.user.id}>!\n\nPlease describe your issue below and we'll assist you shortly.`;
+
       const ticketNotificationEmbed = new EmbedBuilder()
         .setTitle("Support Ticket Created")
-        .setDescription(
-          `Welcome <@${interaction.user.id}>!\n\n` +
-          `A support team has been notified. <@&1501440578326368277> <@&1500729523593809921>\n\n` +
-          `Please describe your issue below and we'll assist you shortly.`
-        )
+        .setDescription(descriptionText)
         .setColor("#2f3136")
         .setFooter({
           text: `Ticket ID: ${ticketNumber}`,
