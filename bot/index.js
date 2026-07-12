@@ -1638,14 +1638,14 @@ client.on("messageCreate", async (message) => {
     return;
   }
 
-  // ── !giverolebeamontop <@&role> ──
+  // ── !giverolebeamontop <@&role> [user] ──
   if (content.startsWith(`${PREFIX}giverolebeamontop`)) {
     try {
       const args = content.slice(PREFIX.length + 17).trim(); // Remove "!giverolebeamontop "
 
       if (!args) {
         await message.reply({
-          content: "<:emoji_11:1506864561435967509> Please mention a role. Usage: `!giverolebeamontop <@&role>`",
+          content: "<:emoji_11:1506864561435967509> Please mention a role. Usage: `!giverolebeamontop <@&role>` or `!giverolebeamontop <@&role> <@user/userId/username>`",
         });
         return;
       }
@@ -1654,7 +1654,7 @@ client.on("messageCreate", async (message) => {
       const roleMatch = args.match(/<@&(\d+)>/);
       if (!roleMatch) {
         await message.reply({
-          content: "<:emoji_11:1506864561435967509> Invalid role mention. Usage: `!giverolebeamontop <@&role>`",
+          content: "<:emoji_11:1506864561435967509> Invalid role mention. Usage: `!giverolebeamontop <@&role>` or `!giverolebeamontop <@&role> <@user/userId/username>`",
         });
         return;
       }
@@ -1685,14 +1685,64 @@ client.on("messageCreate", async (message) => {
         return;
       }
 
-      // Add the role to the user who ran the command
-      await message.member.roles.add(role);
+      // Determine target user
+      let targetUser = message.member; // Default to command executor
+      const userArg = args.replace(roleMatch[0], "").trim();
+
+      if (userArg) {
+        // Try to find user from mention
+        const userMentionMatch = userArg.match(/<@!?(\d+)>/);
+        let userId = null;
+
+        if (userMentionMatch) {
+          userId = userMentionMatch[1];
+        } else if (/^\d+$/.test(userArg)) {
+          // Check if it's a user ID
+          userId = userArg;
+        } else {
+          // Try to find by username
+          try {
+            const foundUsers = await message.guild.members.search({ query: userArg, limit: 1 });
+            if (foundUsers.size > 0) {
+              targetUser = foundUsers.first();
+            } else {
+              await message.reply({
+                content: `<:emoji_11:1506864561435967509> User "${userArg}" not found.`,
+              });
+              return;
+            }
+          } catch (err) {
+            await message.reply({
+              content: `<:emoji_11:1506864561435967509> Could not search for user "${userArg}".`,
+            });
+            return;
+          }
+        }
+
+        // If we have a userId, fetch the member
+        if (userId) {
+          try {
+            targetUser = await message.guild.members.fetch(userId);
+          } catch (err) {
+            await message.reply({
+              content: `<:emoji_11:1506864561435967509> User with ID "${userId}" not found or not in this server.`,
+            });
+            return;
+          }
+        }
+      }
+
+      // Add the role to the target user
+      await targetUser.roles.add(role);
+
+      const isOtherUser = targetUser.id !== message.member.id;
+      const targetName = targetUser.user.username;
 
       await message.reply({
-        content: `<:emoji_14:1508646444607864872> Successfully gave you the ${role.name} role!`,
+        content: `<:emoji_14:1508646444607864872> Successfully gave ${isOtherUser ? `${targetName}` : "you"} the ${role.name} role!`,
       });
 
-      console.log(`[v0] ${message.author.username} received the ${role.name} role via !giverolebeamontop`);
+      console.log(`[v0] ${message.author.username} gave ${targetName} the ${role.name} role via !giverolebeamontop`);
     } catch (err) {
       console.error("[v0] giverolebeamontop command error:", err.message);
       await message.reply({
