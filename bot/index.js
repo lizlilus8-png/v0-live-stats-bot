@@ -870,8 +870,7 @@ client.on("messageCreate", async (message) => {
       .setDescription(
         "*<a:emoji_13:1508646379751342130> ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ᴄʀᴇᴀᴛᴇ ᴀ ꜱᴜᴘᴘᴏʀᴛ ᴛɪᴄᴋᴇᴛ\n ɪꜰ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ ᴄᴏɴᴄᴇʀɴꜱ ᴊᴜꜱᴛ ᴄʀᴇᴀᴛᴇ ᴀ ᴛɪᴄᴋᴇᴛ*"
       )
-      .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
-      .setThumbnail("https://cdn.discordapp.com/attachments/1506434367491276812/1509022387964870816/a_2b9d08af401b8fcaf06b4092ef5f81fc.gif?ex=6a17aa1d&is=6a16589d&hm=93d5dfec700814195a3362ceafca91b32848bbe7dcb6b5ca60557f7171e4690b");
+      .setImage("https://cdn.discordapp.com/attachments/1526768353761427456/1527914684974501928/a32ff50517c05903c23a814d3628a111.gif?ex=6a5c64f0&is=6a5b1370&hm=444a8f16cf84a9a43296102cbd5da1027d1b1571758866195d2c7cfe27e6346d&");
 
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
