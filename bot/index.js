@@ -870,7 +870,8 @@ client.on("messageCreate", async (message) => {
       .setDescription(
         "*<a:emoji_13:1508646379751342130> ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ᴄʀᴇᴀᴛᴇ ᴀ ꜱᴜᴘᴘᴏʀᴛ ᴛɪᴄᴋᴇᴛ\n ɪꜰ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ ᴄᴏɴᴄᴇʀɴꜱ ᴊᴜꜱᴛ ᴄʀᴇᴀᴛᴇ ᴀ ᴛɪᴄᴋᴇᴛ*"
       )
-      .setImage("https://cdn.discordapp.com/attachments/1526768353761427456/1527914684974501928/a32ff50517c05903c23a814d3628a111.gif?ex=6a5c64f0&is=6a5b1370&hm=444a8f16cf84a9a43296102cbd5da1027d1b1571758866195d2c7cfe27e6346d&");
+      .setImage("https://cdn.discordapp.com/attachments/1526768353761427456/1527916930441412618/a_3ce24509633cbbceab6dbbd4502d1ef8.gif?ex=6a5c6707&is=6a5b1587&hm=a281dd7928a445ea08a1a83146cc512b2322379ffbca7b038fe98720c66a7566&")
+      .setThumbnail("https://cdn.discordapp.com/attachments/1526768353761427456/1527917480398557275/d_discord.png?ex=6a5c678a&is=6a5b160a&hm=5f07069678e350d5e0407caccb642ea22b488df3798a199494e71f0ee7fccda2&");
 
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
