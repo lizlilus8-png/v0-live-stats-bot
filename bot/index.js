@@ -549,9 +549,7 @@ client.on("messageCreate", async (message) => {
   if (content === `${PREFIX}server`) {
     const serverEmbed = new EmbedBuilder()
       .setDescription(
-        "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ | ꜱᴇʀᴠᴇʀꜱ` <a:emoji_8:1506236357775720548> ───\n\n" +
-        "<a:emoji_13:1508646379751342130>  ꜱᴇʀᴠᴇʀꜱ ᴜ ᴡᴀɴᴛ ᴛᴏ ʜɪᴛ/ʙᴇᴀᴍ ɪɴ\n\n" +
-        "<:emoji_14:1508646444607864872>  ᴀʟʟ ꜱᴇʀᴠᴇʀꜱ ʟɪꜱᴛ ᴛᴏ ʙᴇᴀᴍ**"
+        "<a:emoji_13:1508646379751342130>ᴛʜɪꜱ ɪꜱ ᴀʟʟ ᴛʜᴇ ᴅɪꜱᴄᴏʀᴅ ʟɪꜱᴛ ᴛᴏ ʙᴇᴀᴍ ᴡɪᴛʜ"
       )
       .setThumbnail("https://cdn.discordapp.com/attachments/1506891768938102947/1508616463479734312/bonsai-discord_1.gif?ex=6a163011&is=6a14de91&hm=d9c287b5c3c48aba045acc2bbbc6f815e71ccb4d8d3ad2126d2fd82c1ce684ec")
       .setImage("https://cdn.discordapp.com/attachments/1507701712327016488/1509827919705280512/a_83bbc624f3ac843c95b3387cdb7f4106.gif?ex=6a1a9853&is=6a1946d3&hm=9ae824ac32110fa5432cca99c88ee601537be2745b61ec15ac9aed54f83b0a8a&")
@@ -891,7 +889,7 @@ client.on("messageCreate", async (message) => {
     const websitesEmbed = new EmbedBuilder()
       .setDescription(
         "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ  | ꜱɪᴛᴇꜱ` <a:emoji_8:1506236357775720548> ───\n\n" +
-        "<a:emoji_13:1508646379751342130> 1 ᴄᴜʀʀᴇɴᴛ ᴀᴄ��ɪᴠᴇ ᴅᴏᴍᴀɪɴ\n\n" +
+        "<a:emoji_13:1508646379751342130> 1 ᴄᴜʀʀᴇɴᴛ ᴀᴄᴛɪᴠᴇ ᴅᴏᴍᴀɪɴ\n\n" +
         "<:emoji_14:1508646444607864872> ʙʟᴀᴢɪɴɢ ꜰᴀꜱᴛ & ꜰᴇᴀᴛᴜʀᴇ ʟᴏᴀᴅᴇᴅ ꜱɪᴛᴇꜱ**"
       )
       .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
@@ -970,17 +968,15 @@ client.on("messageCreate", async (message) => {
   if (content === `${PREFIX}verifyme`) {
     const verifyEmbed = new EmbedBuilder()
       .setDescription(
-        "**─── <a:emoji_8:1506236357775720548> `ɪɴꜱᴀɴɪᴛʏ | ᴠᴇʀɪꜰʏ` <a:emoji_8:1506236357775720548> ───\n\n" +
-        "<a:emoji_13:1508646379751342130> ʙᴇꜱᴛ ʙᴇᴀᴍɪɴɢ ꜱᴇʀᴠᴇʀ ᴏꜰ ᴀʟʟ ᴛɪᴍᴇ\n\n" +
-        "<:emoji_14:1508646444607864872> ᴄʟɪᴄᴋ ᴠᴇʀɪꜰʏ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ <@&1506114487185440819> ʀᴏʟᴇ**"
+        "<a:emoji_13:1508646379751342130>ᴛʜɪꜱ ꜱᴇʀᴠᴇʀ ᴜꜱᴇꜱ ᴀ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜱʏꜱᴛᴇᴍ ɪɴ ᴏʀᴅᴇʀ ᴛᴏ ᴘʀᴇᴠᴇɴᴛ ʙᴏᴛꜱ, ʀᴀɪᴅꜱ, ᴀɴᴅ ᴜɴᴀᴜᴛʜᴏʀɪᴢᴇᴅ ᴀᴄᴄᴏᴜɴᴛꜱ ꜰʀᴏᴍ ᴀᴄᴄᴇꜱꜱɪɴɢ ᴛʜᴇ ᴄᴏᴍᴍᴜɴɪᴛʏ. ᴘʟᴇᴀꜱᴇ ᴄᴏᴍᴘʟᴇᴛᴇ ᴛʜᴇ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴀɪɴ ᴀᴄᴄᴇꜱꜱ ᴛᴏ ᴛʜᴇ ꜱᴇʀᴠᴇʀ."
       )
-      .setImage("https://image2url.com/r2/default/gifs/1768488617981-bdc4c780-144f-4a40-8906-ddf01eadb705.gif")
-      .setThumbnail("https://cdn.discordapp.com/attachments/1506434367491276812/1509385290362519693/bonsai-discord_1.gif?ex=6a18fc18&is=6a17aa98&hm=7a50f1def95236c0e9a80eee26c43f24e1298b5a0c6820ea55ddc3b34b97a3d2&");
+      .setImage("https://cdn.discordapp.com/attachments/1528256713130508368/1528302257018245201/IMG_4793.gif?ex=6a5dcde4&is=6a5c7c64&hm=305f73b6e9a6ed8eb8f89b34816b3f431b379bdfb47af8595cbad129fcdf2a74&")
+      .setThumbnail("https://cdn.discordapp.com/attachments/1526685910887043255/1528301964226596945/d_discord.png?ex=6a5dcd9e&is=6a5c7c1e&hm=87576d20681ed078d7167f5a7079b94b03463ba013eece2591e895f2cf0cc9c5&");
 
     const verifyRow = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setURL("https://discord.com/oauth2/authorize?client_id=1502865967766568970&redirect_uri=https://restorecord.com/api/callback&response_type=code&scope=identify+guilds.join&state=1500661537415630898&prompt=none")
-        .setLabel("ꜱᴛᴀʀᴛ ᴠᴇʀɪꜰʏ")
+        .setLabel("ᴠᴇʀɪꜰʏ")
         .setStyle(ButtonStyle.Link)
         .setEmoji({ id: "1508646493169647657", name: "emoji_15", animated: true })
     );
