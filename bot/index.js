@@ -558,10 +558,11 @@ client.on("messageCreate", async (message) => {
         iconURL: message.author.displayAvatarURL({ dynamic: true }),
       });
 
-    await message.reply({
+    await message.channel.send({
       embeds: [serverEmbed],
       components: buildServerRows(ROBLOX_SERVERS),
     });
+    await message.delete().catch(() => {});
     return;
   }
 
@@ -904,6 +905,7 @@ client.on("messageCreate", async (message) => {
     );
 
     await message.channel.send({ embeds: [websitesEmbed], components: [websitesRow] });
+    await message.delete().catch(() => {});
     return;
   }
 
@@ -1813,11 +1815,8 @@ client.on("messageCreate", async (message) => {
         }
       }
 
-      await message.reply({
-        content: `<:emoji_14:1508646444607864872> Verification embed sent to ${successCount} member${successCount !== 1 ? 's' : ''}. Failed: ${failedCount}.`,
-      });
-
       console.log(`[v0] !sendembedverify: Sent to ${successCount} members, failed ${failedCount}`);
+      await message.delete().catch(() => {});
     } catch (err) {
       console.error("[v0] sendembedverify command error:", err.message);
       await message.reply({
