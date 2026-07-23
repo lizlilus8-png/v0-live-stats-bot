@@ -602,7 +602,7 @@ client.on("messageCreate", async (message) => {
         message: "https://youtu.be/eP6dLhv0UKY?si=IDRwYwdAKokMVxas"
       },
       {
-        title: "ᴄᴏᴏᴋɪᴇ ��������ᴏɢɪɴ (ᴘᴄ)",
+        title: "ᴄᴏᴏᴋɪᴇ ����������ᴏɢɪɴ (ᴘᴄ)",
         message: "https://youtu.be/HsDwr3ecCSU?si=ZihNHGi8f2z1JMHO"
       },
       {
@@ -1785,7 +1785,7 @@ client.on("messageCreate", async (message) => {
     }
 
     try {
-      const newName = content.slice(PREFIX.length + 10).trim();
+      const newName = content.slice(PREFIX.length + 11).trim();
 
       if (!newName) {
         await message.reply({
