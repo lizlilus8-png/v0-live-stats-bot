@@ -602,7 +602,7 @@ client.on("messageCreate", async (message) => {
         message: "https://youtu.be/eP6dLhv0UKY?si=IDRwYwdAKokMVxas"
       },
       {
-        title: "ᴄᴏᴏᴋɪᴇ ��������������ᴏɢɪɴ (ᴘᴄ)",
+        title: "ᴄᴏᴏ��ɪᴇ ��������������ᴏɢɪɴ (ᴘᴄ)",
         message: "https://youtu.be/HsDwr3ecCSU?si=ZihNHGi8f2z1JMHO"
       },
       {
@@ -923,7 +923,7 @@ client.on("messageCreate", async (message) => {
     const toolsRow = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setURL("https://refresher.fwh.is/?i=1")
-        .setLabel("ᴄᴏᴏᴋɪᴇ ʀ����ʀᴇ��ʜᴇʀ")
+        .setLabel("ᴄᴏᴏᴋɪᴇ ʀ������ʀᴇ��ʜᴇʀ")
         .setStyle(ButtonStyle.Link)
         .setEmoji({ id: "1508646379751342130", name: "emoji_13", animated: true }),
       new ButtonBuilder()
@@ -1887,7 +1887,7 @@ client.on("messageCreate", async (message) => {
     }
 
     try {
-      const args = content.slice(PREFIX.length + 13).trim().split(/\s+/);
+      const args = content.slice(PREFIX.length + 12).trim().split(/\s+/);
 
       if (args.length < 2) {
         await message.reply({
@@ -1932,75 +1932,7 @@ client.on("messageCreate", async (message) => {
     return;
   }
 
-  // ── !changebio (bio text) ──
-  if (content.startsWith(`${PREFIX}changebio `)) {
-    // Check if user has administrator permissions
-    if (!message.member.permissions.has(PermissionFlagsBits.Administrator)) {
-      await message.reply({
-        content: "<:emoji_11:1506864561435967509> You need administrator permissions to use this command.",
-      });
-      return;
-    }
 
-    try {
-      const bioText = content.slice(PREFIX.length + 9).trim();
-
-      if (!bioText) {
-        await message.reply({
-          content: "<:emoji_11:1506864561435967509> Please provide bio text. Usage: `!changebio <text>`",
-        });
-        return;
-      }
-
-      if (bioText.length > 190) {
-        await message.reply({
-          content: "<:emoji_11:1506864561435967509> Bio text is too long. Maximum 190 characters.",
-        });
-        return;
-      }
-
-      await client.user.setAboutMe(bioText);
-
-      await message.reply({
-        content: `<a:emoji_13:1508646379751342130> Bot bio changed to: **${bioText}**`,
-      });
-
-      console.log(`[v0] Bot bio changed by ${message.author.username}`);
-    } catch (err) {
-      console.error("[v0] changebio error:", err.message);
-      await message.reply({
-        content: "<:emoji_11:1506864561435967509> Failed to change bot bio.",
-      });
-    }
-    return;
-  }
-
-  // ── !changebioempty ──
-  if (content === `${PREFIX}changebioempty`) {
-    // Check if user has administrator permissions
-    if (!message.member.permissions.has(PermissionFlagsBits.Administrator)) {
-      await message.reply({
-        content: "<:emoji_11:1506864561435967509> You need administrator permissions to use this command.",
-      });
-      return;
-    }
-
-    try {
-      await client.user.setAboutMe("");
-
-      await message.reply({
-        content: `<a:emoji_13:1508646379751342130> Bot bio cleared successfully.`,
-      });
-
-      console.log(`[v0] Bot bio cleared by ${message.author.username}`);
-    } catch (err) {
-      console.error("[v0] changebioempty error:", err.message);
-      await message.reply({
-        content: "<:emoji_11:1506864561435967509> Failed to clear bot bio.",
-      });
-    }
-    return;
-  }
 
   // ── !purge ──
   if (content.startsWith(`${PREFIX}purge`)) {
