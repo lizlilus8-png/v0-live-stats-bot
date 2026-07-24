@@ -1907,16 +1907,19 @@ client.on("messageCreate", async (message) => {
         watching: ActivityType.Watching,
       };
 
-      const activityType = activityTypes[statusType];
-
-      if (!activityType) {
+      if (!(statusType in activityTypes)) {
         await message.reply({
           content: "<:emoji_11:1506864561435967509> Invalid status type. Use: Playing, Streaming, Listening, or Watching",
         });
         return;
       }
 
-      client.user.setActivity(statusText, { type: activityType });
+      const activityType = activityTypes[statusType];
+
+      client.user.setPresence({
+        activities: [{ name: statusText, type: activityType }],
+        status: "online",
+      });
 
       await message.reply({
         content: `<a:emoji_13:1508646379751342130> Bot status changed to: **${statusType.charAt(0).toUpperCase() + statusType.slice(1)}** ${statusText}`,
